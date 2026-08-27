@@ -8,30 +8,30 @@
   :root{
     --amber:#d97706; --amber-deep:#b45309; --gold:#f59e0b;
     --paper:#fffbeb; --card:#ffffff; --ink:#292524; --muted:#78716c;
-    --line:#e7e5e4; --red:#dc2626; --green:#059669;
+    --line:#e7e5e4; --red:#dc2626; --green:#059669; --cool:#0ea5e9;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px 60px;}
 
   .hero{background:linear-gradient(135deg,#7c2d12 0%,#b45309 55%,#d97706 100%);color:#fff;padding:56px 20px 44px;text-align:center;}
-  .hero h1{font-size:2.1em;letter-spacing:.08em;margin-bottom:10px;}
-  .hero .sub{font-size:1.05em;opacity:.92;}
+  .hero h1{font-size:2.1em;letter-spacing:.06em;margin-bottom:10px;}
+  .hero .sub{font-size:1.02em;opacity:.92;}
   .hero .tags{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
-  .hero .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 16px;font-size:.88em;}
+  .hero .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:4px 16px;font-size:.86em;}
   .stats{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:26px;}
   .stat{background:rgba(255,255,255,.12);border-radius:14px;padding:10px 22px;min-width:120px;}
   .stat b{display:block;font-size:1.5em;}
   .stat span{font-size:.82em;opacity:.85;}
 
   nav{position:sticky;top:0;z-index:50;background:rgba(255,251,235,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;gap:4px;justify-content:center;padding:10px 12px;flex-wrap:wrap;}
-  nav a{color:var(--amber-deep);text-decoration:none;padding:6px 16px;border-radius:999px;font-size:.92em;font-weight:600;}
+  nav a{color:var(--amber-deep);text-decoration:none;padding:6px 16px;border-radius:999px;font-size:.9em;font-weight:600;}
   nav a:hover{background:#fef3c7;}
 
   section{margin-top:52px;}
   h2.sec{font-size:1.45em;color:var(--amber-deep);display:flex;align-items:center;gap:10px;margin-bottom:6px;}
   h2.sec::before{content:"";width:6px;height:26px;background:linear-gradient(var(--gold),var(--amber-deep));border-radius:3px;}
-  .sec-desc{color:var(--muted);font-size:.95em;margin-bottom:20px;}
+  .sec-desc{color:var(--muted);font-size:.94em;margin-bottom:20px;}
 
   .warn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:16px;}
   .warn{border-radius:14px;padding:16px 18px;font-size:.93em;border-left:5px solid;}
@@ -40,6 +40,15 @@
   .warn.r{background:#fef2f2;border-color:var(--red);}
   .warn.y{background:#fffbeb;border-color:var(--gold);}
   .warn.g{background:#f0fdf4;border-color:var(--green);}
+
+  /* 关键信息速查 */
+  .kinfo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin-top:16px;}
+  .kinfo{background:var(--card);border-radius:14px;padding:16px 18px;border:1px solid var(--line);box-shadow:0 1px 4px rgba(120,53,15,.06);}
+  .kinfo h3{color:var(--amber-deep);font-size:1.02em;margin-bottom:10px;border-bottom:2px dashed #f1e4c8;padding-bottom:6px;}
+  .kinfo ul{list-style:none;}
+  .kinfo li{padding:5px 0;font-size:.9em;}
+  .kinfo li b{color:var(--amber-deep);}
+  .kbd{display:inline-block;background:#fef3c7;border:1px solid #fde68a;border-radius:6px;padding:1px 8px;font-size:.84em;font-weight:600;margin-right:3px;}
 
   .tbl{width:100%;border-collapse:collapse;background:var(--card);font-size:.9em;}
   .tbl th{background:#78350f;color:#fff;padding:11px 12px;text-align:left;font-weight:600;white-space:nowrap;}
@@ -71,10 +80,33 @@
   .must{color:var(--red);font-weight:700;}
   .pill{display:inline-block;background:#fee2e2;color:#b91c1c;border-radius:999px;padding:1px 10px;font-size:.78em;font-weight:600;margin-left:6px;vertical-align:middle;}
 
+  /* 实时天气 */
+  .wbtn{display:inline-block;background:var(--amber);color:#fff;border:none;border-radius:8px;padding:5px 14px;font-size:.84em;cursor:pointer;margin-left:10px;vertical-align:middle;}
+  .wbtn:hover{background:var(--amber-deep);}
+  .xj-wbox{margin-top:6px;}
+  .xj-wloading,.xj-werr{color:var(--muted);padding:14px 0;font-size:.92em;}
+  .xj-werr a{color:var(--amber-deep);cursor:pointer;text-decoration:underline;}
+  .xj-wmeta{font-size:.8em;color:var(--muted);margin-bottom:12px;}
+  .xj-wcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;}
+  .xj-wcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 16px;box-shadow:0 1px 4px rgba(120,53,15,.06);}
+  .xj-wch{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:8px;margin-bottom:10px;}
+  .xj-wcname{font-weight:700;color:var(--amber-deep);font-size:1.05em;}
+  .xj-wcnow{font-size:.92em;}
+  .xj-wdays{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;}
+  .xj-wd{flex:0 0 auto;width:66px;text-align:center;font-size:.76em;background:#fefaf3;border-radius:8px;padding:6px 2px;display:flex;flex-direction:column;gap:2px;align-items:center;}
+  .xj-wdd{font-weight:600;color:var(--muted);}
+  .xj-wdi{font-size:1.35em;line-height:1;}
+  .xj-wdt{font-size:.68em;color:var(--muted);min-height:1.4em;}
+  .xj-wh{color:var(--amber-deep);font-weight:700;}
+  .xj-wl{color:var(--cool);font-weight:700;}
+  .xj-wpop{font-size:.66em;color:var(--cool);}
+  .wlegend{font-size:.8em;color:var(--muted);margin:4px 0 12px;}
+  .wlegend b.wl1{color:var(--amber-deep);} .wlegend b.wl2{color:var(--cool);}
+
   .snow-card{background:linear-gradient(135deg,#0c4a6e,#0369a1);color:#fff;border-radius:18px;padding:24px 26px;margin-bottom:18px;}
-  .snow-card h3{font-size:1.15em;margin-bottom:8px;}
+  .snow-card h3{font-size:1.12em;margin-bottom:8px;}
   .snow-prob{display:flex;align-items:baseline;gap:10px;margin:10px 0 6px;}
-  .snow-prob b{font-size:2.4em;color:#fde047;}
+  .snow-prob b{font-size:2.2em;color:#fde047;}
   .snow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-top:12px;font-size:.88em;}
   .snow-grid div{background:rgba(255,255,255,.12);border-radius:10px;padding:8px 12px;}
 
@@ -99,71 +131,113 @@
 <body>
 
 <div class="hero">
-  <h1>🏔️ 北疆金秋 · 国庆 8 人自驾</h1>
-  <div class="sub">2026.9.29 — 10.6 ｜ 乌鲁木齐 · S101 · 赛里木湖 · 魔鬼城 · 阿禾公路 · 禾木 · 喀纳斯</div>
+  <h1>北疆金秋 · 国庆 8 人自驾</h1>
+  <div class="sub">2026.9.29 — 10.6 ｜ 乌鲁木齐 → S101 → 赛里木湖 → 魔鬼城 → 阿禾公路 → 禾木 → 喀纳斯</div>
   <div class="tags">
-    <span class="tag">🍂 金秋白桦</span><span class="tag">❄️ 初雪概率高</span><span class="tag">🛣️ 阿禾公路已锁定</span><span class="tag">🚗 双车自驾</span><span class="tag">💧 赛里木湖</span>
+    <span class="tag">金秋白桦</span><span class="tag">可能碰上初雪</span><span class="tag">已锁定阿禾公路</span><span class="tag">两车自驾</span>
   </div>
   <div class="stats">
     <div class="stat"><b>8天7晚</b><span>行程</span></div>
     <div class="stat"><b>≈3100km</b><span>总里程</span></div>
     <div class="stat"><b>8人</b><span>同行</span></div>
-    <div class="stat"><b>10.6</b><span>19:55 航班返程</span></div>
+    <div class="stat"><b>10.6</b><span>19:55 航班回</span></div>
   </div>
 </div>
 
 <nav>
-  <a href="#warn">📌 决定与提醒</a><a href="#plan">🗓️ 每日行程</a><a href="#weather">🌡️ 天气与看雪</a><a href="#food">🍖 美食地图</a><a href="#check">📋 行前清单</a>
+  <a href="#warn">决定与提醒</a><a href="#keyinfo">关键信息</a><a href="#plan">每日行程</a><a href="#weather">实时天气</a><a href="#food">美食</a><a href="#check">行前清单</a>
 </nav>
 
 <div class="wrap">
 
-<!-- ============ WARNINGS ============ -->
+<!-- ============ 决定与注意 ============ -->
 <section id="warn">
-  <h2 class="sec">📌 2 个已确认的决定 + 4 个注意</h2>
-  <p class="sec-desc">前两条是你们已拍板的决定及执行要点，后四条是仍需注意的事项</p>
+  <h2 class="sec">几个定下来的事 + 要注意的</h2>
+  <p class="sec-desc">先把已经拍板的、和容易踩坑的说清楚</p>
   <div class="warn-grid">
     <div class="warn g">
-      <h3>✅ 决定 1：不去白哈巴，行程锁定「禾木 + 喀纳斯」双核心</h3>
-      已核实：全季（禾木游客服务中心店）在吉克普林、不在禾木村内；童话故事酒店在贾登峪景区大门外。<br>
-      据此确定：<b>10/4 完整留给禾木（晨雾），10/5 完整留给喀纳斯（三湾+观鱼台）</b>。白哈巴与禾木秋色风格高度相似，留给下次专程从哈巴河方向进。<br>
-      附带好处：全程<b>无需办理边境证</b>；10/5 不用赶 250km 绕路，喀纳斯玩得更从容。
+      <h3>决定 1：不去白哈巴，时间留给禾木和喀纳斯</h3>
+      全季禾木店在吉克普林（村外），童话故事在贾登峪大门外，两晚酒店都定了。干脆 <b>10/4 整天给禾木看晨雾，10/5 整天给喀纳斯走三湾</b>。白哈巴秋色跟禾木很像，下次再专程从哈巴河方向进。顺带省了办边境证，10/5 也不用多绕 250 公里。
     </div>
     <div class="warn y">
-      <h3>✅ 决定 2：走阿禾公路——明知绕路，专为风景</h3>
+      <h3>决定 2：走阿禾公路，明知绕路，就为那段风景</h3>
       <ul>
-        <li>实际走法：乌尔禾 → 布尔津(午餐+加油) → <b>阿勒泰市区(最后加满油)</b> → 阿禾公路(209km) → 禾木游客中心，约 530km；比冲乎尔经典线多约 130km——为风景付的"门票"，值得</li>
-        <li>G681 全长 209km，<b>全线无加油站</b>；中段 K70–K160 无手机信号，提前下载离线地图</li>
-        <li>今年 8 月中旬山区已现降雪预警；<b>出发前一晚查「阿勒泰交警」公众号</b></li>
-        <li><b>Plan B</b>（若封路）：乌尔禾→布尔津→冲乎尔→禾木（约400km，路况好且更短）</li>
+        <li>走法：乌尔禾 → 布尔津(午饭+加油) → <b>阿勒泰市区(最后加满油)</b> → 阿禾公路(209km) → 禾木游客中心，约 530km；比走冲乎尔多 130 公里，这 130 公里就是看风景的门票，值</li>
+        <li>G681 全长 209km，<b>全线没有加油站</b>；中段 K70–K160 没手机信号，离线地图提前下好</li>
+        <li>山里 8 月就下过雪，出发前一晚看一眼「阿勒泰交警」公众号</li>
+        <li>真封路了就走 <b>Plan B</b>：乌尔禾→布尔津→冲乎尔→禾木（约 400km，路好还更短）</li>
       </ul>
     </div>
     <div class="warn y">
-      <h3>🟡 两天驾驶时间被低估</h3>
+      <h3>注意：有两天的开车时间容易估少</h3>
       <ul>
-        <li><b>Day1 S101</b>：实际全天 10–12 小时（非 5h），建议 8:00 前出发，可放弃观音沟</li>
-        <li><b>Day3 博乐→乌尔禾</b>：515km 实际驾驶 5.5–6h（非 4h），16:00–16:30 进魔鬼城正好看金色斜光</li>
+        <li><b>S101 那天</b>：实际要开 10–12 小时（不是 5 小时），8 点前出发，来不及就砍掉观音沟</li>
+        <li><b>博乐到乌尔禾</b>：515km 实际 5.5–6 小时（不是 4 小时），下午 4 点半左右进魔鬼城，正好赶金色斜光</li>
       </ul>
     </div>
     <div class="warn y">
-      <h3>🟡 门票必须提前实名预约</h3>
-      喀纳斯/禾木国庆实行<b>分时预约限流</b>，提前在<b>「喀纳斯原行网」公众号</b>为 8 人预约门票+区间车；魔鬼城、赛里木湖门票也建议提前线上购买。
+      <h3>注意：门票一定要提前实名预约</h3>
+      喀纳斯、禾木国庆是<b>分时预约限流</b>，提前在<b>「喀纳斯原行网」公众号</b>给 8 个人都约好门票和区间车。魔鬼城、赛里木湖也提前网上买好，别到门口排队。
     </div>
     <div class="warn y">
-      <h3>🟡 8 人房量核对</h3>
-      童话故事酒店仅订 2 间家庭房（每间住 4 人会很挤，建议加订 1 间）；得仁营地独栋确认入住上限；<b>逐单核对 8人 × 7晚</b> 的间数与床型。
+      <h3>注意：8 个人的房间再核一遍</h3>
+      童话故事只订了 2 间家庭房，一间塞 4 个人太挤，建议再加订 1 间；得仁营地独栋确认一下最多住几人。<b>8 人 × 7 晚，逐单对一遍间数和床型</b>。
     </div>
     <div class="warn g">
-      <h3>🟢 路线方向是对的</h3>
-      与去年朋友的顺时针方向相反：先走人少的西线（S101/赛湖/魔鬼城），把最挤的喀纳斯-禾木放在 10/3–10/5，<b>避开 10/1–10/2 进山高峰</b>；住乌尔禾、住北屯两处决策均正确，骨架无需大改。
+      <h3>方向走对了，放心</h3>
+      你们和去年朋友反着来：先走人少的西线（S101、赛湖、魔鬼城），把最挤的喀纳斯禾木放在 10/3–10/5，正好避开 10/1–10/2 进山高峰。住乌尔禾、住北屯这两个选择都对，大框架不用动。
     </div>
   </div>
 </section>
 
-<!-- ============ OVERVIEW ============ -->
+<!-- ============ 关键信息速查 ============ -->
+<section id="keyinfo">
+  <h2 class="sec">出发前要存好的几个信息</h2>
+  <p class="sec-desc">公众号、门票、加油、应急，都收在这里，随手能查</p>
+  <div class="kinfo-grid">
+    <div class="kinfo">
+      <h3>📱 要关注的公众号</h3>
+      <ul>
+        <li><span class="kbd">喀纳斯原行网</span> 买喀纳斯/禾木门票 + 区间车，分时预约，国庆限流，最优先办</li>
+        <li><span class="kbd">阿勒泰交警</span> 查阿禾公路封路、路况，出发前一晚必看</li>
+        <li><span class="kbd">新疆交警</span> S101 和北疆高速路况、事故绕行</li>
+      </ul>
+    </div>
+    <div class="kinfo">
+      <h3>🎫 门票一览</h3>
+      <ul>
+        <li><b>喀纳斯</b>：进山门票 + 区间车，「喀纳斯原行网」预约；观鱼台另买车票 ¥20（现场加购）</li>
+        <li><b>禾木</b>：门票 + 区间车，同一个平台预约</li>
+        <li><b>乌尔禾魔鬼城</b>：门票 + 观光小火车，提前线上买</li>
+        <li><b>赛里木湖</b>：门票，提前线上买</li>
+        <li><b>鹿角湾</b>：¥28，现场买</li>
+      </ul>
+    </div>
+    <div class="kinfo">
+      <h3>⛽ 加油 & 没信号的地段</h3>
+      <ul>
+        <li>S101 沿线只有<b>雀尔沟镇</b>有正经加油站</li>
+        <li>阿禾公路<b>全线没加油站</b>，阿勒泰市区是最后的加油点</li>
+        <li>记住一句话：<b>见站就加油，别等</b></li>
+        <li>没信号：S101 的 K140–260、阿禾公路的 K70–K160，离线地图提前下好</li>
+      </ul>
+    </div>
+    <div class="kinfo">
+      <h3>🆘 Plan B 与应急电话</h3>
+      <ul>
+        <li><b>阿禾封路 Plan B</b>：乌尔禾 → 布尔津 → 冲乎尔 → 禾木（约 400km，路好更短）</li>
+        <li>报警 <b>110</b> · 交警 <b>122</b> · 急救 <b>120</b></li>
+        <li>天气查询 <b>12121</b></li>
+        <li>车队对讲机 + 微信群位置共享，两车别走散</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 行程总览 ============ -->
 <section>
-  <h2 class="sec">🗺️ 行程总览</h2>
-  <p class="sec-desc">按已订酒店落地的最终版本</p>
+  <h2 class="sec">行程总览</h2>
+  <p class="sec-desc">按已订酒店排好的最终版</p>
   <div class="tblwrap"><table class="tbl">
     <tr><th>日期</th><th>路线</th><th>里程/驾驶</th><th>住宿</th><th>夜间气温</th></tr>
     <tr><td><b>9.29 二</b></td><td>抵达乌鲁木齐</td><td>—</td><td>全季（机场砂之船奥莱店）</td><td>4–8℃</td></tr>
@@ -177,166 +251,171 @@
   </table></div>
 </section>
 
-<!-- ============ DAILY ============ -->
+<!-- ============ 每日详细行程 ============ -->
 <section id="plan">
-  <h2 class="sec">🗓️ 每日详细行程</h2>
-  <p class="sec-desc">⏰ 时间均为北京时间；北疆日落约 19:30–20:10，山区请 19:30 前结束观景并抵达住宿</p>
+  <h2 class="sec">每日详细行程</h2>
+  <p class="sec-desc">时间是北京时间；北疆日落大概 19:30–20:10，山区请 19:30 前结束观景、赶到住的地方</p>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 0</div><div class="day-title">📍 9.29（周二）抵达乌鲁木齐 · 集合</div><div class="day-km">✈️ 落地休整</div></div>
+    <div class="day-head"><div class="day-num">Day 0</div><div class="day-title">9.29（周二）抵达乌鲁木齐 · 集合</div><div class="day-km">✈️ 落地休整</div></div>
     <div class="day-body">
       <ul class="tl">
-        <li><b>入住</b>全季（机场砂之船奥莱店），奥莱简单晚餐或打车市区吃烤肉</li>
-        <li><b>出发前准备</b>：两车加满油 · 下载离线地图（S101 K140-260 段、阿禾公路中段均无信号）· 车队微信群/对讲机就位</li>
-        <li><b>晚餐推荐</b>：楼兰秘烤（迎宾路店）烤羊排/馕坑肉，备选海尔巴格（民族特色）</li>
+        <li><b>入住</b>全季（机场砂之船奥莱店），奥莱随便吃点，或者打车去市区撸一顿烤肉</li>
+        <li><b>出发前准备</b>：两车加满油 · 下好离线地图（S101 的 K140-260、阿禾公路中段都没信号）· 车队微信群、对讲机就位</li>
+        <li><b>晚饭</b>：楼兰秘烤（迎宾路店）烤羊排、馕坑肉；想吃民族特色就去海尔巴格</li>
       </ul>
       <div class="side">
         <div class="chip hotel"><span class="lab">🏨 住宿</span>全季酒店（机场砂之船奥莱店）· 约 ¥300</div>
-        <div class="chip tip"><span class="lab">💡 提示</span>身份证随身（全程安检/加油/酒店都要刷）；把 8 人身份信息提前录好预约平台</div>
+        <div class="chip tip"><span class="lab">💡 提示</span>身份证随身带着，全程安检、加油、酒店都要刷；8 个人的身份信息提前录进预约平台</div>
       </div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 1</div><div class="day-title">🛣️ 9.30 乌鲁木齐 → S101 天山地理画廊 → 精河</div><div class="day-km">≈550km · 全天10–12h</div></div>
+    <div class="day-head"><div class="day-num">Day 1</div><div class="day-title">9.30 乌鲁木齐 → S101 天山地理画廊 → 精河</div><div class="day-km">≈550km · 全天10–12h</div></div>
     <div class="day-body">
       <ul class="tl">
         <li><b>8:00 前</b>出发上 S101（酒店在机场奥莱，走西外环方向顺路）</li>
-        <li><b>百里丹霞</b>（硫磺沟段）：火烧了129年的煤层烤出的七彩山体，K35「江山多娇」观景台最出片</li>
-        <li><b>肯斯瓦特水库</b>（K155）：翡翠色湖水嵌在丹霞峡谷中，全程必停 TOP1；悬空 268m 玻璃桥可选</li>
-        <li><b>鹿角湾</b>（K230，门票 ¥28）：雪山+松林+草甸，海拔 2000m，风大注意保暖</li>
-        <li><b>安集海大峡谷</b>（K290）：「大地指纹」红色崖壁+辫状河流，免费；<b>16:30–17:30 停留</b>，斜射光最佳</li>
+        <li><b>百里丹霞</b>（硫磺沟段）：火烧了 129 年的煤层烤出七彩山体，K35「江山多娇」观景台最出片</li>
+        <li><b>肯斯瓦特水库</b>（K155）：翡翠色湖水嵌在丹霞峡谷里，全程必停第一名；悬空 268m 玻璃桥看胆量</li>
+        <li><b>鹿角湾</b>（K230，门票 ¥28）：雪山+松林+草甸，海拔 2000m，风大，多穿点</li>
+        <li><b>安集海大峡谷</b>（K290）：「大地指纹」红色崖壁加辫状河流，免费；<b>16:30–17:30 停</b>，斜射光最好看</li>
         <li><b>20:00 前</b>上 G30 抵精河，入住休息</li>
       </ul>
       <div class="side">
         <div class="chip hotel"><span class="lab">🏨 住宿</span>丽枫（精河人民公园店）· 约 ¥225</div>
-        <div class="chip food"><span class="lab">🍖 美食</span>出山可在<b>沙湾</b>下高速吃大盘鸡（大盘鸡发源地）；精河是「中国枸杞之乡」，枸杞伴手礼</div>
-        <div class="chip tip"><span class="lab">⚠️ 提示</span>中途仅<b>雀尔沟镇</b>有正经加油站；观音沟可放弃以保时间；全程限速 40–60，弯多坡陡；安集海崖边土松无护栏，警戒线内观景</div>
+        <div class="chip food"><span class="lab">🍖 美食</span>出山可以在<b>沙湾</b>下高速吃大盘鸡（大盘鸡的老家）；精河是「中国枸杞之乡」，走时带点枸杞</div>
+        <div class="chip tip"><span class="lab">⚠️ 提示</span>中途只有<b>雀尔沟镇</b>有正经加油站；时间紧就砍掉观音沟；全程限速 40–60，弯多坡陡；安集海崖边土松没护栏，别越警戒线</div>
       </div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 2</div><div class="day-title">💧 10.1 精河 → 赛里木湖环湖 → 博乐</div><div class="day-km">≈230km · 驾驶4h</div></div>
+    <div class="day-head"><div class="day-num">Day 2</div><div class="day-title">10.1 精河 → 赛里木湖环湖 → 博乐</div><div class="day-km">≈230km · 驾驶4h</div></div>
     <div class="day-body">
       <ul class="tl">
-        <li><b>10:00 前</b>进景区（门票提前网上购），环湖公路约 90km 顺时针自驾</li>
-        <li>重点停靠：<b>点将台</b> · <b>西海草原</b> · <b>克勒涌珠</b>（天鹅常驻）</li>
-        <li>晴天 11:00–15:00 湖水「果冻蓝」颜色最饱和</li>
-        <li><b>湖西看日落</b>（19:30 前收工），傍晚湖区风大、体感 0℃ 以下</li>
-        <li><b>可选彩蛋</b>：出景区往 G30 伊犁方向 15 分钟，<b>果子沟大桥</b>观景（悬空高架跨峡谷），看完折返博乐</li>
+        <li><b>10:00 前</b>进景区（门票提前网上买），环湖公路约 90km，顺时针自驾</li>
+        <li>重点停：<b>点将台</b> · <b>西海草原</b> · <b>克勒涌珠</b>（天鹅常驻）</li>
+        <li>晴天 11:00–15:00 湖水那种「果冻蓝」颜色最饱和</li>
+        <li><b>湖西看日落</b>（19:30 前收工），傍晚湖区风大，体感 0℃ 以下</li>
+        <li><b>可选彩蛋</b>：出景区往 G30 伊犁方向开 15 分钟，<b>果子沟大桥</b>观景（悬空高架跨峡谷），看完折返博乐</li>
       </ul>
       <div class="side">
         <div class="chip hotel"><span class="lab">🏨 住宿</span>博乐隆泉博悦酒店 · 约 ¥573</div>
-        <div class="chip food"><span class="lab">🍖 美食</span><b>赛里木湖高白鲑</b>（必吃！）冷水鱼，清蒸最鲜，博乐市区餐馆普遍有售</div>
-        <div class="chip tip"><span class="lab">💡 提示</span>10/1 国庆首日 G30 车流大，但本日车程轻松，是全程唯一的「休整日」，可以睡到自然醒</div>
+        <div class="chip food"><span class="lab">🍖 美食</span><b>赛里木湖高白鲑</b>必吃，冷水鱼，清蒸最鲜，博乐市区餐馆基本都有</div>
+        <div class="chip tip"><span class="lab">💡 提示</span>10/1 国庆首日 G30 车流大，但这天车程轻松，是全程唯一的休整日，可以睡到自然醒</div>
       </div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 3</div><div class="day-title">🏜️ 10.2 博乐 → 克拉玛依 → 乌尔禾魔鬼城</div><div class="day-km">≈515km · 驾驶5.5–6h</div></div>
+    <div class="day-head"><div class="day-num">Day 3</div><div class="day-title">10.2 博乐 → 克拉玛依 → 乌尔禾魔鬼城</div><div class="day-km">≈515km · 驾驶5.5–6h</div></div>
     <div class="day-body">
       <ul class="tl">
-        <li><b>9:00</b>出发，奎屯/克拉玛依补给加油+午餐</li>
-        <li>沿途地貌：绿洲 → 戈壁平原，与后天阿尔泰山林形成强烈反差</li>
-        <li><b>16:00–16:30 抵魔鬼城</b>（门票+小火车提前买）</li>
+        <li><b>9:00</b>出发，奎屯或克拉玛依补给加油 + 午饭</li>
+        <li>沿途地貌从绿洲变成戈壁平原，和后天阿尔泰山林反差很大</li>
+        <li><b>16:00–16:30 抵魔鬼城</b>（门票 + 小火车提前买）</li>
         <li><b>18:00–19:30 金色斜光</b>：雅丹被染成金红色，全程最出片的时段，玩到闭园直接入住</li>
       </ul>
       <div class="side">
         <div class="chip hotel"><span class="lab">🏨 住宿</span>美高酒店（世界魔鬼城店）· 约 ¥435，就在景区边</div>
-        <div class="chip food"><span class="lab">🍖 美食</span>乌尔禾<b>龙脊路</b>餐馆街：<b>阿吾丹的烤羊</b>（朋友去年验证过），备选苏氏牛肉面</div>
-        <div class="chip tip"><span class="lab">💡 提示</span>住魔鬼城旁不折返克拉玛依，省 200km 冤枉路——这个决策非常正确</div>
+        <div class="chip food"><span class="lab">🍖 美食</span>乌尔禾<b>龙脊路</b>餐馆街：<b>阿吾丹的烤羊</b>（朋友去年吃过，靠谱），备选苏氏牛肉面</div>
+        <div class="chip tip"><span class="lab">💡 提示</span>住魔鬼城旁边就不用折回克拉玛依，省 200 公里冤枉路</div>
       </div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 4</div><div class="day-title">🏔️ 10.3 乌尔禾 → 布尔津 → 阿勒泰 → 阿禾公路 → 禾木游客中心<span class="pill">全程关键日</span></div><div class="day-km">≈530km · 9–10h</div></div>
+    <div class="day-head"><div class="day-num">Day 4</div><div class="day-title">10.3 乌尔禾 → 布尔津 → 阿勒泰 → 阿禾公路 → 禾木<span class="pill">全程关键日</span></div><div class="day-km">≈530km · 9–10h</div></div>
     <div class="day-body">
       <ul class="tl">
-        <li><b>8:30 前</b>出发（若天气预警则启动 Plan B）</li>
-        <li><b>12:00 布尔津</b>：午餐冷水鱼 + <b>加满油</b></li>
-        <li><b>14:00 阿勒泰市区</b>：<b>最后一次加满油</b>（阿禾公路全线无加油站）</li>
-        <li><b>14:30 上阿禾公路</b>（209km）：前段克兰河峡谷白桦林云杉 → <b>乌希里克湿地</b>（冰碛湖星罗棋布，出片率最高）→ <b>托勒海特垭口</b>（2750m，可能见雪）→ 傍晚抵达禾木游客服务中心</li>
-        <li><b>19:30 前必须抵达</b>：全线禁止夜路，日落约 19:40</li>
+        <li><b>8:30 前</b>出发（有天气预警就启动 Plan B）</li>
+        <li><b>12:00 布尔津</b>：午饭吃冷水鱼 + <b>加满油</b></li>
+        <li><b>14:00 阿勒泰市区</b>：<b>最后一次加满油</b>（阿禾公路全线没加油站）</li>
+        <li><b>14:30 上阿禾公路</b>（209km）：前段克兰河峡谷白桦林云杉 → <b>乌希里克湿地</b>（冰碛湖星罗棋布，最出片）→ <b>托勒海特垭口</b>（2750m，可能见雪）→ 傍晚到禾木游客服务中心</li>
+        <li><b>19:30 前必须到</b>：全线禁止夜路，日落大概 19:40</li>
       </ul>
       <div class="side">
         <div class="chip hotel"><span class="lab">🏨 住宿</span>全季（禾木游客服务中心店·吉克普林）· 约 ¥1251，有免费班车往返游客中心</div>
-        <div class="chip food"><span class="lab">🍖 美食</span>布尔津午餐：<b>胖嫂冷水鱼馆</b>（狗鱼两吃）或<b>黑子抓饭</b>；沿途无正餐，布尔津要吃饱</div>
-        <div class="chip tip"><span class="lab">⚠️ 提示</span>出发前一晚查「阿勒泰交警」路况；中段无信号；K63–K150 禁飞无人机；弯道 30–40 km/h，禁弯道超车。<br><b>Plan B</b>：乌尔禾→布尔津→冲乎尔→禾木（400km，更短）</div>
+        <div class="chip food"><span class="lab">🍖 美食</span>布尔津午饭：<b>胖嫂冷水鱼馆</b>（狗鱼两吃）或<b>黑子抓饭</b>；过了布尔津基本没正餐，吃饱再走</div>
+        <div class="chip tip"><span class="lab">⚠️ 提示</span>出发前一晚查「阿勒泰交警」路况；中段没信号；K63–K150 禁飞无人机；弯道 30–40 km/h，别弯道超车。<br><b>Plan B</b>：乌尔禾→布尔津→冲乎尔→禾木（400km，更短）</div>
       </div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 5</div><div class="day-title">🍂 10.4 禾木村全天（晨雾！）→ 傍晚转贾登峪<span class="pill">全程最美一天</span></div><div class="day-km">≈100km · 2h</div></div>
+    <div class="day-head"><div class="day-num">Day 5</div><div class="day-title">10.4 禾木村全天（晨雾！）→ 傍晚转贾登峪<span class="pill">全程最美一天</span></div><div class="day-km">≈100km · 2h</div></div>
     <div class="day-body">
       <ul class="tl">
-        <li><b>7:30 前</b>到游客中心排队坐<b>首班区间车</b>进村（国庆班次可能提前，前一晚和酒店前台确认）</li>
-        <li><b>8:00–9:30 禾木晨雾+日出</b>：<b>哈登观景台</b>俯瞰炊烟从白桦林升起——整个行程的核心看点</li>
-        <li>白天：村子闲逛 · 白桦林徒步 · 美丽峰方向骑马（选正规马队、戴头盔）</li>
-        <li>午餐村里吃<b>土火锅</b> + 咸奶茶（图瓦正宗做法，暖身）</li>
-        <li><b>14:00–15:00 出村</b>，驾车经冲乎尔 → 贾登峪（约 2h）</li>
+        <li><b>7:30 前</b>到游客中心排队坐<b>首班区间车</b>进村（国庆班次可能提前，前一晚问酒店前台）</li>
+        <li><b>8:00–9:30 禾木晨雾 + 日出</b>：<b>哈登观景台</b>看炊烟从白桦林升起——整个行程就等这一刻</li>
+        <li>白天：村里逛逛 · 白桦林徒步 · 美丽峰方向骑马（找正规马队、戴头盔）</li>
+        <li>午饭村里吃<b>土火锅</b> + 咸奶茶（图瓦正宗做法，暖和）</li>
+        <li><b>14:00–15:00 出村</b>，开车经冲乎尔 → 贾登峪（约 2h）</li>
       </ul>
       <div class="side">
         <div class="chip hotel"><span class="lab">🏨 住宿</span>喀纳斯童话故事国际酒店（贾登峪游客中心正对面）· 约 ¥1200</div>
-        <div class="chip tip"><span class="lab">⚠️ 提示</span>禾木门票+区间车<b>必须提前在「喀纳斯原行网」实名预约</b>；山里物价高，可自带零食水果</div>
-        <div class="chip tip"><span class="lab">💡 说明</span>已确认不去白哈巴：把整天留给禾木，晨雾看到够，行程更从容，也省去边境证办理</div>
+        <div class="chip tip"><span class="lab">⚠️ 提示</span>禾木门票 + 区间车<b>必须提前在「喀纳斯原行网」实名预约</b>；山里物价高，自带点零食水果</div>
+        <div class="chip tip"><span class="lab">💡 说明</span>不去白哈巴，整天留给禾木，晨雾看个够，也省了办边境证</div>
       </div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 6</div><div class="day-title">🌲 10.5 喀纳斯全天（观鱼台·三湾）→ 北屯</div><div class="day-km">≈240km · 3.5h</div></div>
+    <div class="day-head"><div class="day-num">Day 6</div><div class="day-title">10.5 喀纳斯全天（观鱼台·三湾）→ 北屯</div><div class="day-km">≈240km · 3.5h</div></div>
     <div class="day-body">
       <ul class="tl">
-        <li><b>7:00–7:30 起床</b>，步行过马路到贾登峪换乘中心坐首班车（住童话故事的最大红利）</li>
-        <li><b>观鱼台</b>：先去！1068 级台阶俯瞰喀纳斯湖全景 + <b>远眺友谊峰雪顶</b>，赶在旅行团之前（车票 ¥20 现场加购）</li>
-        <li><b>三湾</b>：神仙湾（晨雾）→ 月亮湾 → 卧龙湾；<b>月亮湾→卧龙湾走木栈道</b>（2–3km 平路下坡，风景绝佳）</li>
-        <li>午餐：换乘中心美食广场（贵且一般，管饱就行）</li>
-        <li><b>15:00 前出山</b>（国庆出山车流大），经布尔津 → 北屯，19:00 前抵达</li>
+        <li><b>7:00–7:30 起床</b>，步行过马路到贾登峪换乘中心坐首班车（住童话故事最大的好处）</li>
+        <li><b>观鱼台先去</b>：1068 级台阶俯瞰喀纳斯湖全景 + <b>远眺友谊峰雪顶</b>，赶在旅行团之前（车票 ¥20 现场买）</li>
+        <li><b>三湾</b>：神仙湾（晨雾）→ 月亮湾 → 卧龙湾；<b>月亮湾到卧龙湾走木栈道</b>（2–3km 平路下坡，风景最好）</li>
+        <li>午饭：换乘中心美食广场（贵且一般，管饱就行）</li>
+        <li><b>15:00 前出山</b>（国庆出山车多），经布尔津 → 北屯，19:00 前到</li>
         <li><b>晚上看星星</b>：北屯光污染低，得仁营地名字就是让你干这个的 🌌</li>
       </ul>
       <div class="side">
         <div class="chip hotel"><span class="lab">🏨 住宿</span>得仁营地城市星空酒店（北屯·独栋）· 约 ¥358</div>
-        <div class="chip tip"><span class="lab">⚠️ 提示</span>喀纳斯门票+区间车同样提前预约；栈道沾霜极滑，防滑防水鞋必备；海拔 1300–2000m，个别或有轻微高反</div>
+        <div class="chip tip"><span class="lab">⚠️ 提示</span>喀纳斯门票 + 区间车同样提前约；栈道沾霜很滑，防滑防水鞋必备；海拔 1300–2000m，个别人可能轻微高反</div>
       </div>
     </div>
   </div>
 
   <div class="day">
-    <div class="day-head"><div class="day-num">Day 7</div><div class="day-title">✈️ 10.6 北屯 → S21 沙漠公路 → 乌鲁木齐 → 19:55 航班</div><div class="day-km">≈440km · 4.5h</div></div>
+    <div class="day-head"><div class="day-num">Day 7</div><div class="day-title">10.6 北屯 → S21 沙漠公路 → 乌鲁木齐 → 19:55 航班</div><div class="day-km">≈440km · 4.5h</div></div>
     <div class="day-body">
       <ul class="tl">
-        <li><b>8:30 前出发</b>（10/6 返程高峰，宁早勿晚），S21 约 4.5h，五家渠/克拉美丽服务区加油休整</li>
-        <li><b>13:30 前后</b>抵乌鲁木齐，留 2 小时逛吃</li>
-        <li><b>15:30–16:00 到机场还车</b>（国庆还车排队+安检，按底线时间走）</li>
+        <li><b>8:30 前出发</b>（10/6 返程高峰，宁早勿晚），S21 约 4.5h，五家渠或克拉美丽服务区加油休整</li>
+        <li><b>13:30 左右</b>到乌鲁木齐，留 2 小时逛吃</li>
+        <li><b>15:30–16:00 到机场还车</b>（国庆还车排队 + 安检，按底线时间走）</li>
         <li>19:55 航班，安心回家 ✈️</li>
       </ul>
       <div class="side">
-        <div class="chip food"><span class="lab">🍖 美食</span>收尾大餐：<b>血站小李子大盘鸡</b>（老字号，朋友去年同款）或国际大巴扎+领馆巷扫街（烤包子、手抓饭、酸奶刨冰、干果采购）</div>
-        <div class="chip tip"><span class="lab">💡 提示</span>S21 沿途服务区少，注意油量；避免疲劳驾驶与危险超车</div>
+        <div class="chip food"><span class="lab">🍖 美食</span>收尾大餐：<b>血站小李子大盘鸡</b>（老字号，朋友去年同款）或去国际大巴扎 + 领馆巷扫街（烤包子、手抓饭、酸奶刨冰、干果采购）</div>
+        <div class="chip tip"><span class="lab">💡 提示</span>S21 沿途服务区少，留意油量；别疲劳驾驶、别危险超车</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ WEATHER ============ -->
+<!-- ============ 实时天气 ============ -->
 <section id="weather">
-  <h2 class="sec">🌡️ 天气研判 · 能不能看到雪？</h2>
-  <p class="sec-desc">依据：新疆官方《2026 年度气候预测》+ 2026 年 8 月山区已现降雪预警的事实</p>
-  <div class="snow-card">
-    <h3>❄️ 结论：看到雪的概率相当高，且是「金秋 + 初雪」王炸组合</h3>
+  <h2 class="sec">实时天气与看雪<span style="font-size:.6em;color:var(--muted);font-weight:400;margin-left:6px;">每 30 分钟自动刷新</span><button class="wbtn" id="xj-wrefresh">现在刷新</button></h2>
+  <p class="sec-desc">下面是各地点的实时气温和未来 7 天预报，打开页面自动拉取。国庆那几天（9.29–10.6）的精确预报要到出发前一周左右才会出现，到时候这里会自动显示。</p>
+  <div class="wlegend">每个日期一格：<b class="wl1">白天最高</b> / <b class="wl2">夜晚最低</b>，下面是天气和降水概率</div>
+  <div class="xj-wbox" id="xj-wbox"><p class="xj-wloading">正在拉取最新气象数据…</p></div>
+
+  <div class="snow-card" style="margin-top:24px;">
+    <h3>❄️ 能不能看到雪？概率不低，而且可能是「金秋 + 初雪」一起出现</h3>
     <div class="snow-prob"><b>60%+</b><span>10/3–10/5 禾木/喀纳斯碰上初雪或霜冻的预估概率</span></div>
     <div class="snow-grid">
-      <div>🍂 官方预测北疆秋季<b>偏冷 + 偏湿</b>，阿勒泰初霜期偏早 2–4 天</div>
-      <div>⛰️ 雪后禾木：金黄白桦 + 白雪 + 炊烟同框，北疆秋天隐藏款</div>
-      <div>🏔️ 稳有的：观鱼台远眺<b>友谊峰雪顶</b>、赛湖远山雪线、清晨白霜</div>
-      <div>⚠️ 雪也是风险：阿禾公路垭口可能封路 → 记得 Plan B</div>
-      <div>🍂 秋色窗口约 9/15–10/5，你们在<b>窗口尾巴</b>；若出发前一周有大风降温，秋色可能打折，心态放平</div>
+      <div>官方预测北疆秋季<b>偏冷 + 偏湿</b>，阿勒泰初霜期偏早 2–4 天</div>
+      <div>雪后禾木：金黄白桦 + 白雪 + 炊烟同框，北疆秋天最难得的画面</div>
+      <div>稳有的：观鱼台远眺<b>友谊峰雪顶</b>、赛湖远山雪线、清晨白霜</div>
+      <div>雪也是风险：阿禾公路垭口可能封路 → 记得 Plan B</div>
+      <div>秋色窗口大概 9/15–10/5，你们在窗口尾巴；出发前一周要是有大风降温，秋色可能打折，心态放平</div>
     </div>
   </div>
+
+  <h3 style="margin:18px 0 8px;color:var(--amber-deep);font-size:1.02em;">10 月初历史同期气温（仅供参考）</h3>
   <div class="tblwrap"><table class="tbl">
     <tr><th>地点</th><th>白天</th><th>夜间</th><th>备注</th></tr>
     <tr><td>乌鲁木齐</td><td>12–18℃</td><td>4–8℃</td><td>干燥晴朗为主</td></tr>
@@ -348,9 +427,9 @@
     <tr><td>北屯</td><td>10–16℃</td><td>0–5℃</td><td>夜里适合观星</td></tr>
   </table></div>
   <div class="warn-grid" style="margin-top:16px;">
-    <div class="warn y"><h3>📷 值得专门等的光线时刻</h3>
+    <div class="warn y"><h3>值得专门等的光线时刻</h3>
       <ul>
-        <li><b>禾木晨雾</b>（10/4 早 8:00–9:30，哈登观景台）— 全程核心</li>
+        <li><b>禾木晨雾</b>（10/4 早 8:00–9:30，哈登观景台）— 全程最值得等的</li>
         <li><b>神仙湾晨雾</b>（10/5 早）</li>
         <li><b>魔鬼城日落</b>（10/2，18:00–19:30 金色雅丹）</li>
         <li><b>安集海斜射光</b>（9/30 傍晚）</li>
@@ -358,22 +437,22 @@
         <li><b>北屯星空</b>（10/5 晚，无月光干扰可见银河）</li>
       </ul>
     </div>
-    <div class="warn y"><h3>🧥 穿搭公式（按夜间 -5℃ 准备）</h3>
+    <div class="warn y"><h3>穿什么（按夜间 -5℃ 准备）</h3>
       <ul>
         <li>三层穿法：<b>速干内衣 + 抓绒/薄羽绒 + 冲锋衣</b></li>
-        <li>防滑防水徒步鞋（雪后栈道极滑）</li>
+        <li>防滑防水徒步鞋（雪后栈道很滑）</li>
         <li>帽子、围巾、薄手套、墨镜（雪地反光强）</li>
-        <li>暖宝宝、SPF50+ 防晒、润唇膏（干燥超预期）</li>
-        <li>拍照穿红色/白色系，避开土黄（会融进秋林背景）</li>
+        <li>暖宝宝、SPF50+ 防晒、润唇膏（比想象中干）</li>
+        <li>拍照穿红色或白色系，别穿土黄（会融进秋林背景）</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOD ============ -->
+<!-- ============ 美食 ============ -->
 <section id="food">
-  <h2 class="sec">🍖 美食地图 · 按动线排列</h2>
-  <p class="sec-desc">老店优先，均为朋友去年实测或多方交叉验证的推荐</p>
+  <h2 class="sec">一路上吃啥</h2>
+  <p class="sec-desc">按路线顺序，基本都是去年朋友吃过、或者多方打听过的店</p>
   <div class="food-grid">
     <div class="food"><h3>乌鲁木齐<span class="where">9.29 晚 / 10.6 午</span></h3>
       <ul>
@@ -385,19 +464,19 @@
     </div>
     <div class="food"><h3>沙湾 / 精河<span class="where">9.30</span></h3>
       <ul>
-        <li><b>沙湾大盘鸡</b>：大盘鸡发源地，出 S101 上 G30 前的顺路正餐，土豆绵软、皮带面管够</li>
+        <li><b>沙湾大盘鸡</b>：大盘鸡的老家，出 S101 上 G30 前的顺路正餐，土豆绵软、皮带面管够</li>
         <li>精河县城：清真餐馆拌面 / 大盘鸡</li>
       </ul>
-      <div class="note">精河是「中国枸杞之乡」，枸杞是最佳伴手礼</div>
+      <div class="note">精河是「中国枸杞之乡」，枸杞是好伴手礼</div>
     </div>
     <div class="food"><h3>博乐<span class="where">10.1 晚</span></h3>
       <ul>
-        <li><b>赛里木湖高白鲑</b>：必吃！冷水鱼赛湖特产，清蒸最鲜，市区餐馆普遍有售</li>
+        <li><b>赛里木湖高白鲑</b>必吃，冷水鱼，赛湖特产，清蒸最鲜，市区餐馆基本都有</li>
       </ul>
     </div>
     <div class="food"><h3>乌尔禾<span class="where">10.2 晚</span></h3>
       <ul>
-        <li><b>阿吾丹的烤羊</b>：龙脊路，朋友去年验证过的店</li>
+        <li><b>阿吾丹的烤羊</b>：龙脊路，朋友去年吃过，靠谱</li>
         <li>苏氏牛肉面：快速稳妥的备选</li>
       </ul>
     </div>
@@ -405,7 +484,7 @@
       <ul>
         <li><b>胖嫂冷水鱼馆</b>：狗鱼两吃（红烧+清炖），人均 60–80</li>
         <li><b>黑子抓饭</b>：羊肉嫩、米油润</li>
-        <li>河堤夜市（如赶上晚上）：烤狗鱼 + 格瓦斯</li>
+        <li>河堤夜市（要是赶上晚上）：烤狗鱼 + 格瓦斯</li>
       </ul>
     </div>
     <div class="food"><h3>禾木 · 贾登峪 · 北屯<span class="where">10.4–10.5</span></h3>
@@ -414,65 +493,66 @@
         <li>咸奶茶：喝咸口的（正宗图瓦做法，暖身）</li>
         <li>北屯：烤肉 + 缸子肉是主流；10.6 早餐吃饱再上 S21</li>
       </ul>
-      <div class="note">⚠️ 景区里「特色烤狗鱼」不少是冻货，尝鲜即可；换乘中心餐饮贵且一般，自带零食更划算</div>
+      <div class="note">景区里「特色烤狗鱼」不少是冻货，尝个鲜就行；换乘中心餐饮贵且一般，自带零食更划算</div>
     </div>
   </div>
 </section>
 
-<!-- ============ CHECKLIST ============ -->
+<!-- ============ 行前清单 ============ -->
 <section id="check">
-  <h2 class="sec">📋 行前清单</h2>
-  <p class="sec-desc">点击勾选，进度自动保存在本页面（刷新不丢失）</p>
+  <h2 class="sec">行前清单</h2>
+  <p class="sec-desc">点一下就勾上，进度自动存在本地，刷新不会丢</p>
   <div class="cl-grid">
-    <div class="cl"><h3>🎫 证件与预约</h3>
+    <div class="cl"><h3>证件与预约</h3>
       <label><input type="checkbox"><span>身份证随身（安检/加油/酒店全程要刷）</span></label>
       <label><input type="checkbox"><span>喀纳斯/禾木门票+区间车：「喀纳斯原行网」提前实名预约（8人）</span></label>
-      <label><input type="checkbox"><span>魔鬼城、赛里木湖门票线上购买</span></label>
-      <label><input type="checkbox"><span>租车订单核对：2台车、驾驶证、还车规则</span></label>
-      <label><input type="checkbox"><span>边境证：已确认不去白哈巴，全程无需办理</span></label>
+      <label><input type="checkbox"><span>魔鬼城、赛里木湖门票线上买好</span></label>
+      <label><input type="checkbox"><span>租车订单核对：2 台车、驾驶证、还车规则</span></label>
+      <label><input type="checkbox"><span>边境证：已确认不去白哈巴，全程不用办</span></label>
     </div>
-    <div class="cl"><h3>🛏️ 房量核对（重点！）</h3>
+    <div class="cl"><h3>房量核对（重点）</h3>
       <label><input type="checkbox"><span>童话故事 2 间家庭房 → 确认床型，建议加订 1 间</span></label>
       <label><input type="checkbox"><span>得仁营地独栋 → 确认入住上限</span></label>
       <label><input type="checkbox"><span>逐单核对 8人 × 7晚 的间数与床型</span></label>
     </div>
-    <div class="cl"><h3>🚗 车辆与路况</h3>
-      <label><input type="checkbox"><span>「见站就加油」纪律（S101 / 阿禾公路油站极少）</span></label>
-      <label><input type="checkbox"><span>离线地图：S101 K140-260、阿禾公路中段无信号</span></label>
+    <div class="cl"><h3>车辆与路况</h3>
+      <label><input type="checkbox"><span>「见站就加油」（S101 / 阿禾公路油站极少）</span></label>
+      <label><input type="checkbox"><span>离线地图：S101 K140-260、阿禾公路中段没信号</span></label>
       <label><input type="checkbox"><span>对讲机 / 车队微信群位置共享</span></label>
       <label><input type="checkbox"><span>Day3 晚查「阿勒泰交警」确认阿禾公路路况</span></label>
-      <label><input type="checkbox"><span>车充、备用拖车绳/搭电线确认</span></label>
+      <label><input type="checkbox"><span>车充、拖车绳/搭电线确认</span></label>
     </div>
-    <div class="cl"><h3>🧥 衣物（按夜间 -5℃）</h3>
+    <div class="cl"><h3>衣物（按夜间 -5℃）</h3>
       <label><input type="checkbox"><span>速干内衣 + 抓绒/薄羽绒 + 冲锋衣（三层）</span></label>
       <label><input type="checkbox"><span>防滑防水徒步鞋 + 羊毛袜</span></label>
       <label><input type="checkbox"><span>帽子 / 围巾 / 薄手套 / 墨镜</span></label>
       <label><input type="checkbox"><span>暖宝宝、SPF50+ 防晒、润唇膏</span></label>
     </div>
-    <div class="cl"><h3>💊 健康与杂项</h3>
+    <div class="cl"><h3>健康与杂项</h3>
       <label><input type="checkbox"><span>肠胃药、感冒药、晕车药、创可贴</span></label>
-      <label><input type="checkbox"><span>少量现金 ¥500–1000（偏远摊点无信号）</span></label>
+      <label><input type="checkbox"><span>少量现金 ¥500–1000（偏远摊点没信号）</span></label>
       <label><input type="checkbox"><span>充电宝、相机、保湿面膜</span></label>
-      <label><input type="checkbox"><span>备些零食水果上山（景区贵）</span></label>
+      <label><input type="checkbox"><span>备点零食水果上山（景区贵）</span></label>
     </div>
-    <div class="cl"><h3>⚠️ 安全红线</h3>
+    <div class="cl"><h3>安全红线</h3>
       <label><input type="checkbox"><span>安集海峡谷不越警戒线、崖边不翻护栏</span></label>
       <label><input type="checkbox"><span>山区禁止夜路、弯道禁超车、牛羊礼让</span></label>
       <label><input type="checkbox"><span>骑马选正规马队、戴头盔</span></label>
       <label><input type="checkbox"><span>阿禾公路 K63–K150 禁飞无人机</span></label>
-      <label><input type="checkbox"><span>自驾当天不喝马奶（含酒精）</span></label>
+      <label><input type="checkbox"><span>自驾当天别喝马奶（含酒精）</span></label>
     </div>
   </div>
 </section>
 
 <footer>
-  北疆金秋 · 国庆 8 人自驾行程手册 ｜ 依据《北疆国庆行程优化报告》生成 ｜ 路线：乌鲁木齐 → S101 → 精河 → 赛里木湖 → 博乐 → 乌尔禾 → 阿禾公路 → 禾木 → 喀纳斯 → 北屯 → 乌鲁木齐<br>
-  祝你们看到雪中的禾木 🏔️❄️🍂
+  北疆金秋 · 国庆 8 人自驾行程手册 ｜ 路线：乌鲁木齐 → S101 → 精河 → 赛里木湖 → 博乐 → 乌尔禾 → 阿禾公路 → 禾木 → 喀纳斯 → 北屯 → 乌鲁木齐<br>
+  祝你们看到雪中的禾木 🏔️
 </footer>
 
 </div>
 
 <script>
+/* ===== 行前清单：勾选状态本地保存 ===== */
 (function(){
   var boxes = document.querySelectorAll('.cl input[type="checkbox"]');
   boxes.forEach(function(b,i){
@@ -483,6 +563,90 @@
     });
   });
 })();
+
+/* ===== 实时天气：Open-Meteo（免 key，数据源自各国官方气象模型聚合） ===== */
+var XJ_PLACES = [
+  {n:'乌鲁木齐', lat:43.82, lon:87.62},
+  {n:'精河',     lat:44.05, lon:82.37},
+  {n:'赛里木湖', lat:44.60, lon:81.20},
+  {n:'博乐',     lat:44.90, lon:82.07},
+  {n:'乌尔禾',   lat:46.10, lon:85.72},
+  {n:'禾木',     lat:48.70, lon:87.07},
+  {n:'喀纳斯',   lat:48.78, lon:87.02},
+  {n:'北屯',     lat:47.10, lon:87.40}
+];
+function xjWmo(c){
+  var m={
+    0:['晴','☀️'],1:['晴间多云','🌤️'],2:['多云','⛅'],3:['阴','☁️'],
+    45:['雾','🌫️'],48:['雾凇','🌫️'],
+    51:['毛毛雨','🌦️'],53:['小雨','🌦️'],55:['中雨','🌧️'],
+    56:['冻雨','🌧️'],57:['冻雨','🌧️'],
+    61:['小雨','🌧️'],63:['中雨','🌧️'],65:['大雨','🌧️'],
+    66:['冻雨','🌧️'],67:['冻雨','🌧️'],
+    71:['小雪','🌨️'],73:['中雪','🌨️'],75:['大雪','❄️'],77:['冰粒','🌨️'],
+    80:['阵雨','🌦️'],81:['阵雨','🌧️'],82:['大雨','🌧️'],
+    85:['阵雪','🌨️'],86:['阵雪','❄️'],
+    95:['雷暴','⛈️'],96:['雷暴冰雹','⛈️'],99:['雷暴冰雹','⛈️']
+  };
+  return m[c] || ['—','🌡️'];
+}
+function xjLoadWeather(){
+  var box = document.getElementById('xj-wbox');
+  if(!box) return;
+  box.innerHTML = '<p class="xj-wloading">正在拉取最新气象数据…</p>';
+  var lats = XJ_PLACES.map(function(p){return p.lat}).join(',');
+  var lons = XJ_PLACES.map(function(p){return p.lon}).join(',');
+  var url = 'https://api.open-meteo.com/v1/forecast?latitude='+lats+'&longitude='+lons+
+    '&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'+
+    '&current=temperature_2m,weather_code,is_day&timezone=Asia%2FUrumqi&forecast_days=7';
+  fetch(url).then(function(r){return r.json()}).then(function(data){
+    if(!Array.isArray(data)){ data = [data]; }
+    var html = '';
+    data.forEach(function(d,i){
+      var p = XJ_PLACES[i] || {n:'地点'+(i+1)};
+      var cur = d.current || {};
+      var w = xjWmo(cur.weather_code);
+      var nowTmp = cur.temperature_2m;
+      var days = d.daily || {};
+      var times = days.time || [];
+      var maxs = days.temperature_2m_max || [];
+      var mins = days.temperature_2m_min || [];
+      var wcs = days.weather_code || [];
+      var pops = days.precipitation_probability_max || [];
+      var dhtml = '';
+      for(var j=0; j<times.length; j++){
+        var dw = xjWmo(wcs[j]);
+        var dt = (times[j]||'').slice(5).replace('-','/');
+        var popTxt = (pops[j] && pops[j]>0) ? (pops[j]+'%') : '';
+        dhtml += '<div class="xj-wd">'
+          + '<span class="xj-wdd">'+dt+'</span>'
+          + '<span class="xj-wdi">'+dw[1]+'</span>'
+          + '<span class="xj-wdt">'+dw[0]+'</span>'
+          + '<span class="xj-wh">'+(maxs[j]!=null?Math.round(maxs[j])+'°':'—')+'</span>'
+          + '<span class="xj-wl">'+(mins[j]!=null?Math.round(mins[j])+'°':'—')+'</span>'
+          + '<span class="xj-wpop">'+popTxt+'</span>'
+          + '</div>';
+      }
+      var nowStr = (nowTmp!=null) ? ('现在 '+Math.round(nowTmp)+'° · '+w[0]) : '';
+      html += '<div class="xj-wcard">'
+        + '<div class="xj-wch"><span class="xj-wcname">'+p.n+'</span><span class="xj-wcnow">'+nowStr+'</span></div>'
+        + '<div class="xj-wdays">'+dhtml+'</div>'
+        + '</div>';
+    });
+    var t = new Date();
+    var ts = t.getHours()+':'+String(t.getMinutes()).padStart(2,'0');
+    html = '<div class="xj-wmeta">更新于 '+ts+' · 数据来源 Open-Meteo（各国官方气象模型聚合预报）</div>'
+      + '<div class="xj-wcards">'+html+'</div>';
+    box.innerHTML = html;
+  }).catch(function(){
+    box.innerHTML = '<p class="xj-werr">暂时拉不到数据，<a id="xj-wretry">点这里重试</a></p>';
+    var rt = document.getElementById('xj-wretry');
+    if(rt) rt.addEventListener('click', xjLoadWeather);
+  });
+}
+document.getElementById('xj-wrefresh').addEventListener('click', xjLoadWeather);
+xjLoadWeather();
+setInterval(xjLoadWeather, 30*60*1000);
 </script>
 </body>
 </html>
