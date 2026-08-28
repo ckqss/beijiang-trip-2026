@@ -110,7 +110,11 @@ section{margin-top:64px;}
 .xj-werr a{color:var(--gold);cursor:pointer;text-decoration:underline;}
 .xj-wmeta{font-size:.76em;color:var(--muted);margin-bottom:12px;}
 #weather-map{height:460px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--card-shadow);}
-.xj-amap-marker{position:relative;width:20px;height:20px;}
+.xj-amap-marker{display:flex;flex-direction:column;align-items:center;}
+.xj-marker-label{background:rgba(30,25,22,.95);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:.72em;color:var(--cream);white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.4);line-height:1.4;}
+.xj-marker-label .tt-tmp{color:var(--gold);font-weight:700;}
+.xj-marker-stem{width:1px;height:6px;background:var(--gold);}
+.xj-marker-dot-wrap{position:relative;width:16px;height:16px;}
 .xj-marker-dot{width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid var(--cream);box-shadow:0 0 10px rgba(201,165,107,.5);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 .xj-marker-pulse{position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--gold);animation:xjpulse 2.2s ease-out infinite;opacity:0;}
 @keyframes xjpulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
@@ -656,13 +660,23 @@ var xjMarkers = [];
 var xjMap = null;
 var xjInfoWindow = null;
 
+// 构建标记内容（标签框+竖线+圆点）— 全局函数，数据更新时也要用
+function buildMarkerContent(p){
+  var tempStr = p._nowTemp != null ? (' <span class="tt-tmp">' + Math.round(p._nowTemp) + '°</span>') : '';
+  return '<div class="xj-amap-marker">'
+    + '<div class="xj-marker-label">' + p.n + tempStr + '</div>'
+    + '<div class="xj-marker-stem"></div>'
+    + '<div class="xj-marker-dot-wrap"><div class="xj-marker-dot"></div><div class="xj-marker-pulse"></div></div>'
+    + '</div>';
+}
+
 (function initMap(){
   xjMap = new AMap.Map('weather-map', {
     center: [84.5, 46.2],
     zoom: 7,
     mapStyle: 'amap://styles/dark',
     viewMode: '2D',
-    features: ['bg','road','point']
+    features: ['bg','road','point','building']
   });
 
   // 行程路线连线（高德坐标系：[经度, 纬度]）
@@ -688,23 +702,18 @@ var xjInfoWindow = null;
   XJ_PLACES.forEach(function(p, i){
     var marker = new AMap.Marker({
       position: [p.lon, p.lat],
-      content: '<div class="xj-amap-marker"><div class="xj-marker-dot"></div><div class="xj-marker-pulse"></div></div>',
-      offset: new AMap.Pixel(-10, -10),
+      content: buildMarkerContent(p),
+      anchor: 'bottom-center',
+      offset: new AMap.Pixel(0, 8),
       map: xjMap
     });
     marker._placeIndex = i;
-    marker.on('mouseover', function(){
-      var info = document.querySelector('.xj-amap-info');
-      if(info){
-        var tempStr = p._nowTemp != null ? (' <span class="tt-tmp">' + Math.round(p._nowTemp) + '°</span> ' + (p._nowWeather||'')) : '';
-        info.innerHTML = p.n + tempStr;
-      }
-      xjInfoWindow.open(xjMap, marker.getPosition());
-    });
-    marker.on('mouseout', function(){ xjInfoWindow.close(); });
     marker.on('click', function(){ xjShowDetail(i); });
     xjMarkers.push(marker);
   });
+
+  // 自动调整视野让所有标记可见
+  xjMap.setFitView();
 })();
 
 function xjDayLabel(t, tk, mk, ak){
@@ -775,6 +784,10 @@ function xjLoadWeather(){
       if(XJ_PLACES[i]){
         XJ_PLACES[i]._nowTemp = temp;
         XJ_PLACES[i]._nowWeather = w[0];
+      }
+      // 更新标记上的实时气温
+      if(xjMarkers[i]){
+        xjMarkers[i].setContent(buildMarkerContent(XJ_PLACES[i]));
       }
     });
 
