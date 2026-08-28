@@ -57,6 +57,7 @@ section{margin-top:64px;}
 .tbl{width:100%;border-collapse:collapse;font-size:.86em;background:var(--bg2);}
 .tbl th{background:var(--bg3);color:var(--gold);padding:14px 16px;text-align:left;font-weight:600;white-space:nowrap;font-size:.82em;letter-spacing:.04em;border-bottom:1px solid var(--line);}
 .tbl td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--cream-dim);}
+.tbl td:last-child{white-space:nowrap;}
 .tbl tr:last-child td{border-bottom:none;}
 .tbl tr:hover td{background:rgba(201,165,107,.04);}
 .tbl td:first-child{color:var(--cream);font-weight:600;white-space:nowrap;}
@@ -104,24 +105,25 @@ section{margin-top:64px;}
 .xj-wloading,.xj-werr{color:var(--muted);padding:20px 0;font-size:.9em;}
 .xj-werr a{color:var(--gold);cursor:pointer;text-decoration:underline;}
 .xj-wmeta{font-size:.76em;color:var(--muted);margin-bottom:16px;}
-.xj-wcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;}
-.xj-wcard{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--card-shadow);transition:transform .2s,box-shadow .2s;}
-.xj-wcard:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.4);}
-.xj-whead{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
-.xj-wname{font-weight:700;font-size:1em;color:var(--cream);}
-.xj-wname small{font-weight:400;font-size:.7em;color:var(--muted);margin-left:5px;}
-.xj-wnow{display:flex;align-items:center;gap:6px;}
-.xj-wnow .ico{font-size:1.6em;line-height:1;}
-.xj-wnow .tmp{font-size:1.6em;font-weight:700;color:var(--gold);line-height:1;}
-.xj-wdays{display:flex;gap:2px;justify-content:space-between;}
-.xj-wd{flex:1;text-align:center;padding:8px 2px;border-radius:10px;font-size:.72em;transition:background .15s;}
-.xj-wd:hover{background:rgba(201,165,107,.06);}
-.xj-wdd{display:block;font-size:.8em;color:var(--muted);margin-bottom:5px;font-weight:600;}
-.xj-wdi{display:block;font-size:1.4em;line-height:1;margin-bottom:6px;}
+.xj-wtable{background:var(--bg2);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--card-shadow);}
+.xj-wrow{display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);transition:background .15s;}
+.xj-wrow:last-child{border-bottom:none;}
+.xj-wrow:hover{background:rgba(201,165,107,.04);}
+.xj-wplace{flex:0 0 110px;display:flex;flex-direction:column;gap:2px;}
+.xj-wpname{font-weight:700;color:var(--cream);font-size:.92em;}
+.xj-wpelev{font-size:.66em;color:var(--muted);}
+.xj-wnow{flex:0 0 80px;display:flex;align-items:center;gap:5px;}
+.xj-wnow .ico{font-size:1.25em;line-height:1;}
+.xj-wnow .tmp{font-size:1.25em;font-weight:700;color:var(--gold);line-height:1;}
+.xj-wdays{flex:1;display:flex;justify-content:space-around;gap:2px;}
+.xj-wd{text-align:center;font-size:.7em;min-width:48px;}
+.xj-wdd{display:block;font-size:.82em;color:var(--muted);margin-bottom:4px;font-weight:600;}
+.xj-wdi{display:block;font-size:1.25em;line-height:1;margin-bottom:4px;}
 .xj-wtemps{display:flex;flex-direction:column;align-items:center;gap:1px;}
-.xj-wh{color:var(--gold);font-weight:700;font-size:.9em;}
-.xj-wl{color:var(--cool);font-size:.82em;}
-.xj-wpop{display:block;font-size:.6em;color:var(--cool);margin-top:3px;min-height:1em;}
+.xj-wh{color:var(--gold);font-weight:700;font-size:.88em;}
+.xj-wl{color:var(--cool);font-size:.8em;}
+.xj-wpop{display:block;font-size:.58em;color:var(--cool);margin-top:2px;min-height:1em;}
+@media(max-width:640px){.xj-wdays{overflow-x:auto;justify-content:flex-start;}}
 .wlegend{font-size:.78em;color:var(--muted);margin:8px 0 16px;}
 .wlegend b.wl1{color:var(--gold);} .wlegend b.wl2{color:var(--cool);}
 
@@ -659,7 +661,7 @@ function xjLoadWeather(){
   }
   fetch(url).then(function(r){return r.json()}).then(function(data){
     if(!Array.isArray(data)){ data = [data]; }
-    var html = '';
+    var rows = '';
     data.forEach(function(d,i){
       var p = XJ_PLACES[i] || {n:'地点'+(i+1), elev:''};
       var cur = d.current || {};
@@ -687,18 +689,16 @@ function xjLoadWeather(){
           + '</div>';
       }
       var nowStr = (nowTmp!=null) ? Math.round(nowTmp)+'' : '—';
-      html += '<div class="xj-wcard">'
-        + '<div class="xj-whead">'
-        + '<div class="xj-wname">'+p.n+'<small>'+p.elev+'m</small></div>'
+      rows += '<div class="xj-wrow">'
+        + '<div class="xj-wplace"><span class="xj-wpname">'+p.n+'</span><span class="xj-wpelev">'+p.elev+'m</span></div>'
         + '<div class="xj-wnow"><span class="ico">'+w[1]+'</span><span class="tmp">'+nowStr+'°</span></div>'
-        + '</div>'
         + '<div class="xj-wdays">'+dhtml+'</div>'
         + '</div>';
     });
     var t = new Date();
     var ts = String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0');
-    html = '<div class="xj-wmeta">更新于 '+ts+' · 数据来源 Open-Meteo（各国官方气象模型聚合，海拔已修正至城镇实际高度）</div>'
-      + '<div class="xj-wcards">'+html+'</div>';
+    var html = '<div class="xj-wmeta">更新于 '+ts+' · 数据来源 Open-Meteo（各国官方气象模型聚合，海拔已修正至城镇实际高度）</div>'
+      + '<div class="xj-wtable">'+rows+'</div>';
     box.innerHTML = html;
   }).catch(function(){
     box.innerHTML = '<p class="xj-werr">暂时拉不到数据，<a id="xj-wretry">点这里重试</a></p>';
