@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我们的阿勒泰 · 国庆8人自驾</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script>
+window._AMapSecurityConfig = { securityJsCode: 'aea6a6ade26219808038027c12cedf9e' };
+</script>
+<script src="https://webapi.amap.com/maps?v=2.0&key=4c0ace67c0e121bac92b6f8badbb514e"></script>
 <style>
 :root{
   --bg:#161210; --bg2:#1e1916; --bg3:#28211c;
@@ -106,16 +109,13 @@ section{margin-top:64px;}
 .xj-wloading,.xj-werr{color:var(--muted);padding:20px 0;font-size:.9em;}
 .xj-werr a{color:var(--gold);cursor:pointer;text-decoration:underline;}
 .xj-wmeta{font-size:.76em;color:var(--muted);margin-bottom:12px;}
-#weather-map{height:460px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--card-shadow);position:relative;}
-#weather-map .leaflet-container{background:var(--bg2);border-radius:16px;}
-#weather-map .leaflet-control-attribution{background:rgba(22,18,16,.8);color:var(--muted);font-size:.62em;}
-#weather-map .leaflet-control-attribution a{color:var(--gold-dim);}
-.xj-marker{position:relative;}
+#weather-map{height:460px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--card-shadow);}
+.xj-amap-marker{position:relative;width:20px;height:20px;}
 .xj-marker-dot{width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid var(--cream);box-shadow:0 0 10px rgba(201,165,107,.5);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 .xj-marker-pulse{position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--gold);animation:xjpulse 2.2s ease-out infinite;opacity:0;}
 @keyframes xjpulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
-.xj-map-tooltip{background:rgba(30,25,22,.95)!important;border:1px solid var(--line)!important;color:var(--cream)!important;font-size:.8em!important;padding:4px 10px!important;border-radius:8px!important;box-shadow:0 2px 8px rgba(0,0,0,.4)!important;}
-.xj-map-tooltip .tt-tmp{color:var(--gold);font-weight:700;}
+.xj-amap-info{background:rgba(30,25,22,.95);border:1px solid var(--line);color:var(--cream);font-size:.8em;padding:6px 12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.4);white-space:nowrap;}
+.xj-amap-info .tt-tmp{color:var(--gold);font-weight:700;}
 .weather-detail{margin-top:16px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px 26px;box-shadow:var(--card-shadow);min-height:80px;transition:opacity .3s;}
 .weather-detail-empty{color:var(--muted);text-align:center;padding:24px;font-size:.86em;}
 .wd-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
@@ -603,7 +603,6 @@ footer .heart{color:var(--red);}
 
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 /* ===== 滚动渐显 ===== */
 (function(){
@@ -651,37 +650,58 @@ function xjWmo(c){
   };
   return m[c] || ['—','🌡️'];
 }
-/* ===== 天气地图：Leaflet + Open-Meteo ===== */
+/* ===== 天气地图：高德 JS API + Open-Meteo ===== */
 var xjWeatherData = null;
 var xjMarkers = [];
+var xjMap = null;
+var xjInfoWindow = null;
 
 (function initMap(){
-  var map = L.map('weather-map', {center:[46.2, 84.5], zoom:7, zoomControl:false, attributionControl:true});
-  L.control.zoom({position:'topright'}).addTo(map);
-
-  // Esri 卫星图（免费，无需 key）
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution:'Esri, Maxar, Earthstar Geographics', maxZoom:18
-  }).addTo(map);
-  // Esri 地名标注层
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
-    maxZoom:18, opacity:.7
-  }).addTo(map);
-
-  // 行程路线连线
-  var routeCoords = XJ_PLACES.map(function(p){ return [p.lat, p.lon]; });
-  routeCoords.push(routeCoords[0]); // 闭环
-  L.polyline(routeCoords, {color:'#c9a56b', weight:2, opacity:.6, dashArray:'8,6'}).addTo(map);
-
-  var goldIcon = L.divIcon({
-    className:'xj-marker',
-    html:'<div class="xj-marker-dot"></div><div class="xj-marker-pulse"></div>',
-    iconSize:[20,20], iconAnchor:[10,10]
+  xjMap = new AMap.Map('weather-map', {
+    center: [84.5, 46.2],
+    zoom: 7,
+    mapStyle: 'amap://styles/dark',
+    viewMode: '2D',
+    features: ['bg','road','point']
   });
 
+  // 行程路线连线（高德坐标系：[经度, 纬度]）
+  var routePath = XJ_PLACES.map(function(p){ return [p.lon, p.lat]; });
+  routePath.push(routePath[0]);
+  new AMap.Polyline({
+    path: routePath,
+    strokeColor: '#c9a56b',
+    strokeWeight: 2,
+    strokeOpacity: 0.6,
+    strokeStyle: 'dashed',
+    map: xjMap
+  });
+
+  // 自定义信息窗体
+  xjInfoWindow = new AMap.InfoWindow({
+    isCustom: true,
+    content: '<div class="xj-amap-info"></div>',
+    offset: new AMap.Pixel(0, -24)
+  });
+
+  // 添加标记
   XJ_PLACES.forEach(function(p, i){
-    var marker = L.marker([p.lat, p.lon], {icon:goldIcon}).addTo(map);
-    marker.bindTooltip(p.n, {direction:'top', offset:[0,-14], className:'xj-map-tooltip'});
+    var marker = new AMap.Marker({
+      position: [p.lon, p.lat],
+      content: '<div class="xj-amap-marker"><div class="xj-marker-dot"></div><div class="xj-marker-pulse"></div></div>',
+      offset: new AMap.Pixel(-10, -10),
+      map: xjMap
+    });
+    marker._placeIndex = i;
+    marker.on('mouseover', function(){
+      var info = document.querySelector('.xj-amap-info');
+      if(info){
+        var tempStr = p._nowTemp != null ? (' <span class="tt-tmp">' + Math.round(p._nowTemp) + '°</span> ' + (p._nowWeather||'')) : '';
+        info.innerHTML = p.n + tempStr;
+      }
+      xjInfoWindow.open(xjMap, marker.getPosition());
+    });
+    marker.on('mouseout', function(){ xjInfoWindow.close(); });
     marker.on('click', function(){ xjShowDetail(i); });
     xjMarkers.push(marker);
   });
@@ -752,10 +772,9 @@ function xjLoadWeather(){
       var cur = d.current || {};
       var temp = cur.temperature_2m;
       var w = xjWmo(cur.weather_code);
-      if(xjMarkers[i]){
-        xjMarkers[i].setTooltipContent(
-          XJ_PLACES[i].n + ' <span class="tt-tmp">' + (temp!=null?Math.round(temp)+'°':'—') + '</span> ' + w[0]
-        );
+      if(XJ_PLACES[i]){
+        XJ_PLACES[i]._nowTemp = temp;
+        XJ_PLACES[i]._nowWeather = w[0];
       }
     });
 
