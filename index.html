@@ -10,13 +10,13 @@ window._AMapSecurityConfig = { securityJsCode: 'aea6a6ade26219808038027c12cedf9e
 <script src="https://webapi.amap.com/maps?v=2.0&key=4c0ace67c0e121bac92b6f8badbb514e"></script>
 <style>
 :root{
-  --bg:#161210; --bg2:#1e1916; --bg3:#28211c;
-  --gold:#c9a56b; --gold-bright:#e8c97a; --gold-dim:#a08653;
-  --amber:#b45309; --amber-deep:#8a3c07;
-  --cream:#f5f0e8; --cream-dim:#c8bfb0; --muted:#8a8075;
-  --line:#3a3228; --line-light:#4a4038;
-  --red:#c05656; --green:#5a9e6f; --cool:#5b9ec9;
-  --card-shadow:0 2px 16px rgba(0,0,0,.35);
+  --bg:#f5f1ec; --bg2:#fdfbf8; --bg3:#ece7e0;
+  --gold:#b45309; --gold-bright:#d97706; --gold-dim:#92400e;
+  --amber:#d97706; --amber-deep:#b45309;
+  --cream:#292524; --cream-dim:#57534e; --muted:#8a8075;
+  --line:#e2dcd4; --line-light:#d4ccc2;
+  --red:#c05656; --green:#5a9e6f; --cool:#0ea5e9;
+  --card-shadow:0 1px 8px rgba(120,80,20,.08);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -29,25 +29,26 @@ body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;b
 
 /* ===== Hero ===== */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat;filter:brightness(.72) saturate(1.1);}
+.hero-bg{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat;filter:brightness(1) saturate(1.05);}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(245,241,236,.3),rgba(245,241,236,.55));}
 .hero-content{position:relative;z-index:1;padding:40px 24px;max-width:700px;}
 .hero-kicker{font-size:.78em;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;}
-.hero h1{font-size:clamp(2.4em,6.5vw,4.2em);letter-spacing:.06em;font-weight:700;color:var(--cream);margin-bottom:14px;text-shadow:0 2px 24px rgba(0,0,0,.5);}
-.hero .sub{font-size:1.06em;color:rgba(245,240,232,.82);text-shadow:0 1px 12px rgba(0,0,0,.4);line-height:1.9;}
+.hero h1{font-size:clamp(2.4em,6.5vw,4.2em);letter-spacing:.06em;font-weight:700;color:var(--cream);margin-bottom:14px;text-shadow:0 1px 16px rgba(255,255,255,.5);}
+.hero .sub{font-size:1.06em;color:rgba(41,37,36,.85);text-shadow:0 1px 10px rgba(255,255,255,.4);line-height:1.9;}
 .hero .divider{width:48px;height:1px;background:var(--gold);margin:24px auto;}
 .hero .tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px;}
-.hero .tag{background:rgba(201,165,107,.14);border:1px solid rgba(201,165,107,.3);border-radius:999px;padding:4px 14px;font-size:.78em;color:var(--gold);}
+.hero .tag{background:rgba(180,83,9,.1);border:1px solid rgba(180,83,9,.25);border-radius:999px;padding:4px 14px;font-size:.78em;color:var(--gold);}
 .hero .stats{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
-.hero .stat{background:rgba(255,255,255,.06);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 20px;min-width:110px;}
+.hero .stat{background:rgba(255,255,255,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.7);border-radius:12px;padding:12px 20px;min-width:110px;}
 .hero .stat b{display:block;font-size:1.35em;color:var(--cream);}
-.hero .stat span{font-size:.72em;color:rgba(245,240,232,.6);}
+.hero .stat span{font-size:.72em;color:var(--cream-dim);}
 .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:1;color:var(--gold);font-size:.72em;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite;}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
 /* ===== Nav ===== */
-nav{position:sticky;top:0;z-index:50;background:rgba(22,18,16,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;gap:2px;justify-content:center;padding:10px 12px;flex-wrap:wrap;}
+nav{position:sticky;top:0;z-index:50;background:rgba(245,241,236,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;gap:2px;justify-content:center;padding:10px 12px;flex-wrap:wrap;}
 nav a{color:var(--muted);text-decoration:none;padding:7px 18px;border-radius:999px;font-size:.84em;font-weight:500;transition:color .2s,background .2s;}
-nav a:hover,nav a.active{color:var(--gold);background:rgba(201,165,107,.08);}
+nav a:hover,nav a.active{color:var(--gold);background:rgba(180,83,9,.08);}
 
 /* ===== Sections ===== */
 section{margin-top:64px;}
@@ -111,14 +112,14 @@ section{margin-top:64px;}
 .xj-wmeta{font-size:.76em;color:var(--muted);margin-bottom:12px;}
 #weather-map{height:460px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--card-shadow);}
 .xj-amap-marker{display:flex;flex-direction:column;align-items:center;}
-.xj-marker-label{background:rgba(30,25,22,.95);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:.72em;color:var(--cream);white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.4);line-height:1.4;}
+.xj-marker-label{background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:.72em;color:var(--cream);white-space:nowrap;box-shadow:0 1px 6px rgba(120,80,20,.12);line-height:1.4;}
 .xj-marker-label .tt-tmp{color:var(--gold);font-weight:700;}
 .xj-marker-stem{width:1px;height:6px;background:var(--gold);}
 .xj-marker-dot-wrap{position:relative;width:16px;height:16px;}
-.xj-marker-dot{width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid var(--cream);box-shadow:0 0 10px rgba(201,165,107,.5);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.xj-marker-dot{width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid #fff;box-shadow:0 0 8px rgba(180,83,9,.4);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
 .xj-marker-pulse{position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--gold);animation:xjpulse 2.2s ease-out infinite;opacity:0;}
 @keyframes xjpulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
-.xj-amap-info{background:rgba(30,25,22,.95);border:1px solid var(--line);color:var(--cream);font-size:.8em;padding:6px 12px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.4);white-space:nowrap;}
+.xj-amap-info{background:rgba(255,255,255,.95);border:1px solid var(--line);color:var(--cream);font-size:.8em;padding:6px 12px;border-radius:8px;box-shadow:0 1px 6px rgba(120,80,20,.12);white-space:nowrap;}
 .xj-amap-info .tt-tmp{color:var(--gold);font-weight:700;}
 .weather-detail{margin-top:16px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px 26px;box-shadow:var(--card-shadow);min-height:80px;transition:opacity .3s;}
 .weather-detail-empty{color:var(--muted);text-align:center;padding:24px;font-size:.86em;}
@@ -141,12 +142,12 @@ section{margin-top:64px;}
 .wlegend b.wl1{color:var(--gold);} .wlegend b.wl2{color:var(--cool);}
 
 /* ===== 看雪卡片 ===== */
-.snow-card{background:linear-gradient(135deg,#1a2a3a,#0d1f30);color:var(--cream);border-radius:18px;padding:28px 30px;margin-bottom:20px;border:1px solid rgba(201,165,107,.15);box-shadow:var(--card-shadow);}
+.snow-card{background:linear-gradient(135deg,#e8eef5,#dce6f0);color:var(--cream);border-radius:18px;padding:28px 30px;margin-bottom:20px;border:1px solid rgba(180,83,9,.12);box-shadow:var(--card-shadow);}
 .snow-card h3{font-size:1.1em;margin-bottom:8px;color:var(--cream);}
 .snow-prob{display:flex;align-items:baseline;gap:10px;margin:12px 0 8px;}
-.snow-prob b{font-size:2.4em;color:var(--gold-bright);line-height:1;}
+.snow-prob b{font-size:2.4em;color:var(--gold);line-height:1;}
 .snow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px;font-size:.86em;}
-.snow-grid div{background:rgba(255,255,255,.06);border-radius:10px;padding:10px 14px;color:rgba(245,240,232,.8);}
+.snow-grid div{background:rgba(255,255,255,.5);border-radius:10px;padding:10px 14px;color:var(--cream-dim);}
 .snow-grid div b{color:var(--cream);}
 
 /* ===== 历史气温表 ===== */
@@ -674,7 +675,7 @@ function buildMarkerContent(p){
   xjMap = new AMap.Map('weather-map', {
     center: [84.5, 46.2],
     zoom: 7,
-    mapStyle: 'amap://styles/dark',
+    mapStyle: 'amap://styles/normal',
     viewMode: '2D',
     features: ['bg','road','point','building']
   });
@@ -684,7 +685,7 @@ function buildMarkerContent(p){
   routePath.push(routePath[0]);
   new AMap.Polyline({
     path: routePath,
-    strokeColor: '#c9a56b',
+    strokeColor: '#b45309',
     strokeWeight: 2,
     strokeOpacity: 0.6,
     strokeStyle: 'dashed',
