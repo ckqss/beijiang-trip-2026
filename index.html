@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>我们的阿勒泰 · 国庆8人自驾</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
 :root{
   --bg:#161210; --bg2:#1e1916; --bg3:#28211c;
@@ -98,32 +99,40 @@ section{margin-top:64px;}
 .kinfo li b{color:var(--cream);}
 .kbd{display:inline-block;background:rgba(201,165,107,.12);border:1px solid rgba(201,165,107,.25);border-radius:6px;padding:1px 8px;font-size:.82em;font-weight:600;color:var(--gold);margin-right:3px;}
 
-/* ===== 天气 ===== */
+/* ===== 天气地图 ===== */
 .wbtn{display:inline-block;background:var(--gold);color:var(--bg);border:none;border-radius:8px;padding:6px 16px;font-size:.82em;font-weight:600;cursor:pointer;margin-left:10px;vertical-align:middle;transition:background .2s;}
 .wbtn:hover{background:var(--gold-bright);}
 .xj-wbox{margin-top:6px;}
 .xj-wloading,.xj-werr{color:var(--muted);padding:20px 0;font-size:.9em;}
 .xj-werr a{color:var(--gold);cursor:pointer;text-decoration:underline;}
-.xj-wmeta{font-size:.76em;color:var(--muted);margin-bottom:16px;}
-.xj-wtable{background:var(--bg2);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--card-shadow);}
-.xj-wrow{display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);transition:background .15s;}
-.xj-wrow:last-child{border-bottom:none;}
-.xj-wrow:hover{background:rgba(201,165,107,.04);}
-.xj-wplace{flex:0 0 110px;display:flex;flex-direction:column;gap:2px;}
-.xj-wpname{font-weight:700;color:var(--cream);font-size:.92em;}
-.xj-wpelev{font-size:.66em;color:var(--muted);}
-.xj-wnow{flex:0 0 80px;display:flex;align-items:center;gap:5px;}
-.xj-wnow .ico{font-size:1.25em;line-height:1;}
-.xj-wnow .tmp{font-size:1.25em;font-weight:700;color:var(--gold);line-height:1;}
-.xj-wdays{flex:1;display:flex;justify-content:space-around;gap:2px;}
-.xj-wd{text-align:center;font-size:.7em;min-width:48px;}
-.xj-wdd{display:block;font-size:.82em;color:var(--muted);margin-bottom:4px;font-weight:600;}
-.xj-wdi{display:block;font-size:1.25em;line-height:1;margin-bottom:4px;}
-.xj-wtemps{display:flex;flex-direction:column;align-items:center;gap:1px;}
-.xj-wh{color:var(--gold);font-weight:700;font-size:.88em;}
-.xj-wl{color:var(--cool);font-size:.8em;}
-.xj-wpop{display:block;font-size:.58em;color:var(--cool);margin-top:2px;min-height:1em;}
-@media(max-width:640px){.xj-wdays{overflow-x:auto;justify-content:flex-start;}}
+.xj-wmeta{font-size:.76em;color:var(--muted);margin-bottom:12px;}
+#weather-map{height:460px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--card-shadow);position:relative;}
+#weather-map .leaflet-container{background:var(--bg2);border-radius:16px;}
+#weather-map .leaflet-control-attribution{background:rgba(22,18,16,.8);color:var(--muted);font-size:.62em;}
+#weather-map .leaflet-control-attribution a{color:var(--gold-dim);}
+.xj-marker{position:relative;}
+.xj-marker-dot{width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid var(--cream);box-shadow:0 0 10px rgba(201,165,107,.5);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.xj-marker-pulse{position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--gold);animation:xjpulse 2.2s ease-out infinite;opacity:0;}
+@keyframes xjpulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.xj-map-tooltip{background:rgba(30,25,22,.95)!important;border:1px solid var(--line)!important;color:var(--cream)!important;font-size:.8em!important;padding:4px 10px!important;border-radius:8px!important;box-shadow:0 2px 8px rgba(0,0,0,.4)!important;}
+.xj-map-tooltip .tt-tmp{color:var(--gold);font-weight:700;}
+.weather-detail{margin-top:16px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:22px 26px;box-shadow:var(--card-shadow);min-height:80px;transition:opacity .3s;}
+.weather-detail-empty{color:var(--muted);text-align:center;padding:24px;font-size:.86em;}
+.wd-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+.wd-name{font-size:1.15em;font-weight:700;color:var(--cream);}
+.wd-elev{font-size:.72em;color:var(--muted);}
+.wd-now{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.wd-now .ico{font-size:1.5em;line-height:1;}
+.wd-now .tmp{font-size:1.5em;font-weight:700;color:var(--gold);line-height:1;}
+.wd-days{display:flex;gap:2px;justify-content:space-between;}
+.wd-day{flex:1;text-align:center;padding:10px 4px;border-radius:10px;font-size:.72em;transition:background .15s;}
+.wd-day:hover{background:rgba(201,165,107,.06);}
+.wd-day .d{display:block;font-size:.82em;color:var(--muted);margin-bottom:5px;font-weight:600;}
+.wd-day .i{display:block;font-size:1.4em;line-height:1;margin-bottom:6px;}
+.wd-day .h{display:block;color:var(--gold);font-weight:700;font-size:.9em;}
+.wd-day .l{display:block;color:var(--cool);font-size:.8em;}
+.wd-day .p{display:block;font-size:.6em;color:var(--cool);margin-top:3px;min-height:1em;}
+@media(max-width:640px){.wd-days{overflow-x:auto;justify-content:flex-start;}.wd-day{min-width:56px;flex:0 0 auto;}}
 .wlegend{font-size:.78em;color:var(--muted);margin:8px 0 16px;}
 .wlegend b.wl1{color:var(--gold);} .wlegend b.wl2{color:var(--cool);}
 
@@ -421,8 +430,11 @@ footer .heart{color:var(--red);}
   <div class="sec-label">Weather</div>
   <h2 class="sec-title">实时天气与看雪<span style="font-size:.55em;color:var(--muted);font-weight:400;margin-left:8px;">每 30 分钟自动刷新</span><button class="wbtn" id="xj-wrefresh">现在刷新</button></h2>
   <p class="sec-desc">各地点的实时气温和未来 7 天预报，打开页面自动拉取。国庆那几天（9.29–10.6）的精确预报要到出发前一周左右才会出现，到时候这里会自动显示。</p>
-  <div class="wlegend">每格从上到下：星期 · 天气图标 · <b class="wl1">白天最高</b> / <b class="wl2">夜晚最低</b>，降水概率 ≥30% 才显示</div>
-  <div class="xj-wbox" id="xj-wbox"><p class="xj-wloading">正在拉取最新气象数据…</p></div>
+  <div class="xj-wmeta" id="xj-wmeta">正在拉取最新气象数据…</div>
+  <div id="weather-map"></div>
+  <div class="weather-detail" id="weather-detail">
+    <div class="weather-detail-empty">点击地图上的金色圆点，查看该地点的 7 天详细预报</div>
+  </div>
 
   <div class="snow-card">
     <h3>能不能看到雪？概率不低，而且可能是「金秋 + 初雪」一起出现</h3>
@@ -591,6 +603,7 @@ footer .heart{color:var(--red);}
 
 </div>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 /* ===== 滚动渐显 ===== */
 (function(){
@@ -638,72 +651,108 @@ function xjWmo(c){
   };
   return m[c] || ['—','🌡️'];
 }
+/* ===== 天气地图：Leaflet + Open-Meteo ===== */
+var xjWeatherData = null;
+var xjMarkers = [];
+
+(function initMap(){
+  var map = L.map('weather-map', {center:[46.2, 84.5], zoom:7, zoomControl:false, attributionControl:true});
+  L.control.zoom({position:'topright'}).addTo(map);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution:'&copy; OpenStreetMap &copy; CartoDB', maxZoom:18
+  }).addTo(map);
+
+  var goldIcon = L.divIcon({
+    className:'xj-marker',
+    html:'<div class="xj-marker-dot"></div><div class="xj-marker-pulse"></div>',
+    iconSize:[20,20], iconAnchor:[10,10]
+  });
+
+  XJ_PLACES.forEach(function(p, i){
+    var marker = L.marker([p.lat, p.lon], {icon:goldIcon}).addTo(map);
+    marker.bindTooltip(p.n, {direction:'top', offset:[0,-14], className:'xj-map-tooltip'});
+    marker.on('click', function(){ xjShowDetail(i); });
+    xjMarkers.push(marker);
+  });
+})();
+
+function xjDayLabel(t, tk, mk, ak){
+  if(t===tk) return '今天';
+  if(t===mk) return '明天';
+  if(t===ak) return '后天';
+  var wkArr = ['日','一','二','三','四','五','六'];
+  var dd = new Date(t+'T00:00:00');
+  return '周'+(wkArr[dd.getDay()]||'');
+}
+
+function xjShowDetail(i){
+  if(!xjWeatherData) return;
+  var d = xjWeatherData[i], p = XJ_PLACES[i];
+  var cur = d.current || {}, w = xjWmo(cur.weather_code);
+  var days = d.daily || {};
+  var times = days.time||[], maxs = days.temperature_2m_max||[], mins = days.temperature_2m_min||[];
+  var wcs = days.weather_code||[], pops = days.precipitation_probability_max||[];
+
+  var nd = new Date();
+  function dk(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
+  var tk = dk(nd), mk = dk(new Date(nd.getTime()+86400000)), ak = dk(new Date(nd.getTime()+2*86400000));
+
+  var dhtml = '';
+  for(var j=0; j<times.length; j++){
+    var dw = xjWmo(wcs[j]);
+    var pop = (pops[j]||0);
+    var popTxt = (pop>=30) ? (pop+'%') : '';
+    dhtml += '<div class="wd-day">'
+      + '<span class="d">'+xjDayLabel(times[j],tk,mk,ak)+'</span>'
+      + '<span class="i">'+dw[1]+'</span>'
+      + '<span class="h">'+(maxs[j]!=null?Math.round(maxs[j])+'°':'—')+'</span>'
+      + '<span class="l">'+(mins[j]!=null?Math.round(mins[j])+'°':'—')+'</span>'
+      + '<span class="p">'+popTxt+'</span>'
+      + '</div>';
+  }
+
+  var nowStr = (cur.temperature_2m!=null) ? Math.round(cur.temperature_2m)+'' : '—';
+  var panel = document.getElementById('weather-detail');
+  panel.innerHTML = '<div class="wd-head">'
+    + '<div><span class="wd-name">'+p.n+'</span> <span class="wd-elev">'+p.elev+'m</span></div>'
+    + '<div class="wd-now"><span class="ico">'+w[1]+'</span><span class="tmp">'+nowStr+'°</span></div>'
+    + '</div>'
+    + '<div class="wd-days">'+dhtml+'</div>';
+  panel.style.opacity = '0';
+  setTimeout(function(){ panel.style.opacity = '1'; }, 50);
+}
+
 function xjLoadWeather(){
-  var box = document.getElementById('xj-wbox');
-  if(!box) return;
-  box.innerHTML = '<p class="xj-wloading">正在拉取最新气象数据…</p>';
+  var meta = document.getElementById('xj-wmeta');
+  meta.textContent = '正在拉取最新气象数据…';
+
   var lats = XJ_PLACES.map(function(p){return p.lat}).join(',');
   var lons = XJ_PLACES.map(function(p){return p.lon}).join(',');
   var elevs = XJ_PLACES.map(function(p){return p.elev}).join(',');
   var url = 'https://api.open-meteo.com/v1/forecast?latitude='+lats+'&longitude='+lons+'&elevation='+elevs+
     '&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'+
     '&current=temperature_2m,weather_code,is_day&timezone=Asia%2FShanghai&forecast_days=7';
-  var nd = new Date();
-  function dk(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
-  var todayKey = dk(nd), tomKey = dk(new Date(nd.getTime()+86400000)), aftKey = dk(new Date(nd.getTime()+2*86400000));
-  var wkArr = ['日','一','二','三','四','五','六'];
-  function dayLabel(t){
-    if(t===todayKey) return '今天';
-    if(t===tomKey) return '明天';
-    if(t===aftKey) return '后天';
-    var dd = new Date(t+'T00:00:00');
-    return '周'+(wkArr[dd.getDay()]||'');
-  }
+
   fetch(url).then(function(r){return r.json()}).then(function(data){
     if(!Array.isArray(data)){ data = [data]; }
-    var rows = '';
-    data.forEach(function(d,i){
-      var p = XJ_PLACES[i] || {n:'地点'+(i+1), elev:''};
+    xjWeatherData = data;
+
+    data.forEach(function(d, i){
       var cur = d.current || {};
+      var temp = cur.temperature_2m;
       var w = xjWmo(cur.weather_code);
-      var nowTmp = cur.temperature_2m;
-      var days = d.daily || {};
-      var times = days.time || [];
-      var maxs = days.temperature_2m_max || [];
-      var mins = days.temperature_2m_min || [];
-      var wcs = days.weather_code || [];
-      var pops = days.precipitation_probability_max || [];
-      var dhtml = '';
-      for(var j=0; j<times.length; j++){
-        var dw = xjWmo(wcs[j]);
-        var pop = (pops[j]||0);
-        var popTxt = (pop>=30) ? (pop+'%') : '';
-        dhtml += '<div class="xj-wd">'
-          + '<span class="xj-wdd">'+dayLabel(times[j])+'</span>'
-          + '<span class="xj-wdi">'+dw[1]+'</span>'
-          + '<div class="xj-wtemps">'
-          + '<span class="xj-wh">'+(maxs[j]!=null?Math.round(maxs[j])+'°':'—')+'</span>'
-          + '<span class="xj-wl">'+(mins[j]!=null?Math.round(mins[j])+'°':'—')+'</span>'
-          + '</div>'
-          + '<span class="xj-wpop">'+popTxt+'</span>'
-          + '</div>';
+      if(xjMarkers[i]){
+        xjMarkers[i].setTooltipContent(
+          XJ_PLACES[i].n + ' <span class="tt-tmp">' + (temp!=null?Math.round(temp)+'°':'—') + '</span> ' + w[0]
+        );
       }
-      var nowStr = (nowTmp!=null) ? Math.round(nowTmp)+'' : '—';
-      rows += '<div class="xj-wrow">'
-        + '<div class="xj-wplace"><span class="xj-wpname">'+p.n+'</span><span class="xj-wpelev">'+p.elev+'m</span></div>'
-        + '<div class="xj-wnow"><span class="ico">'+w[1]+'</span><span class="tmp">'+nowStr+'°</span></div>'
-        + '<div class="xj-wdays">'+dhtml+'</div>'
-        + '</div>';
     });
+
     var t = new Date();
     var ts = String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0');
-    var html = '<div class="xj-wmeta">更新于 '+ts+' · 数据来源 Open-Meteo（各国官方气象模型聚合，海拔已修正至城镇实际高度）</div>'
-      + '<div class="xj-wtable">'+rows+'</div>';
-    box.innerHTML = html;
+    meta.textContent = '更新于 '+ts+' · 数据来源 Open-Meteo（各国官方气象模型聚合，海拔已修正）';
   }).catch(function(){
-    box.innerHTML = '<p class="xj-werr">暂时拉不到数据，<a id="xj-wretry">点这里重试</a></p>';
-    var rt = document.getElementById('xj-wretry');
-    if(rt) rt.addEventListener('click', xjLoadWeather);
+    meta.textContent = '暂时拉不到数据，点「现在刷新」重试';
   });
 }
 document.getElementById('xj-wrefresh').addEventListener('click', xjLoadWeather);
