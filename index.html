@@ -658,9 +658,20 @@ var xjMarkers = [];
 (function initMap(){
   var map = L.map('weather-map', {center:[46.2, 84.5], zoom:7, zoomControl:false, attributionControl:true});
   L.control.zoom({position:'topright'}).addTo(map);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution:'&copy; OpenStreetMap &copy; CartoDB', maxZoom:18
+
+  // Esri 卫星图（免费，无需 key）
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution:'Esri, Maxar, Earthstar Geographics', maxZoom:18
   }).addTo(map);
+  // Esri 地名标注层
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom:18, opacity:.7
+  }).addTo(map);
+
+  // 行程路线连线
+  var routeCoords = XJ_PLACES.map(function(p){ return [p.lat, p.lon]; });
+  routeCoords.push(routeCoords[0]); // 闭环
+  L.polyline(routeCoords, {color:'#c9a56b', weight:2, opacity:.6, dashArray:'8,6'}).addTo(map);
 
   var goldIcon = L.divIcon({
     className:'xj-marker',
