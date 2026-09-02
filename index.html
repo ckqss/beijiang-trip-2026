@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>我们的阿勒泰 · 国庆8人自驾</title>
 <script>
 window._AMapSecurityConfig = { securityJsCode: 'aea6a6ade26219808038027c12cedf9e' };
@@ -10,357 +10,341 @@ window._AMapSecurityConfig = { securityJsCode: 'aea6a6ade26219808038027c12cedf9e
 <script src="https://webapi.amap.com/maps?v=2.0&key=4c0ace67c0e121bac92b6f8badbb514e"></script>
 <style>
 :root{
-  --bg:#f2efe9;
-  --gold:#b45309; --gold-bright:#d97706; --gold-dim:#92400e;
-  --amber:#d97706; --amber-deep:#b45309;
-  --cream:#292524; --cream-dim:#57534e; --muted:#8a8075;
-  --red:#c05656; --green:#5a9e6f; --cool:#0ea5e9;
-  /* 液态玻璃 */
-  --glass:rgba(255,255,255,.42);
-  --glass-strong:rgba(255,255,255,.6);
-  --glass-border:rgba(255,255,255,.7);
-  --glass-hi:inset 0 1px 0 rgba(255,255,255,.85);
-  --shadow-sm:0 1px 2px rgba(120,80,20,.04),0 4px 16px rgba(120,80,20,.06);
-  --shadow-md:0 2px 4px rgba(120,80,20,.05),0 12px 40px rgba(120,80,20,.1);
-  --shadow-lg:0 4px 8px rgba(120,80,20,.06),0 20px 60px rgba(120,80,20,.12);
+  --bg:#f4f0e8;
+  --ink:#26221d; --ink-2:#57503f; --muted:#8a8072;
+  --gold:#b45309; --gold-2:#d97706; --gold-soft:rgba(180,83,9,.09);
+  --red:#b8503f; --green:#4f8f66; --cool:#0e7ea8;
+  --card:#fffdf8;
+  --line:rgba(120,90,40,.12);
+  --sh-sm:0 1px 2px rgba(90,60,20,.05),0 4px 14px rgba(90,60,20,.06);
+  --sh-md:0 2px 6px rgba(90,60,20,.06),0 14px 36px rgba(90,60,20,.1);
+  --r-lg:20px; --r-md:14px;
+  --tabbar-h:60px;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 html{scroll-behavior:smooth;}
 body{
   font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
-  color:var(--cream);line-height:1.8;
-  background:
-    radial-gradient(ellipse 90% 50% at 15% -5%,rgba(217,119,6,.08),transparent),
-    radial-gradient(ellipse 70% 45% at 85% 15%,rgba(14,165,233,.05),transparent),
-    radial-gradient(ellipse 60% 50% at 40% 60%,rgba(180,83,9,.05),transparent),
-    radial-gradient(ellipse 80% 40% at 70% 95%,rgba(201,165,107,.07),transparent),
-    var(--bg);
-  background-attachment:fixed;
+  color:var(--ink);line-height:1.75;background:var(--bg);
 }
-.wrap{max-width:960px;margin:0 auto;padding:0 24px 80px;}
-
-/* ===== 液态玻璃基类 ===== */
-.glass{
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-sm),var(--glass-hi);
-}
+.wrap{max-width:920px;margin:0 auto;padding:0 18px 100px;}
+img{max-width:100%;}
+b{color:var(--ink);}
 
 /* ===== 滚动渐显 ===== */
-.fade-up{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
 /* ===== Hero ===== */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat;filter:brightness(.68) saturate(1.1);}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(20,15,10,.25),rgba(20,15,10,.45));}
-.hero-content{position:relative;z-index:1;padding:40px 24px;max-width:700px;}
-.hero-kicker{font-size:.78em;letter-spacing:.28em;color:var(--gold-bright);text-transform:uppercase;margin-bottom:16px;}
-.hero h1{font-size:clamp(2.4em,6.5vw,4.2em);letter-spacing:.06em;font-weight:700;color:#fff;margin-bottom:14px;text-shadow:0 2px 24px rgba(0,0,0,.5);}
-.hero .sub{font-size:1.06em;color:rgba(255,255,255,.88);text-shadow:0 1px 12px rgba(0,0,0,.4);line-height:1.9;}
-.hero .divider{width:48px;height:1px;background:var(--gold-bright);margin:24px auto;}
-.hero .tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:28px;}
-.hero .tag{
-  background:rgba(255,255,255,.1);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:999px;padding:5px 16px;font-size:.78em;color:var(--gold-bright);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.15);
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('hero.jpg') center/cover no-repeat;filter:brightness(.72) saturate(1.08);}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,18,10,.18) 0%,rgba(24,18,10,.05) 38%,rgba(24,18,10,.62) 100%);}
+.hero-in{position:relative;z-index:1;width:100%;max-width:920px;margin:0 auto;padding:0 22px calc(28px + env(safe-area-inset-bottom));}
+.hero-kicker{font-size:.72rem;letter-spacing:.3em;color:#f0b25c;text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+.hero h1{font-size:clamp(2.3rem,9vw,3.8rem);letter-spacing:.05em;font-weight:700;color:#fff;line-height:1.2;text-shadow:0 2px 20px rgba(0,0,0,.45);}
+.hero .sub{margin-top:10px;font-size:.95rem;color:rgba(255,255,255,.9);text-shadow:0 1px 10px rgba(0,0,0,.4);line-height:1.8;}
+/* 路线带：首屏即总览 */
+.route-strip{margin-top:22px;padding:16px 4px 8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.route-strip::-webkit-scrollbar{display:none;}
+.route-track{display:flex;align-items:flex-start;min-width:max-content;padding:0 6px;}
+.rnode{display:flex;flex-direction:column;align-items:center;width:74px;flex:0 0 auto;}
+.rnode .dot{width:13px;height:13px;border-radius:50%;background:#f0b25c;border:2.5px solid rgba(255,255,255,.9);box-shadow:0 0 10px rgba(240,178,92,.55);}
+.rnode .dn{margin-top:7px;font-size:.62rem;color:#f0b25c;font-weight:700;letter-spacing:.05em;}
+.rnode .pn{font-size:.72rem;color:rgba(255,255,255,.92);white-space:nowrap;margin-top:1px;}
+.rline{flex:0 0 auto;width:26px;height:2px;background:linear-gradient(90deg,rgba(240,178,92,.85),rgba(240,178,92,.35));margin-top:6px;}
+.hero-stats{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap;}
+.hero-stat{
+  flex:1;min-width:72px;text-align:center;padding:10px 8px;border-radius:14px;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.16);
 }
-.hero .stats{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
-.hero .stat{
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(16px) saturate(140%);
-  -webkit-backdrop-filter:blur(16px) saturate(140%);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:16px;padding:14px 22px;min-width:110px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 4px 16px rgba(0,0,0,.15);
+.hero-stat b{display:block;font-size:1.02rem;color:#fff;}
+.hero-stat span{font-size:.66rem;color:rgba(255,255,255,.66);}
+
+/* ===== 桌面顶导航（移动端隐藏，用底部标签栏） ===== */
+.topnav{display:none;}
+
+/* ===== 底部标签栏（移动端） ===== */
+.tabbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:60;
+  display:flex;justify-content:space-around;
+  background:rgba(250,247,240,.86);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);
+  border-top:1px solid var(--line);
+  padding:6px 4px calc(6px + env(safe-area-inset-bottom));
 }
-.hero .stat b{display:block;font-size:1.35em;color:#fff;}
-.hero .stat span{font-size:.72em;color:rgba(255,255,255,.65);}
-.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:1;color:var(--gold-bright);font-size:.72em;letter-spacing:.2em;animation:bob 2.2s ease-in-out infinite;}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-
-/* ===== Nav ===== */
-nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(242,239,233,.65);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border-bottom:1px solid rgba(255,255,255,.5);
-  box-shadow:0 1px 12px rgba(120,80,20,.05);
-  display:flex;gap:2px;justify-content:center;padding:10px 12px;flex-wrap:wrap;
+.tabbar a{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  text-decoration:none;color:var(--muted);font-size:.64rem;font-weight:600;
+  padding:4px 10px;border-radius:12px;min-width:56px;transition:color .2s;
 }
-nav a{color:var(--muted);text-decoration:none;padding:7px 18px;border-radius:999px;font-size:.84em;font-weight:500;transition:all .25s;}
-nav a:hover,nav a.active{color:var(--gold);background:rgba(255,255,255,.5);box-shadow:0 1px 4px rgba(120,80,20,.06);}
+.tabbar a .ic{font-size:1.12rem;line-height:1;}
+.tabbar a.active{color:var(--gold);}
+.tabbar a.active .ic{transform:translateY(-1px);}
+.tabbar a{transition:all .2s;}
 
-/* ===== Sections ===== */
-section{margin-top:64px;}
-.sec-label{font-size:.72em;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;margin-bottom:6px;}
-.sec-title{font-size:1.6em;font-weight:700;color:var(--cream);margin-bottom:6px;letter-spacing:.02em;}
-.sec-desc{color:var(--muted);font-size:.9em;margin-bottom:28px;}
-.sec-line{width:40px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-bright));margin:0 0 32px;border-radius:2px;}
-
-/* ===== 总览表格 ===== */
-.tblwrap{
-  overflow-x:auto;border-radius:20px;
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-md),var(--glass-hi);
+@media(min-width:861px){
+  .tabbar{display:none;}
+  .topnav{
+    display:flex;position:sticky;top:0;z-index:50;gap:2px;justify-content:center;flex-wrap:wrap;
+    background:rgba(244,240,232,.82);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);
+    border-bottom:1px solid var(--line);padding:10px 12px;
+  }
+  .topnav a{color:var(--muted);text-decoration:none;padding:7px 18px;border-radius:999px;font-size:.84rem;font-weight:600;transition:all .25s;}
+  .topnav a:hover,.topnav a.active{color:var(--gold);background:#fff;box-shadow:var(--sh-sm);}
+  .wrap{padding-bottom:70px;}
 }
-.tbl{width:100%;border-collapse:collapse;font-size:.86em;background:transparent;}
-.tbl th{background:rgba(255,255,255,.35);color:var(--gold);padding:14px 16px;text-align:left;font-weight:600;white-space:nowrap;font-size:.82em;letter-spacing:.04em;border-bottom:1px solid rgba(180,140,80,.12);}
-.tbl td{padding:12px 16px;border-bottom:1px solid rgba(180,140,80,.08);vertical-align:top;color:var(--cream-dim);}
-.tbl td:last-child{white-space:nowrap;}
-.tbl tr:last-child td{border-bottom:none;}
-.tbl tr:hover td{background:rgba(255,255,255,.3);}
-.tbl td:first-child{color:var(--cream);font-weight:600;white-space:nowrap;}
 
-/* ===== 每日行程 ===== */
+/* ===== 通用 Section ===== */
+section{margin-top:56px;scroll-margin-top:20px;}
+@media(min-width:861px){section{scroll-margin-top:70px;}}
+.sec-label{font-size:.68rem;letter-spacing:.24em;color:var(--gold);text-transform:uppercase;font-weight:700;}
+.sec-title{font-size:1.45rem;font-weight:700;margin:4px 0 4px;}
+.sec-desc{color:var(--muted);font-size:.86rem;margin-bottom:20px;}
+
+/* ===== 总览：横滑日卡 ===== */
+.ov-scroll{
+  display:flex;gap:12px;overflow-x:auto;padding:4px 2px 16px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.ov-scroll::-webkit-scrollbar{display:none;}
+.ov-card{
+  flex:0 0 236px;scroll-snap-align:start;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:16px 16px 14px;box-shadow:var(--sh-sm);
+  display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:transform .25s,box-shadow .25s;
+}
+.ov-card:active{transform:scale(.98);}
+.ov-top{display:flex;align-items:center;gap:8px;}
+.ov-day{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;font-size:.68rem;font-weight:700;border-radius:8px;padding:3px 9px;letter-spacing:.04em;}
+.ov-date{font-size:.74rem;color:var(--muted);font-weight:600;}
+.ov-route{font-size:.92rem;font-weight:700;line-height:1.5;flex:1;}
+.ov-meta{display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;}
+.ov-meta .nt{color:var(--cool);font-weight:600;}
+.ov-hint{text-align:center;font-size:.7rem;color:var(--muted);margin-top:-6px;}
+
+/* ===== 地图 ===== */
+.map-shell{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-md);}
+#map{height:68vh;min-height:440px;}
+.map-mask{position:absolute;left:0;right:0;top:0;z-index:5;pointer-events:none;
+  background:linear-gradient(180deg,rgba(38,30,18,.32),transparent 22%);
+  padding:14px 16px;color:#fff;}
+.map-mask .t{font-size:.95rem;font-weight:700;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+.map-mask .s{font-size:.7rem;color:rgba(255,255,255,.85);text-shadow:0 1px 6px rgba(0,0,0,.5);}
+/* 地图标记 */
+.xj-mk{display:flex;flex-direction:column;align-items:center;filter:drop-shadow(0 3px 6px rgba(40,25,5,.3));}
+.xj-mk-label{
+  background:rgba(255,253,248,.94);border:1px solid rgba(180,140,80,.35);
+  border-radius:9px;padding:3px 9px;font-size:.7rem;color:var(--ink);white-space:nowrap;line-height:1.4;font-weight:600;
+}
+.xj-mk-label .dt{color:var(--gold);font-weight:800;margin-right:3px;}
+.xj-mk-label .tt-tmp{color:var(--cool);font-weight:800;}
+.xj-mk-stem{width:1.5px;height:6px;background:var(--gold);}
+.xj-mk-dot{width:12px;height:12px;background:var(--gold);border-radius:50%;border:2.5px solid #fff;}
+/* 底部弹层 */
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:var(--card);border-radius:22px 22px 0 0;
+  box-shadow:0 -8px 40px rgba(40,25,5,.22);
+  transform:translateY(105%);transition:transform .38s cubic-bezier(.32,.72,.28,1);
+  max-height:78svh;display:flex;flex-direction:column;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.sheet.open{transform:translateY(0);}
+.sheet-grab{padding:10px 0 4px;display:flex;justify-content:center;cursor:pointer;flex:0 0 auto;}
+.sheet-grab i{width:40px;height:4.5px;border-radius:99px;background:rgba(120,90,40,.28);}
+.sheet-body{overflow-y:auto;padding:4px 20px 26px;-webkit-overflow-scrolling:touch;}
+.sheet-day{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;font-size:.68rem;font-weight:700;border-radius:8px;padding:3px 10px;letter-spacing:.05em;}
+.sheet-title{font-size:1.08rem;font-weight:800;margin:8px 0 2px;line-height:1.5;}
+.sheet-route{font-size:.78rem;color:var(--muted);margin-bottom:12px;}
+.sheet-kv{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.sheet-kv span{font-size:.72rem;background:var(--gold-soft);color:var(--gold);border-radius:8px;padding:4px 10px;font-weight:600;}
+.sheet-sec{font-size:.7rem;letter-spacing:.14em;color:var(--muted);font-weight:700;margin:14px 0 8px;text-transform:uppercase;}
+.sheet-w{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
+.sheet-w::-webkit-scrollbar{display:none;}
+.sheet-wd{flex:0 0 58px;text-align:center;background:rgba(180,83,9,.05);border:1px solid rgba(180,83,9,.08);border-radius:12px;padding:8px 2px;font-size:.66rem;color:var(--muted);}
+.sheet-wd .i{display:block;font-size:1.15rem;line-height:1.4;}
+.sheet-wd .h{display:block;color:var(--gold);font-weight:800;font-size:.78rem;}
+.sheet-wd .l{display:block;color:var(--cool);font-size:.72rem;}
+.sheet-tips{list-style:none;font-size:.84rem;color:var(--ink-2);}
+.sheet-tips li{padding:5px 0 5px 16px;position:relative;}
+.sheet-tips li::before{content:"";position:absolute;left:2px;top:13px;width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.sheet-tips li b{color:var(--gold);}
+.sheet-more{
+  display:block;text-align:center;margin-top:16px;padding:11px;border-radius:12px;
+  background:var(--ink);color:#f5efe4;text-decoration:none;font-size:.84rem;font-weight:700;
+}
+.sheet-mask{position:fixed;inset:0;z-index:65;background:rgba(30,22,12,.35);opacity:0;pointer-events:none;transition:opacity .3s;}
+.sheet-mask.open{opacity:1;pointer-events:auto;}
+
+/* ===== 每日行程卡 ===== */
 .day{
-  border-radius:22px;margin-bottom:24px;overflow:hidden;
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-md),var(--glass-hi);
-  transition:transform .35s,box-shadow .35s;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  box-shadow:var(--sh-sm);margin-bottom:18px;overflow:hidden;scroll-margin-top:20px;
 }
-.day:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg),var(--glass-hi);}
-.day-head{display:flex;align-items:center;gap:14px;padding:20px 24px;background:rgba(255,255,255,.25);border-bottom:1px solid rgba(180,140,80,.1);flex-wrap:wrap;}
-.day-num{background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:#fff;border-radius:10px;padding:6px 14px;font-weight:700;white-space:nowrap;font-size:.82em;letter-spacing:.04em;box-shadow:0 2px 8px rgba(180,83,9,.25);}
-.day-title{font-size:1.08em;font-weight:700;color:var(--cream);flex:1;min-width:200px;}
-.day-km{font-size:.8em;color:var(--muted);white-space:nowrap;}
-.day-body{padding:22px 24px;display:grid;grid-template-columns:1.35fr 1fr;gap:24px;}
+.day-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(180,83,9,.045),transparent);flex-wrap:wrap;}
+.day-num{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;border-radius:9px;padding:5px 12px;font-weight:800;white-space:nowrap;font-size:.78rem;letter-spacing:.04em;}
+.day-title{font-size:1rem;font-weight:800;flex:1;min-width:200px;line-height:1.5;}
+.day-km{font-size:.74rem;color:var(--muted);white-space:nowrap;font-weight:600;}
+.day-body{padding:18px;display:grid;grid-template-columns:1.35fr 1fr;gap:20px;}
 @media(max-width:760px){.day-body{grid-template-columns:1fr;}}
 .tl{list-style:none;}
-.tl li{position:relative;padding:0 0 16px 28px;color:var(--cream-dim);font-size:.92em;}
-.tl li::before{content:"";position:absolute;left:6px;top:10px;width:6px;height:6px;background:var(--gold);border-radius:50%;box-shadow:0 0 6px rgba(180,83,9,.4);}
-.tl li::after{content:"";position:absolute;left:8.5px;top:20px;bottom:-2px;width:1px;background:rgba(180,140,80,.15);}
+.tl li{position:relative;padding:0 0 14px 26px;color:var(--ink-2);font-size:.9rem;}
+.tl li::before{content:"";position:absolute;left:5px;top:10px;width:6px;height:6px;background:var(--gold);border-radius:50%;}
+.tl li::after{content:"";position:absolute;left:7.5px;top:20px;bottom:-2px;width:1px;background:var(--line);}
 .tl li:last-child::after{display:none;}
 .tl li:last-child{padding-bottom:0;}
 .tl b{color:var(--gold);}
-.side{display:flex;flex-direction:column;gap:10px;}
-.chip{
-  border-radius:14px;padding:12px 16px;font-size:.86em;
-  background:rgba(255,255,255,.4);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.5);
-  color:var(--cream-dim);
-  box-shadow:0 1px 4px rgba(120,80,20,.04),inset 0 1px 0 rgba(255,255,255,.6);
-}
-.chip .lab{font-weight:600;margin-right:6px;color:var(--gold);}
+.side{display:flex;flex-direction:column;gap:9px;}
+.chip{border-radius:var(--r-md);padding:11px 14px;font-size:.84rem;background:rgba(180,83,9,.04);border:1px solid var(--line);color:var(--ink-2);}
+.chip .lab{font-weight:700;margin-right:6px;color:var(--gold);}
 .chip.hotel{border-left:3px solid var(--cool);}
 .chip.food{border-left:3px solid var(--gold);}
 .chip.tip{border-left:3px solid var(--green);}
 .chip.warn{border-left:3px solid var(--red);}
 .must{color:var(--red);font-weight:700;}
-.pill{display:inline-block;background:rgba(192,86,86,.12);color:var(--red);border-radius:999px;padding:1px 10px;font-size:.74em;font-weight:600;margin-left:6px;vertical-align:middle;}
+.pill{display:inline-block;background:rgba(184,80,63,.12);color:var(--red);border-radius:999px;padding:1px 10px;font-size:.7rem;font-weight:700;margin-left:6px;vertical-align:middle;}
 
-/* ===== 关键信息 ===== */
-.kinfo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
-.kinfo{
-  border-radius:20px;padding:22px 24px;
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-sm),var(--glass-hi);
-  transition:transform .3s,box-shadow .3s;
-}
-.kinfo:hover{transform:translateY(-2px);box-shadow:var(--shadow-md),var(--glass-hi);}
-.kinfo h3{color:var(--gold);font-size:1em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(180,140,80,.12);letter-spacing:.02em;}
-.kinfo ul{list-style:none;}
-.kinfo li{padding:6px 0;font-size:.88em;color:var(--cream-dim);}
-.kinfo li b{color:var(--cream);}
-.kbd{display:inline-block;background:rgba(180,83,9,.08);border:1px solid rgba(180,83,9,.15);border-radius:6px;padding:1px 8px;font-size:.82em;font-weight:600;color:var(--gold);margin-right:3px;}
+/* ===== 表格 ===== */
+.tblwrap{overflow-x:auto;border-radius:var(--r-lg);background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-sm);}
+.tbl{width:100%;border-collapse:collapse;font-size:.84rem;}
+.tbl th{background:rgba(180,83,9,.06);color:var(--gold);padding:12px 14px;text-align:left;font-weight:700;white-space:nowrap;font-size:.78rem;}
+.tbl td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
 
-/* ===== 天气地图 ===== */
-.wbtn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:#fff;border:none;border-radius:10px;padding:6px 16px;font-size:.82em;font-weight:600;cursor:pointer;margin-left:10px;vertical-align:middle;transition:all .25s;box-shadow:0 2px 8px rgba(180,83,9,.2);}
-.wbtn:hover{box-shadow:0 4px 16px rgba(180,83,9,.3);transform:translateY(-1px);}
-.xj-wmeta{font-size:.76em;color:var(--muted);margin-bottom:12px;}
-#weather-map{
-  height:460px;border-radius:20px;overflow:hidden;
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-md),var(--glass-hi);
+/* ===== 卡片网格 ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;}
+.kcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-sm);}
+.kcard h3{color:var(--gold);font-size:.95rem;margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--line);}
+.kcard ul{list-style:none;}
+.kcard li{padding:5px 0;font-size:.86rem;color:var(--ink-2);}
+.kbd{display:inline-block;background:var(--gold-soft);border:1px solid rgba(180,83,9,.18);border-radius:6px;padding:1px 8px;font-size:.8rem;font-weight:700;color:var(--gold);margin-right:3px;}
+
+/* ===== 天气区 ===== */
+.wbtn{display:inline-block;background:var(--ink);color:#f5efe4;border:none;border-radius:10px;padding:7px 16px;font-size:.8rem;font-weight:700;cursor:pointer;margin-left:10px;vertical-align:middle;}
+.wmeta{font-size:.74rem;color:var(--muted);margin-bottom:12px;}
+.wplaces{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:9px;margin-bottom:18px;}
+.wp{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:11px 10px;text-align:center;cursor:pointer;transition:all .2s;box-shadow:var(--sh-sm);
 }
-.xj-amap-marker{display:flex;flex-direction:column;align-items:center;}
-.xj-marker-label{
-  background:rgba(255,255,255,.78);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.85);
-  border-radius:8px;padding:4px 10px;font-size:.72em;color:var(--cream);white-space:nowrap;
-  box-shadow:0 2px 8px rgba(120,80,20,.1),inset 0 1px 0 rgba(255,255,255,.9);
-  line-height:1.4;
-}
-.xj-marker-label .tt-tmp{color:var(--gold);font-weight:700;}
-.xj-marker-stem{width:1px;height:6px;background:var(--gold);}
-.xj-marker-dot-wrap{position:relative;width:16px;height:16px;}
-.xj-marker-dot{width:12px;height:12px;background:var(--gold);border-radius:50%;border:2px solid #fff;box-shadow:0 0 8px rgba(180,83,9,.4);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-.xj-marker-pulse{position:absolute;top:50%;left:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;border:2px solid var(--gold);animation:xjpulse 2.2s ease-out infinite;opacity:0;}
-@keyframes xjpulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
-.xj-amap-info{background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.9);color:var(--cream);font-size:.8em;padding:6px 12px;border-radius:8px;box-shadow:0 2px 8px rgba(120,80,20,.1);white-space:nowrap;}
-.xj-amap-info .tt-tmp{color:var(--gold);font-weight:700;}
-.weather-detail{
-  margin-top:16px;border-radius:20px;padding:22px 26px;min-height:80px;transition:opacity .3s;
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-md),var(--glass-hi);
-}
-.weather-detail-empty{color:var(--muted);text-align:center;padding:24px;font-size:.86em;}
-.wd-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
-.wd-name{font-size:1.15em;font-weight:700;color:var(--cream);}
-.wd-elev{font-size:.72em;color:var(--muted);}
+.wp:active{transform:scale(.96);}
+.wp.sel{border-color:var(--gold);background:var(--gold-soft);}
+.wp .n{font-size:.78rem;font-weight:700;}
+.wp .t{font-size:1.06rem;font-weight:800;color:var(--gold);margin-top:2px;}
+.wp .w{font-size:.66rem;color:var(--muted);}
+.wdetail{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;box-shadow:var(--sh-sm);min-height:80px;}
+.wdetail-empty{color:var(--muted);text-align:center;padding:22px;font-size:.85rem;}
+.wd-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.wd-name{font-size:1.1rem;font-weight:800;}
+.wd-elev{font-size:.7rem;color:var(--muted);}
 .wd-now{display:flex;align-items:center;gap:6px;margin-left:auto;}
-.wd-now .ico{font-size:1.5em;line-height:1;}
-.wd-now .tmp{font-size:1.5em;font-weight:700;color:var(--gold);line-height:1;}
-.wd-days{display:flex;gap:2px;justify-content:space-between;}
-.wd-day{flex:1;text-align:center;padding:10px 4px;border-radius:12px;font-size:.72em;transition:background .2s;}
-.wd-day:hover{background:rgba(255,255,255,.35);}
-.wd-day .d{display:block;font-size:.82em;color:var(--muted);margin-bottom:5px;font-weight:600;}
-.wd-day .i{display:block;font-size:1.4em;line-height:1;margin-bottom:6px;}
-.wd-day .h{display:block;color:var(--gold);font-weight:700;font-size:.9em;}
-.wd-day .l{display:block;color:var(--cool);font-size:.8em;}
-.wd-day .p{display:block;font-size:.6em;color:var(--cool);margin-top:3px;min-height:1em;}
-@media(max-width:640px){.wd-days{overflow-x:auto;justify-content:flex-start;}.wd-day{min-width:56px;flex:0 0 auto;}}
-
-/* ===== 看雪卡片 ===== */
+.wd-now .ico{font-size:1.5rem;line-height:1;}
+.wd-now .tmp{font-size:1.5rem;font-weight:800;color:var(--gold);line-height:1;}
+.wd-days{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
+.wd-days::-webkit-scrollbar{display:none;}
+.wd-day{flex:1;min-width:56px;text-align:center;padding:9px 3px;border-radius:12px;font-size:.7rem;background:rgba(180,83,9,.04);}
+.wd-day .d{display:block;font-size:.72rem;color:var(--muted);margin-bottom:4px;font-weight:700;}
+.wd-day .i{display:block;font-size:1.3rem;line-height:1.3;}
+.wd-day .h{display:block;color:var(--gold);font-weight:800;font-size:.86rem;}
+.wd-day .l{display:block;color:var(--cool);font-size:.76rem;}
+.wd-day .p{display:block;font-size:.6rem;color:var(--cool);margin-top:2px;min-height:1em;}
 .snow-card{
-  background:linear-gradient(135deg,rgba(232,238,245,.7),rgba(220,230,240,.6));
-  backdrop-filter:blur(24px) saturate(140%);
-  -webkit-backdrop-filter:blur(24px) saturate(140%);
-  color:var(--cream);border-radius:22px;padding:28px 30px;margin-bottom:20px;
-  border:1px solid rgba(255,255,255,.6);
-  box-shadow:var(--shadow-md),var(--glass-hi);
+  background:linear-gradient(135deg,#e9eef4,#dfe8f0);color:var(--ink);
+  border-radius:var(--r-lg);padding:24px;margin:26px 0 18px;border:1px solid rgba(255,255,255,.7);box-shadow:var(--sh-sm);
 }
-.snow-card h3{font-size:1.1em;margin-bottom:8px;color:var(--cream);}
-.snow-prob{display:flex;align-items:baseline;gap:10px;margin:12px 0 8px;}
-.snow-prob b{font-size:2.4em;color:var(--gold);line-height:1;}
-.snow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px;font-size:.86em;}
-.snow-grid div{background:rgba(255,255,255,.45);border-radius:12px;padding:10px 14px;color:var(--cream-dim);border:1px solid rgba(255,255,255,.5);}
-.snow-grid div b{color:var(--cream);}
-.hist-note{font-size:.88em;color:var(--gold);margin:20px 0 10px;font-weight:600;}
-
-/* ===== 光线/穿搭 ===== */
-.info-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:16px;}
-.info-card{
-  border-radius:18px;padding:20px 22px;font-size:.88em;
-  background:var(--glass);
-  backdrop-filter:blur(20px) saturate(150%);
-  -webkit-backdrop-filter:blur(20px) saturate(150%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-sm),var(--glass-hi);
-}
-.info-card h3{color:var(--gold);font-size:.98em;margin-bottom:10px;}
-.info-card ul{padding-left:1.2em;color:var(--cream-dim);}
-.info-card li{margin:6px 0;}
-.info-card li b{color:var(--cream);}
+.snow-card h3{font-size:1.02rem;margin-bottom:6px;}
+.snow-prob{display:flex;align-items:baseline;gap:10px;margin:10px 0 8px;}
+.snow-prob b{font-size:2.2rem;color:var(--gold);line-height:1;}
+.snow-prob span{font-size:.82rem;color:var(--ink-2);}
+.snow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;margin-top:12px;font-size:.84rem;}
+.snow-grid div{background:rgba(255,255,255,.55);border-radius:12px;padding:10px 13px;color:var(--ink-2);}
+.hist-note{font-size:.88rem;color:var(--gold);margin:18px 0 10px;font-weight:700;}
 
 /* ===== 美食 ===== */
-.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;}
-.food{
-  border-radius:20px;padding:22px 24px;
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-sm),var(--glass-hi);
-  transition:transform .3s,box-shadow .3s;
-}
-.food:hover{transform:translateY(-2px);box-shadow:var(--shadow-md),var(--glass-hi);}
-.food h3{color:var(--cream);font-size:1em;border-bottom:1px solid rgba(180,140,80,.1);padding-bottom:10px;margin-bottom:12px;}
-.food .where{font-size:.74em;color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-bright));border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:middle;font-weight:600;box-shadow:0 1px 4px rgba(180,83,9,.2);}
-.food li{margin:8px 0 8px 1.2em;font-size:.88em;color:var(--cream-dim);}
-.food li b{color:var(--cream);}
-.food .note{font-size:.8em;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid rgba(180,140,80,.1);}
+.food{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px 20px;box-shadow:var(--sh-sm);}
+.food h3{font-size:.98rem;border-bottom:1px solid var(--line);padding-bottom:9px;margin-bottom:10px;}
+.food .where{font-size:.7rem;color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-2));border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:middle;font-weight:700;}
+.food li{margin:7px 0 7px 1.1em;font-size:.86rem;color:var(--ink-2);}
+.food .note{font-size:.78rem;color:var(--muted);margin-top:9px;padding-top:9px;border-top:1px solid var(--line);}
 
 /* ===== 清单 ===== */
-.cl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
-.cl{
-  border-radius:20px;padding:20px 22px;
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-sm),var(--glass-hi);
-}
-.cl h3{font-size:.95em;color:var(--gold);margin-bottom:12px;letter-spacing:.02em;}
-.cl label{display:flex;gap:10px;align-items:flex-start;padding:7px 6px;border-radius:10px;font-size:.86em;cursor:pointer;color:var(--cream-dim);transition:background .2s;}
-.cl label:hover{background:rgba(255,255,255,.35);}
-.cl input{margin-top:5px;accent-color:var(--gold);}
+.cl{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh-sm);}
+.cl h3{font-size:.9rem;color:var(--gold);margin-bottom:10px;}
+.cl label{display:flex;gap:10px;align-items:flex-start;padding:8px 6px;border-radius:10px;font-size:.85rem;cursor:pointer;color:var(--ink-2);}
+.cl label:active{background:var(--gold-soft);}
+.cl input{margin-top:5px;accent-color:var(--gold);width:16px;height:16px;}
 .cl input:checked + span{color:var(--muted);text-decoration:line-through;}
 
-/* ===== 补充说明 ===== */
-.notes{
-  border-radius:20px;padding:24px 26px;font-size:.88em;line-height:2;color:var(--cream-dim);
-  background:var(--glass);
-  backdrop-filter:blur(24px) saturate(160%);
-  -webkit-backdrop-filter:blur(24px) saturate(160%);
-  border:1px solid var(--glass-border);
-  box-shadow:var(--shadow-sm),var(--glass-hi);
-}
+/* ===== 补充说明 / footer ===== */
+.notes{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px 22px;font-size:.86rem;line-height:1.95;color:var(--ink-2);box-shadow:var(--sh-sm);}
 .notes b{color:var(--gold);}
-
-/* ===== Footer ===== */
-footer{margin-top:72px;text-align:center;color:var(--muted);font-size:.82em;padding-top:28px;border-top:1px solid rgba(180,140,80,.12);line-height:2;}
+footer{margin-top:60px;text-align:center;color:var(--muted);font-size:.78rem;padding-top:24px;border-top:1px solid var(--line);line-height:2;}
 footer .heart{color:var(--red);}
 </style>
 </head>
 <body>
 
-<!-- ===== Hero ===== -->
-<div class="hero">
+<!-- ===== Hero：大图 + 路线总览 ===== -->
+<div class="hero" id="top">
   <div class="hero-bg"></div>
-  <div class="hero-content">
+  <div class="hero-in">
     <div class="hero-kicker">Beijiang &middot; Altay &middot; 2026</div>
     <h1>我们的阿勒泰</h1>
-    <div class="divider"></div>
-    <div class="sub">白桦染金 · 晨雾炊烟 · 初雪可期<br>九月末向北，去看阿勒泰的秋天</div>
-    <div class="tags">
-      <span class="tag">金秋白桦</span><span class="tag">可能碰上初雪</span><span class="tag">已锁定阿禾公路</span><span class="tag">两车自驾</span>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>8天7晚</b><span>行程</span></div>
-      <div class="stat"><b>≈3100km</b><span>总里程</span></div>
-      <div class="stat"><b>8人</b><span>同行</span></div>
-      <div class="stat"><b>10.6</b><span>19:55 航班回</span></div>
+    <div class="sub">白桦染金 · 晨雾炊烟 · 初雪可期——九月末向北，去看阿勒泰的秋天</div>
+    <div class="route-strip"><div class="route-track">
+      <div class="rnode"><div class="dot"></div><div class="dn">D0·9.29</div><div class="pn">乌鲁木齐</div></div><div class="rline"></div>
+      <div class="rnode"><div class="dot"></div><div class="dn">D1·9.30</div><div class="pn">S101·精河</div></div><div class="rline"></div>
+      <div class="rnode"><div class="dot"></div><div class="dn">D2·10.1</div><div class="pn">赛湖·博乐</div></div><div class="rline"></div>
+      <div class="rnode"><div class="dot"></div><div class="dn">D3·10.2</div><div class="pn">魔鬼城</div></div><div class="rline"></div>
+      <div class="rnode"><div class="dot"></div><div class="dn">D4·10.3</div><div class="pn">阿禾·禾木</div></div><div class="rline"></div>
+      <div class="rnode"><div class="dot"></div><div class="dn">D5·10.4</div><div class="pn">禾木村</div></div><div class="rline"></div>
+      <div class="rnode"><div class="dot"></div><div class="dn">D6·10.5</div><div class="pn">喀纳斯·北屯</div></div><div class="rline"></div>
+      <div class="rnode"><div class="dot"></div><div class="dn">D7·10.6</div><div class="pn">回乌市</div></div>
+    </div></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>8天7晚</b><span>行程</span></div>
+      <div class="hero-stat"><b>≈3100km</b><span>总里程</span></div>
+      <div class="hero-stat"><b>8人2车</b><span>同行</span></div>
+      <div class="hero-stat"><b>10.6</b><span>19:55 航班回</span></div>
     </div>
   </div>
-  <div class="hero-scroll">SCROLL</div>
 </div>
 
-<!-- ===== Nav ===== -->
-<nav>
-  <a href="#plan">每日行程</a><a href="#keyinfo">关键信息</a><a href="#weather">实时天气</a><a href="#food">美食</a><a href="#check">行前清单</a><a href="#notes">补充说明</a>
+<!-- ===== 桌面顶导航 ===== -->
+<nav class="topnav">
+  <a href="#overview" data-spy="overview">总览</a><a href="#map-sec" data-spy="map-sec">地图</a><a href="#plan" data-spy="plan">每日行程</a><a href="#weather" data-spy="weather">天气</a><a href="#food" data-spy="food">美食</a><a href="#check" data-spy="check">清单</a>
 </nav>
 
 <div class="wrap">
 
-<!-- ===== 行程总览 ===== -->
-<section class="fade-up">
+<!-- ===== 总览：横滑日卡 ===== -->
+<section id="overview" class="fade-up">
   <div class="sec-label">Overview</div>
-  <h2 class="sec-title">行程总览</h2>
-  <div class="sec-line"></div>
-  <div class="tblwrap"><table class="tbl">
-    <tr><th>日期</th><th>路线</th><th>里程/驾驶</th><th>住宿</th><th>夜间气温</th></tr>
-    <tr><td><b>9.29 二</b></td><td>抵达乌鲁木齐</td><td>—</td><td>全季（机场砂之船奥莱店）</td><td>4–8℃</td></tr>
-    <tr><td><b>9.30 三</b></td><td>乌鲁木齐 → S101（肯斯瓦特·鹿角湾·安集海）→ 精河</td><td>≈550km / 10–12h</td><td>丽枫（精河人民公园店）</td><td>3–8℃</td></tr>
-    <tr><td><b>10.1 四</b></td><td>精河 → 赛里木湖环湖 → 博乐</td><td>≈230km / 4h</td><td>博乐隆泉博悦酒店</td><td>-3–3℃</td></tr>
-    <tr><td><b>10.2 五</b></td><td>博乐 → 克拉玛依 → 乌尔禾魔鬼城</td><td>≈515km / 5.5–6h</td><td>美高酒店（魔鬼城店）</td><td>3–8℃</td></tr>
-    <tr><td><b>10.3 六</b></td><td>乌尔禾 → 布尔津 → 阿勒泰 → 阿禾公路 → 禾木游客中心</td><td>≈530km / 9–10h</td><td>全季（禾木游客服务中心店·吉克普林）</td><td>-6–0℃</td></tr>
-    <tr><td><b>10.4 日</b></td><td>禾木村全天（区间车进出）→ 傍晚转贾登峪</td><td>≈100km / 2h</td><td>喀纳斯童话故事酒店（贾登峪）</td><td>-6–0℃</td></tr>
-    <tr><td><b>10.5 一</b></td><td>喀纳斯全天（观鱼台·三湾）→ 北屯</td><td>≈240km / 3.5h</td><td>得仁营地城市星空酒店（北屯）</td><td>0–5℃</td></tr>
-    <tr><td><b>10.6 二</b></td><td>北屯 → S21 → 乌鲁木齐（逛吃）→ 19:55 航班</td><td>≈440km / 4.5h</td><td>—</td><td>4–8℃</td></tr>
-  </table></div>
+  <h2 class="sec-title">8 天怎么走</h2>
+  <p class="sec-desc">左右滑动看每天安排，点卡片直接跳到当天详情</p>
+  <div class="ov-scroll" id="ov-scroll">
+    <div class="ov-card" data-goto="day0"><div class="ov-top"><span class="ov-day">Day 0</span><span class="ov-date">9.29 周二</span></div><div class="ov-route">抵达乌鲁木齐 · 集合</div><div class="ov-meta"><span>全季（机场奥莱）</span><span class="nt">4–8℃</span></div></div>
+    <div class="ov-card" data-goto="day1"><div class="ov-top"><span class="ov-day">Day 1</span><span class="ov-date">9.30 周三</span></div><div class="ov-route">乌市 → S101 丹霞画廊 → 精河</div><div class="ov-meta"><span>550km·10–12h</span><span class="nt">3–8℃</span></div></div>
+    <div class="ov-card" data-goto="day2"><div class="ov-top"><span class="ov-day">Day 2</span><span class="ov-date">10.1 周四</span></div><div class="ov-route">精河 → 赛里木湖环湖 → 博乐</div><div class="ov-meta"><span>230km·4h</span><span class="nt">-3–3℃</span></div></div>
+    <div class="ov-card" data-goto="day3"><div class="ov-top"><span class="ov-day">Day 3</span><span class="ov-date">10.2 周五</span></div><div class="ov-route">博乐 → 克拉玛依 → 魔鬼城</div><div class="ov-meta"><span>515km·5.5–6h</span><span class="nt">3–8℃</span></div></div>
+    <div class="ov-card" data-goto="day4"><div class="ov-top"><span class="ov-day">Day 4</span><span class="ov-date">10.3 周六</span></div><div class="ov-route">乌尔禾 → 阿禾公路 → 禾木</div><div class="ov-meta"><span>530km·9–10h</span><span class="nt">-6–0℃</span></div></div>
+    <div class="ov-card" data-goto="day5"><div class="ov-top"><span class="ov-day">Day 5</span><span class="ov-date">10.4 周日</span></div><div class="ov-route">禾木村全天（晨雾）→ 贾登峪</div><div class="ov-meta"><span>100km·2h</span><span class="nt">-6–0℃</span></div></div>
+    <div class="ov-card" data-goto="day6"><div class="ov-top"><span class="ov-day">Day 6</span><span class="ov-date">10.5 周一</span></div><div class="ov-route">喀纳斯全天 → 北屯</div><div class="ov-meta"><span>240km·3.5h</span><span class="nt">0–5℃</span></div></div>
+    <div class="ov-card" data-goto="day7"><div class="ov-top"><span class="ov-day">Day 7</span><span class="ov-date">10.6 周二</span></div><div class="ov-route">北屯 → S21 → 乌市 → 航班</div><div class="ov-meta"><span>440km·4.5h</span><span class="nt">4–8℃</span></div></div>
+  </div>
+  <div class="ov-hint">‹ 左右滑动 ›</div>
+</section>
+
+<!-- ===== 地图 ===== -->
+<section id="map-sec" class="fade-up">
+  <div class="sec-label">Map</div>
+  <h2 class="sec-title">路线地图 · 点标记看当天</h2>
+  <p class="sec-desc">金色标记是每天的落脚点，点一下弹出当天的行程要点和实时天气</p>
+  <div class="map-shell">
+    <div id="map"></div>
+    <div class="map-mask"><div class="t">北疆环线 · 约 3100km</div><div class="s">乌市 → S101 → 赛湖 → 魔鬼城 → 阿禾公路 → 禾木 → 喀纳斯 → 北屯</div></div>
+  </div>
 </section>
 
 <!-- ===== 每日详细行程 ===== -->
@@ -368,9 +352,8 @@ footer .heart{color:var(--red);}
   <div class="sec-label">Daily Plan</div>
   <h2 class="sec-title">每日详细行程</h2>
   <p class="sec-desc">时间是北京时间；北疆日落大概 19:30–20:10，山区请 19:30 前结束观景、赶到住的地方</p>
-  <div class="sec-line"></div>
 
-  <div class="day">
+  <div class="day" id="day0">
     <div class="day-head"><div class="day-num">Day 0</div><div class="day-title">9.29（周二）抵达乌鲁木齐 · 集合</div><div class="day-km">落地休整</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -385,7 +368,7 @@ footer .heart{color:var(--red);}
     </div>
   </div>
 
-  <div class="day">
+  <div class="day" id="day1">
     <div class="day-head"><div class="day-num">Day 1</div><div class="day-title">9.30 乌鲁木齐 → S101 天山地理画廊 → 精河</div><div class="day-km">≈550km · 全天10–12h</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -404,7 +387,7 @@ footer .heart{color:var(--red);}
     </div>
   </div>
 
-  <div class="day">
+  <div class="day" id="day2">
     <div class="day-head"><div class="day-num">Day 2</div><div class="day-title">10.1 精河 → 赛里木湖环湖 → 博乐</div><div class="day-km">≈230km · 驾驶4h</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -422,7 +405,7 @@ footer .heart{color:var(--red);}
     </div>
   </div>
 
-  <div class="day">
+  <div class="day" id="day3">
     <div class="day-head"><div class="day-num">Day 3</div><div class="day-title">10.2 博乐 → 克拉玛依 → 乌尔禾魔鬼城</div><div class="day-km">≈515km · 驾驶5.5–6h</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -439,7 +422,7 @@ footer .heart{color:var(--red);}
     </div>
   </div>
 
-  <div class="day">
+  <div class="day" id="day4">
     <div class="day-head"><div class="day-num">Day 4</div><div class="day-title">10.3 乌尔禾 → 布尔津 → 阿勒泰 → 阿禾公路 → 禾木<span class="pill">全程关键日</span></div><div class="day-km">≈530km · 9–10h</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -457,7 +440,7 @@ footer .heart{color:var(--red);}
     </div>
   </div>
 
-  <div class="day">
+  <div class="day" id="day5">
     <div class="day-head"><div class="day-num">Day 5</div><div class="day-title">10.4 禾木村全天（晨雾！）→ 傍晚转贾登峪<span class="pill">全程最美一天</span></div><div class="day-km">≈100km · 2h</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -475,7 +458,7 @@ footer .heart{color:var(--red);}
     </div>
   </div>
 
-  <div class="day">
+  <div class="day" id="day6">
     <div class="day-head"><div class="day-num">Day 6</div><div class="day-title">10.5 喀纳斯全天（观鱼台·三湾）→ 北屯</div><div class="day-km">≈240km · 3.5h</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -493,7 +476,7 @@ footer .heart{color:var(--red);}
     </div>
   </div>
 
-  <div class="day">
+  <div class="day" id="day7">
     <div class="day-head"><div class="day-num">Day 7</div><div class="day-title">10.6 北屯 → S21 沙漠公路 → 乌鲁木齐 → 19:55 航班</div><div class="day-km">≈440km · 4.5h</div></div>
     <div class="day-body">
       <ul class="tl">
@@ -515,9 +498,8 @@ footer .heart{color:var(--red);}
   <div class="sec-label">Key Info</div>
   <h2 class="sec-title">出发前要存好的几个信息</h2>
   <p class="sec-desc">公众号、门票、加油、应急，都收在这里，随手能查</p>
-  <div class="sec-line"></div>
-  <div class="kinfo-grid">
-    <div class="kinfo">
+  <div class="grid">
+    <div class="kcard">
       <h3>要关注的公众号</h3>
       <ul>
         <li><span class="kbd">喀纳斯原行网</span> 买喀纳斯/禾木门票 + 区间车，分时预约，国庆限流，最优先办</li>
@@ -525,7 +507,7 @@ footer .heart{color:var(--red);}
         <li><span class="kbd">新疆交警</span> S101 和北疆高速路况、事故绕行</li>
       </ul>
     </div>
-    <div class="kinfo">
+    <div class="kcard">
       <h3>门票一览</h3>
       <ul>
         <li><b>喀纳斯</b>：进山门票 + 区间车，「喀纳斯原行网」预约；观鱼台另买车票 ¥20（现场加购）</li>
@@ -535,7 +517,7 @@ footer .heart{color:var(--red);}
         <li><b>鹿角湾</b>：¥28，现场买</li>
       </ul>
     </div>
-    <div class="kinfo">
+    <div class="kcard">
       <h3>加油 & 没信号的地段</h3>
       <ul>
         <li>S101 沿线只有<b>雀尔沟镇</b>有正经加油站</li>
@@ -544,7 +526,7 @@ footer .heart{color:var(--red);}
         <li>没信号：S101 的 K140–260、阿禾公路的 K70–K160，离线地图提前下好</li>
       </ul>
     </div>
-    <div class="kinfo">
+    <div class="kcard">
       <h3>Plan B 与应急电话</h3>
       <ul>
         <li><b>阿禾封路 Plan B</b>：乌尔禾 → 布尔津 → 冲乎尔 → 禾木（约 400km，路好更短）</li>
@@ -559,12 +541,12 @@ footer .heart{color:var(--red);}
 <!-- ===== 实时天气 ===== -->
 <section id="weather" class="fade-up">
   <div class="sec-label">Weather</div>
-  <h2 class="sec-title">实时天气与看雪<span style="font-size:.55em;color:var(--muted);font-weight:400;margin-left:8px;">每 30 分钟自动刷新</span><button class="wbtn" id="xj-wrefresh">现在刷新</button></h2>
-  <p class="sec-desc">各地点的实时气温和未来 7 天预报，打开页面自动拉取。国庆那几天（9.29–10.6）的精确预报要到出发前一周左右才会出现，到时候这里会自动显示。</p>
-  <div class="xj-wmeta" id="xj-wmeta">正在拉取最新气象数据…</div>
-  <div id="weather-map"></div>
-  <div class="weather-detail" id="weather-detail">
-    <div class="weather-detail-empty">点击地图上的金色圆点，查看该地点的 7 天详细预报</div>
+  <h2 class="sec-title">实时天气<span style="font-size:.55em;color:var(--muted);font-weight:400;margin-left:8px;">每 30 分钟自动刷新</span><button class="wbtn" id="xj-wrefresh">刷新</button></h2>
+  <p class="sec-desc">点地点卡片看未来 7 天预报。国庆那几天（9.29–10.6）的精确预报要到出发前一周左右才会出现，到时候这里会自动显示。</p>
+  <div class="wmeta" id="xj-wmeta">正在拉取最新气象数据…</div>
+  <div class="wplaces" id="xj-wplaces"></div>
+  <div class="wdetail" id="weather-detail">
+    <div class="wdetail-empty">点上面的地点卡片，查看该地的 7 天详细预报</div>
   </div>
 
   <div class="snow-card">
@@ -591,8 +573,8 @@ footer .heart{color:var(--red);}
     <tr><td>北屯</td><td>10–16℃</td><td>0–5℃</td><td>夜里适合观星</td></tr>
   </table></div>
 
-  <div class="info-cards">
-    <div class="info-card"><h3>值得专门等的光线时刻</h3>
+  <div class="grid" style="margin-top:16px;">
+    <div class="kcard"><h3>值得专门等的光线时刻</h3>
       <ul>
         <li><b>禾木晨雾</b>（10/4 早 8:00–9:30，哈登观景台）— 全程最值得等的</li>
         <li><b>神仙湾晨雾</b>（10/5 早）</li>
@@ -602,7 +584,7 @@ footer .heart{color:var(--red);}
         <li><b>北屯星空</b>（10/5 晚，无月光干扰可见银河）</li>
       </ul>
     </div>
-    <div class="info-card"><h3>穿什么（按夜间 -5℃ 准备）</h3>
+    <div class="kcard"><h3>穿什么（按夜间 -5℃ 准备）</h3>
       <ul>
         <li>三层穿法：<b>速干内衣 + 抓绒/薄羽绒 + 冲锋衣</b></li>
         <li>防滑防水徒步鞋（雪后栈道很滑）</li>
@@ -619,8 +601,7 @@ footer .heart{color:var(--red);}
   <div class="sec-label">Food</div>
   <h2 class="sec-title">一路上吃啥</h2>
   <p class="sec-desc">按路线顺序，基本都是去年朋友吃过、或者多方打听过的店</p>
-  <div class="sec-line"></div>
-  <div class="food-grid">
+  <div class="grid">
     <div class="food"><h3>乌鲁木齐<span class="where">9.29 晚 / 10.6 午</span></h3>
       <ul>
         <li><b>楼兰秘烤（迎宾路店）</b>：烤羊肉串、烤羊排、馕坑肉</li>
@@ -670,8 +651,7 @@ footer .heart{color:var(--red);}
   <div class="sec-label">Checklist</div>
   <h2 class="sec-title">行前清单</h2>
   <p class="sec-desc">点一下就勾上，进度自动存在本地，刷新不会丢</p>
-  <div class="sec-line"></div>
-  <div class="cl-grid">
+  <div class="grid">
     <div class="cl"><h3>证件与预约</h3>
       <label><input type="checkbox"><span>身份证随身（安检/加油/酒店全程要刷）</span></label>
       <label><input type="checkbox"><span>喀纳斯/禾木门票+区间车：「喀纳斯原行网」提前实名预约（8人）</span></label>
@@ -717,7 +697,6 @@ footer .heart{color:var(--red);}
 <section id="notes" class="fade-up">
   <div class="sec-label">Notes</div>
   <h2 class="sec-title">补充：已定的决定和注意事项</h2>
-  <div class="sec-line"></div>
   <div class="notes">
     <b>不去白哈巴</b> —— 全季在吉克普林、童话故事在贾登峪，两晚酒店定了就定了。10/4 留给禾木看晨雾，10/5 留给喀纳斯走三湾。白哈巴秋色跟禾木很像，下次从哈巴河进。顺带省了边境证，10/5 也不用多绕 250 公里。<br><br>
     <b>走阿禾公路</b> —— 明知比冲乎尔多 130 公里，就为那段风景。全线没加油站，阿勒泰市区最后加满；中段没信号，离线地图下好；出发前一晚看「阿勒泰交警」，封路就走 Plan B（乌尔禾→布尔津→冲乎尔→禾木，400km 更短）。<br><br>
@@ -734,14 +713,54 @@ footer .heart{color:var(--red);}
 
 </div>
 
+<!-- ===== 底部标签栏（移动端） ===== -->
+<nav class="tabbar">
+  <a href="#overview" data-spy="overview"><span class="ic">🗓️</span>总览</a>
+  <a href="#map-sec" data-spy="map-sec"><span class="ic">🗺️</span>地图</a>
+  <a href="#plan" data-spy="plan"><span class="ic">🚗</span>行程</a>
+  <a href="#weather" data-spy="weather"><span class="ic">🌤️</span>天气</a>
+  <a href="#check" data-spy="check"><span class="ic">✅</span>清单</a>
+</nav>
+
+<!-- ===== 底部弹层（地图标记详情） ===== -->
+<div class="sheet-mask" id="sheet-mask"></div>
+<div class="sheet" id="sheet">
+  <div class="sheet-grab" id="sheet-grab"><i></i></div>
+  <div class="sheet-body" id="sheet-body"></div>
+</div>
+
 <script>
 /* ===== 滚动渐显 ===== */
 (function(){
   var obs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); } });
-  }, {threshold:.08});
+  }, {threshold:.06});
   document.querySelectorAll('.fade-up').forEach(function(el){ obs.observe(el); });
 })();
+
+/* ===== 导航 scroll-spy ===== */
+(function(){
+  var links = document.querySelectorAll('[data-spy]');
+  var secs = {};
+  links.forEach(function(a){ var id = a.getAttribute('data-spy'); var el = document.getElementById(id); if(el){ (secs[id]=secs[id]||[]).push(a); } });
+  var spyObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(a){ a.classList.remove('active'); });
+        (secs[e.target.id]||[]).forEach(function(a){ a.classList.add('active'); });
+      }
+    });
+  }, {rootMargin:'-30% 0px -55% 0px'});
+  Object.keys(secs).forEach(function(id){ spyObs.observe(document.getElementById(id)); });
+})();
+
+/* ===== 总览卡片 → 跳转当天 ===== */
+document.querySelectorAll('.ov-card').forEach(function(c){
+  c.addEventListener('click', function(){
+    var el = document.getElementById(c.getAttribute('data-goto'));
+    if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
 
 /* ===== 行前清单：勾选状态本地保存 ===== */
 (function(){
@@ -755,17 +774,37 @@ footer .heart{color:var(--red);}
   });
 })();
 
-/* ===== 实时天气：Open-Meteo（免 key，数据源自各国官方气象模型聚合） ===== */
+/* ===== 地点 & 每日数据 ===== */
 var XJ_PLACES = [
-  {n:'乌鲁木齐', lat:43.82, lon:87.62, elev:920},
-  {n:'精河',     lat:44.05, lon:82.37, elev:320},
-  {n:'赛里木湖', lat:44.60, lon:81.20, elev:2070},
-  {n:'博乐',     lat:44.90, lon:82.07, elev:500},
-  {n:'乌尔禾',   lat:46.10, lon:85.72, elev:300},
-  {n:'禾木',     lat:48.70, lon:87.07, elev:1120},
-  {n:'喀纳斯',   lat:48.78, lon:87.02, elev:1374},
-  {n:'北屯',     lat:47.10, lon:87.40, elev:500}
+  {n:'乌鲁木齐', lat:43.82, lon:87.62, elev:920,  day:'D0·D7'},
+  {n:'精河',     lat:44.05, lon:82.37, elev:320,  day:'D1'},
+  {n:'赛里木湖', lat:44.60, lon:81.20, elev:2070, day:'D2途经'},
+  {n:'博乐',     lat:44.90, lon:82.07, elev:500,  day:'D2'},
+  {n:'乌尔禾',   lat:46.10, lon:85.72, elev:300,  day:'D3'},
+  {n:'禾木',     lat:48.70, lon:87.07, elev:1120, day:'D4·D5'},
+  {n:'喀纳斯',   lat:48.78, lon:87.02, elev:1374, day:'D5·D6'},
+  {n:'北屯',     lat:47.10, lon:87.40, elev:500,  day:'D6'}
 ];
+/* 地图标记点击 → 对应哪一天（dayN 锚点 + 弹层内容） */
+var XJ_DAYS = [
+  {goto:'day0', day:'Day 0 · 9.29 周二', title:'抵达乌鲁木齐 · 集合', kv:['落地休整','全季机场奥莱店','约¥300'],
+   tips:['<b>晚饭</b>：楼兰秘烤（迎宾路店）烤羊排、馕坑肉','<b>准备</b>：两车加满油 · 下好离线地图 · 对讲机就位','身份证随身，全程安检/加油/酒店都要刷'], place:0},
+  {goto:'day1', day:'Day 1 · 9.30 周三', title:'乌市 → S101 丹霞画廊 → 精河', kv:['≈550km','10–12h','丽枫精河'],
+   tips:['<b>8:00 前</b>出发上 S101','肯斯瓦特水库必停；安集海 16:30–17:30 斜射光最好看','中途只有<b>雀尔沟镇</b>有加油站','沙湾下高速吃大盘鸡'], place:1},
+  {goto:'day2', day:'Day 2 · 10.1 周四', title:'精河 → 赛里木湖环湖 → 博乐', kv:['≈230km','4h','博乐隆泉博悦'],
+   tips:['环湖 90km 顺时针，10:00 前进景区','晴天 11:00–15:00「果冻蓝」最饱和','傍晚湖区风大，体感 0℃ 以下','<b>高白鲑</b>必吃，清蒸最鲜'], place:2},
+  {goto:'day3', day:'Day 3 · 10.2 周五', title:'博乐 → 克拉玛依 → 魔鬼城', kv:['≈515km','5.5–6h','美高魔鬼城店'],
+   tips:['16:00–16:30 抵魔鬼城','<b>18:00–19:30 金色斜光</b>，全程最出片','晚饭龙脊路<b>阿吾丹的烤羊</b>','住景区边，省 200km 折返'], place:4},
+  {goto:'day4', day:'Day 4 · 10.3 周六', title:'乌尔禾 → 阿禾公路 → 禾木（关键日）', kv:['≈530km','9–10h','全季吉克普林'],
+   tips:['<b>14:00 阿勒泰市区最后加满油</b>（全线无加油站）','14:30 上阿禾公路，乌希里克湿地最出片','垭口 2750m 可能见雪；<b>19:30 前必须到</b>','Plan B：布尔津→冲乎尔→禾木（400km）'], place:5},
+  {goto:'day5', day:'Day 5 · 10.4 周日', title:'禾木村全天（晨雾）→ 贾登峪', kv:['≈100km','2h','童话故事酒店'],
+   tips:['<b>7:30 前</b>排首班区间车进村','<b>8:00–9:30 哈登观景台晨雾</b>——全程就等这一刻','午饭土火锅 + 咸奶茶','14:00–15:00 出村转贾登峪'], place:5},
+  {goto:'day6', day:'Day 6 · 10.5 周一', title:'喀纳斯全天（观鱼台·三湾）→ 北屯', kv:['≈240km','3.5h','得仁营地'],
+   tips:['首班车进，<b>观鱼台先去</b>（1068 级台阶）','三湾：神仙湾→月亮湾→卧龙湾，走木栈道','15:00 前出山，19:00 前到北屯','晚上看星星，无月光可见银河'], place:6},
+  {goto:'day7', day:'Day 7 · 10.6 周二', title:'北屯 → S21 → 乌市 → 19:55 航班', kv:['≈440km','4.5h','19:55 航班'],
+   tips:['<b>8:30 前出发</b>，返程高峰宁早勿晚','13:30 到乌市，留 2 小时逛吃','<b>15:30–16:00 到机场还车</b>','收尾大餐：血站小李子大盘鸡'], place:0}
+];
+
 function xjWmo(c){
   var m={
     0:['晴','☀️'],1:['晴间多云','🌤️'],2:['多云','⛅'],3:['阴','☁️'],
@@ -782,62 +821,8 @@ function xjWmo(c){
   return m[c] || ['—','🌡️'];
 }
 
-/* ===== 天气地图：高德 JS API + Open-Meteo ===== */
+/* ===== 天气数据（Open-Meteo，海拔已修正） ===== */
 var xjWeatherData = null;
-var xjMarkers = [];
-var xjMap = null;
-var xjInfoWindow = null;
-
-function buildMarkerContent(p){
-  var tempStr = p._nowTemp != null ? (' <span class="tt-tmp">' + Math.round(p._nowTemp) + '°</span>') : '';
-  return '<div class="xj-amap-marker">'
-    + '<div class="xj-marker-label">' + p.n + tempStr + '</div>'
-    + '<div class="xj-marker-stem"></div>'
-    + '<div class="xj-marker-dot-wrap"><div class="xj-marker-dot"></div><div class="xj-marker-pulse"></div></div>'
-    + '</div>';
-}
-
-(function initMap(){
-  xjMap = new AMap.Map('weather-map', {
-    center: [84.5, 46.2],
-    zoom: 7,
-    mapStyle: 'amap://styles/normal',
-    viewMode: '2D',
-    features: ['bg','road','point','building']
-  });
-
-  var routePath = XJ_PLACES.map(function(p){ return [p.lon, p.lat]; });
-  routePath.push(routePath[0]);
-  new AMap.Polyline({
-    path: routePath,
-    strokeColor: '#b45309',
-    strokeWeight: 2,
-    strokeOpacity: 0.6,
-    strokeStyle: 'dashed',
-    map: xjMap
-  });
-
-  xjInfoWindow = new AMap.InfoWindow({
-    isCustom: true,
-    content: '<div class="xj-amap-info"></div>',
-    offset: new AMap.Pixel(0, -24)
-  });
-
-  XJ_PLACES.forEach(function(p, i){
-    var marker = new AMap.Marker({
-      position: [p.lon, p.lat],
-      content: buildMarkerContent(p),
-      anchor: 'bottom-center',
-      offset: new AMap.Pixel(0, 8),
-      map: xjMap
-    });
-    marker._placeIndex = i;
-    marker.on('click', function(){ xjShowDetail(i); });
-    xjMarkers.push(marker);
-  });
-
-  xjMap.setFitView();
-})();
 
 function xjDayLabel(t, tk, mk, ak){
   if(t===tk) return '今天';
@@ -847,77 +832,169 @@ function xjDayLabel(t, tk, mk, ak){
   var dd = new Date(t+'T00:00:00');
   return '周'+(wkArr[dd.getDay()]||'');
 }
-
-function xjShowDetail(i){
-  if(!xjWeatherData) return;
-  var d = xjWeatherData[i], p = XJ_PLACES[i];
-  var cur = d.current || {}, w = xjWmo(cur.weather_code);
-  var days = d.daily || {};
-  var times = days.time||[], maxs = days.temperature_2m_max||[], mins = days.temperature_2m_min||[];
-  var wcs = days.weather_code||[], pops = days.precipitation_probability_max||[];
-
+function xjDateKeys(){
   var nd = new Date();
   function dk(dt){return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');}
-  var tk = dk(nd), mk = dk(new Date(nd.getTime()+86400000)), ak = dk(new Date(nd.getTime()+2*86400000));
-
-  var dhtml = '';
+  return [dk(nd), dk(new Date(nd.getTime()+86400000)), dk(new Date(nd.getTime()+2*86400000))];
+}
+/* 生成某地 7 天预报小条 HTML（弹层与详情面板共用） */
+function xjForecastStrip(i, cls){
+  if(!xjWeatherData || !xjWeatherData[i]) return '<div style="font-size:.78rem;color:var(--muted);padding:6px 0;">天气数据加载中…</div>';
+  var d = xjWeatherData[i], days = d.daily || {};
+  var times = days.time||[], maxs = days.temperature_2m_max||[], mins = days.temperature_2m_min||[];
+  var wcs = days.weather_code||[], pops = days.precipitation_probability_max||[];
+  var ks = xjDateKeys();
+  var h = '';
   for(var j=0; j<times.length; j++){
     var dw = xjWmo(wcs[j]);
     var pop = (pops[j]||0);
-    var popTxt = (pop>=30) ? (pop+'%') : '';
-    dhtml += '<div class="wd-day">'
-      + '<span class="d">'+xjDayLabel(times[j],tk,mk,ak)+'</span>'
+    h += '<div class="'+cls+'">'
+      + '<span class="d">'+xjDayLabel(times[j],ks[0],ks[1],ks[2])+'</span>'
       + '<span class="i">'+dw[1]+'</span>'
       + '<span class="h">'+(maxs[j]!=null?Math.round(maxs[j])+'°':'—')+'</span>'
       + '<span class="l">'+(mins[j]!=null?Math.round(mins[j])+'°':'—')+'</span>'
-      + '<span class="p">'+popTxt+'</span>'
+      + (cls==='wd-day' ? '<span class="p">'+(pop>=30?pop+'%':'')+'</span>' : '')
       + '</div>';
   }
+  return h;
+}
 
-  var nowStr = (cur.temperature_2m!=null) ? Math.round(cur.temperature_2m)+'' : '—';
+/* ===== 底部弹层 ===== */
+var sheet = document.getElementById('sheet');
+var sheetMask = document.getElementById('sheet-mask');
+var sheetBody = document.getElementById('sheet-body');
+function xjOpenSheet(di){
+  var d = XJ_DAYS[di];
+  var p = XJ_PLACES[d.place];
+  var cur = (xjWeatherData && xjWeatherData[d.place]) ? xjWeatherData[d.place].current || {} : {};
+  var w = xjWmo(cur.weather_code);
+  var nowT = (cur.temperature_2m!=null) ? Math.round(cur.temperature_2m)+'°' : '';
+  var kv = d.kv.map(function(k){return '<span>'+k+'</span>';}).join('');
+  var tips = d.tips.map(function(t){return '<li>'+t+'</li>';}).join('');
+  sheetBody.innerHTML =
+    '<span class="sheet-day">'+d.day+'</span>'
+    + '<div class="sheet-title">'+d.title+'</div>'
+    + '<div class="sheet-route">'+p.n+' · 海拔 '+p.elev+'m'+(nowT?(' · 现在 '+w[1]+' '+nowT):'')+'</div>'
+    + '<div class="sheet-kv">'+kv+'</div>'
+    + '<div class="sheet-sec">'+p.n+' · 7 天天气</div>'
+    + '<div class="sheet-w">'+xjForecastStrip(d.place,'sheet-wd')+'</div>'
+    + '<div class="sheet-sec">当天要点</div>'
+    + '<ul class="sheet-tips">'+tips+'</ul>'
+    + '<a class="sheet-more" href="#'+d.goto+'" id="sheet-more-link">查看当天完整行程 ↓</a>';
+  document.getElementById('sheet-more-link').addEventListener('click', xjCloseSheet);
+  sheet.classList.add('open');
+  sheetMask.classList.add('open');
+}
+function xjCloseSheet(){
+  sheet.classList.remove('open');
+  sheetMask.classList.remove('open');
+}
+sheetMask.addEventListener('click', xjCloseSheet);
+document.getElementById('sheet-grab').addEventListener('click', xjCloseSheet);
+
+/* ===== 高德地图 ===== */
+var xjMarkers = [];
+var xjMap = null;
+function xjBuildMarker(p){
+  var tempStr = p._nowTemp != null ? (' <span class="tt-tmp">'+Math.round(p._nowTemp)+'°</span>') : '';
+  return '<div class="xj-mk">'
+    + '<div class="xj-mk-label"><span class="dt">'+p.day+'</span>'+p.n+tempStr+'</div>'
+    + '<div class="xj-mk-stem"></div>'
+    + '<div class="xj-mk-dot"></div>'
+    + '</div>';
+}
+(function initMap(){
+  xjMap = new AMap.Map('map', {
+    zoom: 7,
+    mapStyle: 'amap://styles/normal',
+    viewMode: '2D',
+    features: ['bg','road','point','building']
+  });
+  var routePath = XJ_PLACES.map(function(p){ return [p.lon, p.lat]; });
+  routePath.push(routePath[0]);
+  new AMap.Polyline({
+    path: routePath, strokeColor: '#b45309', strokeWeight: 3, strokeOpacity: .75,
+    strokeStyle: 'dashed', map: xjMap
+  });
+  XJ_PLACES.forEach(function(p, i){
+    var marker = new AMap.Marker({
+      position: [p.lon, p.lat],
+      content: xjBuildMarker(p),
+      anchor: 'bottom-center',
+      offset: new AMap.Pixel(0, 6),
+      map: xjMap
+    });
+    marker.on('click', function(){
+      /* 找以此地为落脚点的一天；赛里木湖(途经)跳 Day2 */
+      var di = 0;
+      for(var k=0; k<XJ_DAYS.length; k++){ if(XJ_DAYS[k].place === i){ di = k; break; } }
+      xjOpenSheet(di);
+    });
+    xjMarkers.push(marker);
+  });
+  xjMap.setFitView();
+})();
+
+/* ===== 天气区：地点卡片 + 详情 ===== */
+var xjSelPlace = -1;
+(function buildPlaceCards(){
+  var box = document.getElementById('xj-wplaces');
+  XJ_PLACES.forEach(function(p, i){
+    var el = document.createElement('div');
+    el.className = 'wp';
+    el.setAttribute('data-i', i);
+    el.innerHTML = '<div class="n">'+p.n+'</div><div class="t">—</div><div class="w">'+p.elev+'m</div>';
+    el.addEventListener('click', function(){ xjSelectPlace(i); });
+    box.appendChild(el);
+  });
+})();
+function xjSelectPlace(i){
+  xjSelPlace = i;
+  document.querySelectorAll('.wp').forEach(function(el){
+    el.classList.toggle('sel', parseInt(el.getAttribute('data-i'))===i);
+  });
   var panel = document.getElementById('weather-detail');
+  if(!xjWeatherData){ panel.innerHTML = '<div class="wdetail-empty">天气数据加载中…</div>'; return; }
+  var d = xjWeatherData[i], p = XJ_PLACES[i];
+  var cur = d.current || {}, w = xjWmo(cur.weather_code);
+  var nowStr = (cur.temperature_2m!=null) ? Math.round(cur.temperature_2m)+'' : '—';
   panel.innerHTML = '<div class="wd-head">'
     + '<div><span class="wd-name">'+p.n+'</span> <span class="wd-elev">'+p.elev+'m</span></div>'
     + '<div class="wd-now"><span class="ico">'+w[1]+'</span><span class="tmp">'+nowStr+'°</span></div>'
     + '</div>'
-    + '<div class="wd-days">'+dhtml+'</div>';
-  panel.style.opacity = '0';
-  setTimeout(function(){ panel.style.opacity = '1'; }, 50);
+    + '<div class="wd-days">'+xjForecastStrip(i,'wd-day')+'</div>';
 }
 
 function xjLoadWeather(){
   var meta = document.getElementById('xj-wmeta');
-  meta.textContent = '正在拉取最新气象数据…';
-
   var lats = XJ_PLACES.map(function(p){return p.lat}).join(',');
   var lons = XJ_PLACES.map(function(p){return p.lon}).join(',');
   var elevs = XJ_PLACES.map(function(p){return p.elev}).join(',');
   var url = 'https://api.open-meteo.com/v1/forecast?latitude='+lats+'&longitude='+lons+'&elevation='+elevs+
     '&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max'+
     '&current=temperature_2m,weather_code,is_day&timezone=Asia%2FShanghai&forecast_days=7';
-
   fetch(url).then(function(r){return r.json()}).then(function(data){
     if(!Array.isArray(data)){ data = [data]; }
     xjWeatherData = data;
-
     data.forEach(function(d, i){
       var cur = d.current || {};
-      var temp = cur.temperature_2m;
-      var w = xjWmo(cur.weather_code);
       if(XJ_PLACES[i]){
-        XJ_PLACES[i]._nowTemp = temp;
-        XJ_PLACES[i]._nowWeather = w[0];
+        XJ_PLACES[i]._nowTemp = cur.temperature_2m;
+        XJ_PLACES[i]._nowWeather = xjWmo(cur.weather_code)[0];
       }
-      if(xjMarkers[i]){
-        xjMarkers[i].setContent(buildMarkerContent(XJ_PLACES[i]));
+      if(xjMarkers[i]){ xjMarkers[i].setContent(xjBuildMarker(XJ_PLACES[i])); }
+      var card = document.querySelector('.wp[data-i="'+i+'"]');
+      if(card && cur.temperature_2m!=null){
+        card.querySelector('.t').textContent = Math.round(cur.temperature_2m)+'°';
+        card.querySelector('.w').textContent = XJ_PLACES[i]._nowWeather;
       }
     });
-
+    if(xjSelPlace >= 0){ xjSelectPlace(xjSelPlace); }
     var t = new Date();
     var ts = String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0');
     meta.textContent = '更新于 '+ts+' · 数据来源 Open-Meteo（各国官方气象模型聚合，海拔已修正）';
   }).catch(function(){
-    meta.textContent = '暂时拉不到数据，点「现在刷新」重试';
+    meta.textContent = '暂时拉不到数据，点「刷新」重试';
   });
 }
 document.getElementById('xj-wrefresh').addEventListener('click', xjLoadWeather);
