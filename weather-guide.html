@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="zh-CN" data-page-node-id="50gXn1FRzXfQmXDv2g3HJN"><head data-page-node-id="B88a2KpvU1XsD794ybniCT"><meta charset="utf-8" data-page-node-id="4cyJ37Jf75aRF4FBzHKU2B">
+<meta name="viewport" content="width=device-width,initial-scale=1" data-page-node-id="KVDG2Ix4xUo9LEwLdBwnyo">
+<title>北疆出行天气与穿衣指南 · 9.29–10.6</title>
+<style>
+:root{--bg:#fbf7f0;--card:#fffdf9;--ink:#2b2620;--sub:#7a7165;--line:#ece3d6;--gold:#c8893a;--gold2:#e0a85a;--cold:#2563eb;--warm:#ea580c;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;padding-bottom:40px}
+.wrap{max-width:920px;margin:0 auto;padding:0 16px}
+header{background:linear-gradient(135deg,#3a3026,#5b4632);color:#fff;padding:30px 16px 26px;text-align:center}
+header h1{font-size:24px;letter-spacing:1px;font-weight:700}
+header .sub{color:#e9d9c2;font-size:13px;margin-top:6px}
+header .note{color:#cbb89c;font-size:11px;margin-top:10px}
+.banner{background:linear-gradient(120deg,#fff3e0,#fdeccf);border:1px solid #f0d9b0;border-radius:14px;padding:16px 18px;margin:18px 0}
+.banner b{color:var(--warm)}
+.banner .big{font-size:15px;font-weight:700;margin-bottom:4px}
+h2{font-size:18px;margin:28px 0 12px;padding-left:10px;border-left:4px solid var(--gold)}
+h3{font-size:15px}
+.seg-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:0 2px 10px rgba(120,90,40,.05)}
+.seg-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.seg-tag{background:var(--gold);color:#fff;font-size:11px;padding:2px 8px;border-radius:20px;font-weight:700}
+.seg-date{font-size:12px;color:var(--sub)}
+.seg-title{font-size:14px;font-weight:700;margin-bottom:10px}
+.place-block{background:#faf6ef;border:1px solid #f0e7d8;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.place-block:last-child{margin-bottom:0}
+.pb-head{display:flex;justify-content:space-between;font-size:13px;font-weight:700}
+.pb-elev{color:var(--sub);font-weight:400;font-size:11px}
+.pb-temp{font-size:22px;margin:2px 0}
+.pb-temp .slash{color:var(--sub);margin:0 2px;font-size:16px}
+.pb-unit{font-size:11px;color:var(--sub);margin-left:6px}
+.pb-feel{font-size:12px;color:var(--sub)}
+.pb-wx{font-size:13px;margin:4px 0 2px}
+.pb-wx .sn{color:#2563eb;font-weight:700}
+.pb-meta{font-size:11px;color:var(--sub)}
+.warn-mini{font-size:11px;color:#b45309;background:#fef3c7;border-radius:6px;padding:4px 6px;margin-top:6px}
+.alerts{display:grid;gap:10px}
+.alert{background:#fff;border-left:4px solid var(--warm);border-radius:10px;padding:12px 14px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
+.alert-h{font-weight:700;font-size:14px;margin-bottom:3px}
+.alert-b{font-size:13px;color:var(--sub)}
+.tbl-scroll{overflow-x:auto}
+.tbl-wrap{display:inline-block;margin:0 10px 14px 0;vertical-align:top}
+.wx-tbl{border-collapse:collapse;font-size:12px;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.wx-tbl th{background:#f3ead9;color:#6b5d49;padding:6px 8px;font-weight:700;white-space:nowrap}
+.wx-tbl td{padding:5px 8px;border-top:1px solid #f1e9dc;white-space:nowrap;text-align:center}
+.wx-tbl td.dt{color:var(--sub)}
+.wx-tbl .sn{color:#2563eb;font-weight:700}
+.tbl-cap{font-size:11px;color:var(--sub);text-align:center;padding:4px}
+.chk-group{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.chk-group h4{font-size:14px;margin-bottom:8px;color:var(--gold)}
+.chk-group ul{list-style:none}
+.chk-group li{padding:5px 0;border-bottom:1px dashed #eee}
+.chk-group li:last-child{border-bottom:none}
+.chk-group label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:13.5px}
+.chk-group input{margin-top:4px;width:16px;height:16px;accent-color:var(--gold)}
+.chk-group input:checked+span{text-decoration:line-through;color:#aaa}
+.wear-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed #eee}
+.wear-day{flex:0 0 96px;font-weight:700;font-size:13px;color:var(--gold)}
+.wear-tip{font-size:13.5px;flex:1}
+footer{text-align:center;color:var(--sub);font-size:11px;margin-top:30px;line-height:1.8}
+@media(max-width:560px){.seg-grid{grid-template-columns:1fr}}
+</style></head>
+<body data-page-node-id="fPNywzGaY4LMKds4BvDJPk">
+<header data-page-node-id="0ioJRXG2JAsULLIU1w6uhA">
+  <h1 data-page-node-id="m7SmcbJMVNwH5XEEnp8Bhb">北疆出行天气与穿衣指南</h1>
+  <div class="sub" data-page-node-id="V6inN0iviByj84KaDBTZVF">8 人自驾 · 2026.9.29 – 10.6 · 乌鲁木齐→赛湖→乌尔禾→禾木→喀纳斯→北屯</div>
+  <div class="note" data-page-node-id="tIH6ejIXRYKyBszo0DCf96">数据来源 Open-Meteo + 中国天气网/中央气象台 + 墨迹 + 气候均值（多源交叉）· 快照于 2026-09-28 · 出发前请再核对一次</div>
+</header>
+<div class="wrap" data-page-node-id="CrV3LZVVIhBjc6OGimxmFk">
+  <div class="banner" data-page-node-id="pTsiqh4C57mRogYCmCm7Dr">
+    <div class="big" data-page-node-id="moRl0Li4Aj6px3khz4jD6W">🌡️ 一句话结论：这次是「一天跨三季」的温差局</div>
+    最低海拔精河白天 <b data-page-node-id="5rIOSVEJOTJP3s0IDTCkwl">22℃</b>，最高海拔赛湖仅 <b data-page-node-id="liA4pEAJKYEp3oiw75ghax">10–15℃</b>；禾木/喀纳斯夜间<b data-page-node-id="rH6LhbWGAHERtDN3q7RkAe">逼近 0℃、吉克普林破冰点</b>，10.3 禾木<b data-page-node-id="wD0dXOhVfmODMd5BvjOVeB">有降水(雪或雨)</b>、10.5 喀纳斯有雨。<br data-page-node-id="BbukPSgYWZqVHX05JiQHho">
+    核心打法 = <b data-page-node-id="CowCnBcGkEaY8gv6sM049h">分层叠穿</b>：保暖层（羽绒+抓绒+冲锋）全程随身，低海拔段再脱；别指望一件厚衣服搞定全场。
+  </div>
+
+  <h2 data-page-node-id="5BJB7CBq89eGMM8lghPgdu">📍 按行程段看天气</h2>
+  <div class="seg-grid" data-page-node-id="4EfcL2bCrxOTXFFXuHGDJn">
+    <div class="seg-card" data-page-node-id="cU51qWwfd2EKegn1Bpm4Bm">
+      <div class="seg-top" data-page-node-id="CEnBVZcGqydYwfEfDQny88"><span class="seg-tag" data-page-node-id="MR0AtEdq3ZfBEzDiQ8g6cg">D1 · 抵达</span><span class="seg-date" data-page-node-id="HhwBiS7sjGNHCBynnK7m4A">09/29</span></div>
+      <div class="seg-title" data-page-node-id="65AYtS6B8J9XACAB8qIUjt">乌鲁木齐（落地休整）</div>
+      <div class="seg-places" data-page-node-id="vnAoWjEhtvKaJ1mlEn1eiD">
+        <div class="place-block" data-page-node-id="fklk931TLIIjtY4HAFbjfi">
+          <div class="pb-head" data-page-node-id="q85tM0WBEGTD1bKF560gyF"><span class="pb-name" data-page-node-id="cA7vBnw9buPXn8jqR5siu3">乌鲁木齐</span><span class="pb-elev" data-page-node-id="se5o0a1PAlO4jXlA6lt8zS">海拔920m</span></div>
+          <div class="pb-temp" data-page-node-id="lpzfCHjOP5SsCeVWvmS7S2"><span style="color:#ea580c" data-page-node-id="HdhgDGBYHGyPdW5RgGl8Fu">21°</span><span class="slash" data-page-node-id="uyzGlQrLF7Gy8FavIjXDbC">/</span><span style="color:#0891b2" data-page-node-id="Ag13FYF49WWutXxtLW8FmA">11°</span><span class="pb-unit" data-page-node-id="eNU0Rgugelcdh0xF6c0Rr6">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="Dfzcjlnn2E3GxLRh45rFnH">体感 7.9°~18°</div>
+          <div class="pb-wx" data-page-node-id="xtmcaHIFiHfKoP0grFNg6B">☁️ 阴 </div>
+          <div class="pb-meta" data-page-node-id="twQaXsanr2VZmYAHO3UY0s">💧湿度30% · 🌧️降水概率0%</div>
+          <div class="pb-meta" data-page-node-id="n44aJj0CqojlHfKfPUbpqP">💨风14km/h · 阵风36km/h</div>
+          
+        </div></div>
+    </div>
+    <div class="seg-card" data-page-node-id="tYAgB3OMYYTUi6IQJEuVG1">
+      <div class="seg-top" data-page-node-id="Np0bGs1ePrP4GLwAOh7CbI"><span class="seg-tag" data-page-node-id="k88NR6qgb55fx08JRnW29J">D2 · S101</span><span class="seg-date" data-page-node-id="s9e9wwVEsJruO5816JgAWc">09/30</span></div>
+      <div class="seg-title" data-page-node-id="H3Go1jI5E0kGTGmIuRrMN5">精河（百里丹霞·精河）</div>
+      <div class="seg-places" data-page-node-id="e6voHqSWaZNsdIy3vOdnpo">
+        <div class="place-block" data-page-node-id="51EWn8f2Rt1jCNwwT91gdS">
+          <div class="pb-head" data-page-node-id="KinfXcFfYtaOEbbs5tWeke"><span class="pb-name" data-page-node-id="eFFYcdN6C5AilnDH0S8BvA">精河</span><span class="pb-elev" data-page-node-id="j1MYJqam450JbsAzNAvi1I">海拔320m</span></div>
+          <div class="pb-temp" data-page-node-id="PEqGLJBvRcGBjn6v7LMHDH"><span style="color:#ea580c" data-page-node-id="5mq1ohChOLSWNfigRGeedO">23°</span><span class="slash" data-page-node-id="yJRHCVKukHtG7UKYLgOoCB">/</span><span style="color:#16a34a" data-page-node-id="HAJmFkh2TwfI1boefh1oUB">13°</span><span class="pb-unit" data-page-node-id="7RZl9fgmfftBdRTvQg6fAy">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="pORk2fzl8Upe3dODt1cLhq">体感 9.9°~20°</div>
+          <div class="pb-wx" data-page-node-id="vaJsZN1eHsX3ui8ChJW6kC">☁️ 阴 </div>
+          <div class="pb-meta" data-page-node-id="xwJWmirAE2zK4hkEuHu5Np">💧湿度29% · 🌧️降水概率0%</div>
+          <div class="pb-meta" data-page-node-id="Enj50iyHqBFfzIKOYoFc0n">💨风10km/h · 阵风19km/h</div>
+          
+        </div></div>
+    </div>
+    <div class="seg-card" data-page-node-id="iHGvKG5gZfjxyHj7tK16qu">
+      <div class="seg-top" data-page-node-id="7wVDG0H1DdyKgvBj1IK7qy"><span class="seg-tag" data-page-node-id="kiCwT5YjsZjg8ZuCQKKLdD">D3 · 赛湖</span><span class="seg-date" data-page-node-id="QFLT3yh0CU3oiCPJzeW4uc">10/01</span></div>
+      <div class="seg-title" data-page-node-id="HksqCJ2ibgI9SxUjdQK5qs">赛里木湖（游玩）+ 博乐（住）</div>
+      <div class="seg-places" data-page-node-id="U3lapnPEngZ0oxvyLBhpEF">
+        <div class="place-block" data-page-node-id="9SuVbGxHGf1gz0g24FAWaD">
+          <div class="pb-head" data-page-node-id="iERbAu6yEqDm7mQcQl5jLy"><span class="pb-name" data-page-node-id="7evGXWbwZIBbptfxeacRsZ">赛里木湖</span><span class="pb-elev" data-page-node-id="cCEGAbSN9clWo9Pqy9jmV4">海拔2070m</span></div>
+          <div class="pb-temp" data-page-node-id="XBbCEaQTviYlgaOXyKdsoR"><span style="color:#16a34a" data-page-node-id="Z2ok1W6M7ZoQ1AYbNfn3tR">14°</span><span class="slash" data-page-node-id="fHZz5kcWmo3A3EVAbs2EoP">/</span><span style="color:#0891b2" data-page-node-id="qPNBPJCNeGe91pRfehvOcF">8.9°</span><span class="pb-unit" data-page-node-id="KZ5ohyiu7JVOytW3GUYSUD">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="ezya1wHxoLa29DtaGsKTfQ">体感 6.8°~11°</div>
+          <div class="pb-wx" data-page-node-id="QW77PQSPuf0E62DyLQ8Pyz">🌦️ 毛毛雨 </div>
+          <div class="pb-meta" data-page-node-id="nUxNj9DG4rVFF2dFGVlAII">💧湿度65% · 🌧️降水概率18% · 降水0.7mm</div>
+          <div class="pb-meta" data-page-node-id="FO623XEeFsNdONyZD93OrJ">💨风25km/h · 阵风56km/h</div>
+          
+        </div>
+        <div class="place-block" data-page-node-id="xFl6CC8LV9evYozVSXqgn4">
+          <div class="pb-head" data-page-node-id="AKuTAgLCojfZ9qzX7I2PyN"><span class="pb-name" data-page-node-id="sGQEeFdTWp696ihe9m8EtG">博乐</span><span class="pb-elev" data-page-node-id="rXjd4GAgy1CPx7d6TaEZHF">海拔500m</span></div>
+          <div class="pb-temp" data-page-node-id="N6QRkF9fDbO9uZosjNhS07"><span style="color:#ea580c" data-page-node-id="AmiObvXMDYfmYwcLJtGIwb">22°</span><span class="slash" data-page-node-id="9QDCJRqZG1NXfX1xHa3CJ6">/</span><span style="color:#0891b2" data-page-node-id="ujgHMiH40N6SRB0yvyESQ0">11°</span><span class="pb-unit" data-page-node-id="WL3LjCiuKlEkjZLpgMqs8t">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="nhaJLRx9bm2XnCEYYsd1eB">体感 8.3°~19°</div>
+          <div class="pb-wx" data-page-node-id="vXBWHv7BcNUL66R10kxAPx">☁️ 阴 </div>
+          <div class="pb-meta" data-page-node-id="IIKSkueLcYD2tfsODBNA5P">💧湿度38% · 🌧️降水概率4%</div>
+          <div class="pb-meta" data-page-node-id="yXw99NZuFn99BHiacweoK0">💨风10km/h · 阵风26km/h</div>
+          
+        </div></div>
+    </div>
+    <div class="seg-card" data-page-node-id="mOmyjhG3oTD9Iv4oim2UM7">
+      <div class="seg-top" data-page-node-id="OCLEV95daX7U1rXqx7icE4"><span class="seg-tag" data-page-node-id="51X7v0m77kVtLxhTi2wLBu">D4 · 魔鬼城</span><span class="seg-date" data-page-node-id="Fz8MQgiHQDHTRqPjciMYrH">10/02</span></div>
+      <div class="seg-title" data-page-node-id="RBdF4T7kB7cRny6DzOB9Gh">乌尔禾（魔鬼城·世界魔鬼城）</div>
+      <div class="seg-places" data-page-node-id="GNFneG2TVgOpitJhGZyN0F">
+        <div class="place-block" data-page-node-id="jeBQ3mDhHlWMgBGN3uFUze">
+          <div class="pb-head" data-page-node-id="6CXk0zjSFErDsMlXGb3DA8"><span class="pb-name" data-page-node-id="wTqsRg5Y5lJW0mBE6ymVW8">乌尔禾</span><span class="pb-elev" data-page-node-id="xUaHo62WE0Afhc2rJplCiK">海拔300m</span></div>
+          <div class="pb-temp" data-page-node-id="NqqQR35HTDj00Vfzu1Alef"><span style="color:#ea580c" data-page-node-id="Xch9jt4Mn1XYT6NQdFvEbA">23°</span><span class="slash" data-page-node-id="gRdQ4NyYYWMjYhA1ULyZz0">/</span><span style="color:#16a34a" data-page-node-id="jHwfMDu8YgNl2psPt6GVPa">16°</span><span class="pb-unit" data-page-node-id="V0aUEdcmGeagGc3VQ2PUvG">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="6FRnvKx41fDoCne1EJ33TO">体感 12°~19°</div>
+          <div class="pb-wx" data-page-node-id="CJcPIyCHMpGBGCqTqUlqmF">🌦️ 小毛毛雨 </div>
+          <div class="pb-meta" data-page-node-id="gPdfQbuH9vWBKAT9Z0FaQh">💧湿度29% · 🌧️降水概率24% · 降水0.3mm</div>
+          <div class="pb-meta" data-page-node-id="G21gNBStxQ8u8PFhLfDEcE">💨风40km/h · 阵风63km/h</div>
+          
+        </div></div>
+    </div>
+    <div class="seg-card" data-page-node-id="GwA8xFRXwGAizWgn9DeVZz">
+      <div class="seg-top" data-page-node-id="fhqHJ25C1hiPfEOP1XB1tF"><span class="seg-tag" data-page-node-id="IloO5Pcgf7rnoX7ieCcN5C">D5 · 阿禾</span><span class="seg-date" data-page-node-id="eh4s1ZU92YugRNP2As6zSs">10/03</span></div>
+      <div class="seg-title" data-page-node-id="dyc5qBU8GEkzUV2pOPXrCQ">阿禾公路→禾木（住吉克普林）</div>
+      <div class="seg-places" data-page-node-id="LtXknFeUFb1KZbO0HRm7vW">
+        <div class="place-block" data-page-node-id="bPFkOvAc1NWqLLrtP7AjAq">
+          <div class="pb-head" data-page-node-id="lCpzPHnk4p9axiP7SZGA29"><span class="pb-name" data-page-node-id="CMYrcjYxQ8yqWcYDdFN0o1">禾木</span><span class="pb-elev" data-page-node-id="4Lk85a8V84FqSNPaHMDHum">海拔1120m</span></div>
+          <div class="pb-temp" data-page-node-id="uPkKKuGApG0aj4jqEAaADd"><span style="color:#0891b2" data-page-node-id="aZynFdkbai4MhuJ4HppYRD">11°</span><span class="slash" data-page-node-id="uBNAkPkiWUpcm2HD21wy9t">/</span><span style="color:#0891b2" data-page-node-id="cqUDXkbEJoN8h6B3bFbhkv">6.1°</span><span class="pb-unit" data-page-node-id="kN7kFHIlDJG92GzgWihaQs">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="C0ZSCEpcUOJmYLizsnSVrR">体感 4.4°~8.8°</div>
+          <div class="pb-wx" data-page-node-id="RxmYlAfpzZSdq7U5FHGEoy">🌨️ 中雪 <span class="sn" data-page-node-id="kaMDGQHjU8WGj0D1ZBQbnw">❄️降雪1.1cm</span></div>
+          <div class="pb-meta" data-page-node-id="BnnXMLqX5UHyrs8kaAK1M1">💧湿度75% · 🌧️降水概率29% · 降水1.5mm</div>
+          <div class="pb-meta" data-page-node-id="NoyZcwNCHYOGL1TG7ABYv0">💨风8.7km/h · 阵风24km/h</div>
+          <div class="warn-mini" data-page-node-id="3alw2LJuxvtJvaW9BbUdYe">⚠️ 实际住吉克普林(~1800m)，比禾木村高700m，夜间大概率破冰点、比本数据更冷（CMA官方预报村庄以雨为主，雪更可能在吉克普林/垭口高处）</div>
+        </div></div>
+    </div>
+    <div class="seg-card" data-page-node-id="2TJgf94J5Bor7vdb45oNCt">
+      <div class="seg-top" data-page-node-id="tEGY2bnuTDxYlxfGzvyipD"><span class="seg-tag" data-page-node-id="CSrAfnPiX5deMisQuig0eT">D6 · 禾木→喀纳斯</span><span class="seg-date" data-page-node-id="iFqO3CwF9yI1rrcLlBqZ2m">10/04</span></div>
+      <div class="seg-title" data-page-node-id="dgd1dwtYuiu0pQnMxlpvob">禾木（上午）+ 喀纳斯（住贾登峪）</div>
+      <div class="seg-places" data-page-node-id="cV6ImDqvmke63NksKhGHEK">
+        <div class="place-block" data-page-node-id="6MJF6GrxUEhw5fbNFon5wD">
+          <div class="pb-head" data-page-node-id="bbe54EaUcfSW1aj07RsJe9"><span class="pb-name" data-page-node-id="EGUbo8XrrnCuKjD4hlntwF">禾木</span><span class="pb-elev" data-page-node-id="ZRtrjvQXcrRYHOwdRISNGq">海拔1120m</span></div>
+          <div class="pb-temp" data-page-node-id="BRwagd38NiNkrkJRXPCGGr"><span style="color:#16a34a" data-page-node-id="FB6OqcPg4dwOGkozuch3Z4">14°</span><span class="slash" data-page-node-id="xvIzDEImQsC8FKPEQ2OHH2">/</span><span style="color:#0891b2" data-page-node-id="n40J0HKnSYaMkZTlSCJ478">7.4°</span><span class="pb-unit" data-page-node-id="mEPYVb65QMNDfZVXkSJoVi">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="CIak1HBStDc1j4eoBMe2Ly">体感 5.4°~11°</div>
+          <div class="pb-wx" data-page-node-id="8DMtXyRkfwcQUlMqZ0dKFP">🌨️ 小雪 <span class="sn" data-page-node-id="oFSVRqLtGTRi1M98ob8Rny">❄️降雪0.4cm</span></div>
+          <div class="pb-meta" data-page-node-id="9WGdLLsB0DU8iIjXOaDmQs">💧湿度61% · 🌧️降水概率23% · 降水0.6mm</div>
+          <div class="pb-meta" data-page-node-id="KFaX1P0w80TMMWWhRGEgLH">💨风10km/h · 阵风33km/h</div>
+          
+        </div>
+        <div class="place-block" data-page-node-id="UmA7rPiPAnM9UZQc5agRgO">
+          <div class="pb-head" data-page-node-id="juAMg7LHbHZiyZqifzpUqx"><span class="pb-name" data-page-node-id="HtRogcjMziSS2a3Zpy5G6x">喀纳斯</span><span class="pb-elev" data-page-node-id="g1OUaUt6nnz8b5v0eWbSBF">海拔1374m</span></div>
+          <div class="pb-temp" data-page-node-id="UMKIDRTiSC8eCs9cnIXepW"><span style="color:#16a34a" data-page-node-id="DecAHd5FXDY6hJUzcClXnm">15°</span><span class="slash" data-page-node-id="LeDQ8yxyEB9SlyuAPG4YbF">/</span><span style="color:#2563eb" data-page-node-id="GvTMnwwZ2CixgZAavLR9Y2">3.5°</span><span class="pb-unit" data-page-node-id="SzbMvpedqO6cuEwTUboLBc">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="lhEHydEmrtR0qFvcksS1Zf">体感 1.7°~11°</div>
+          <div class="pb-wx" data-page-node-id="AgsHb0D2uakPDG56ZAxjRK">☁️ 阴 </div>
+          <div class="pb-meta" data-page-node-id="DBNemT4gsYRr9xJPH4yFNF">💧湿度65% · 🌧️降水概率24%</div>
+          <div class="pb-meta" data-page-node-id="iUiZmXs4wVNcBmz3g7EhIA">💨风7.9km/h · 阵风25km/h</div>
+          
+        </div></div>
+    </div>
+    <div class="seg-card" data-page-node-id="F0wvFUTiHyH6bMEyT08nvC">
+      <div class="seg-top" data-page-node-id="OwZ5rajl4uvswqeYLYXF06"><span class="seg-tag" data-page-node-id="81Dd5cdUg6FYi0A3BMgCLc">D7 · 喀纳斯</span><span class="seg-date" data-page-node-id="IQGEbDUHVKvBrDJqbg4k2n">10/05</span></div>
+      <div class="seg-title" data-page-node-id="WXfWpqxB6SO4hR6fCyWTII">喀纳斯（全天·住贾登峪）</div>
+      <div class="seg-places" data-page-node-id="Vz3TaNYKvbjs8bFShkhbga">
+        <div class="place-block" data-page-node-id="wkmamGwJeguBEoK0FvFWFT">
+          <div class="pb-head" data-page-node-id="oGsPW0EnQszqoIy060TgoX"><span class="pb-name" data-page-node-id="kb7xh7DPbwZR9QOSZrEESy">喀纳斯</span><span class="pb-elev" data-page-node-id="ptLxXM1KSaT8KBnY2dOKPb">海拔1374m</span></div>
+          <div class="pb-temp" data-page-node-id="uixGgur25jfiFJMVofyIxY"><span style="color:#16a34a" data-page-node-id="kUt0ZeXSHwBBWjfnGASA4y">16°</span><span class="slash" data-page-node-id="u2ElfUuktXrDdl8lbVdL0v">/</span><span style="color:#0891b2" data-page-node-id="jPTDJnBetXonmx06b4yvTj">6.6°</span><span class="pb-unit" data-page-node-id="ly5LWjdSu57xc8kbPA6mk2">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="Fmc3HCQM3VBWH80h35Dv8V">体感 5.1°~14°</div>
+          <div class="pb-wx" data-page-node-id="DTMBVcoi7mEeNTQFhiO8Lw">🌧️ 中毛毛雨 </div>
+          <div class="pb-meta" data-page-node-id="1kpXsIYC5KgfbagIifr441">💧湿度69% · 🌧️降水概率43% · 降水3.9mm</div>
+          <div class="pb-meta" data-page-node-id="gLJzHl4yv7Z9eLisKZbnmP">💨风5.4km/h · 阵风23km/h</div>
+          
+        </div></div>
+    </div>
+    <div class="seg-card" data-page-node-id="aOnaFUzsAMO1Nnc916moLS">
+      <div class="seg-top" data-page-node-id="qEU4jkfLpzqcWpZdllzORO"><span class="seg-tag" data-page-node-id="EPTOHLAcAdzJV5eyfit5Dj">D8 · 返程</span><span class="seg-date" data-page-node-id="CoJak6ZApN5yfsxbnQRJnx">10/06</span></div>
+      <div class="seg-title" data-page-node-id="JIWZQEP58ARB9badMae0B3">北屯→乌鲁木齐（19:55 航班）</div>
+      <div class="seg-places" data-page-node-id="057qsxDT3BNyEPB1xS3SD7">
+        <div class="place-block" data-page-node-id="BcUBu1dEH04IVqmeSzQWSz">
+          <div class="pb-head" data-page-node-id="7ks1hdwJBTo2veqwV93eMb"><span class="pb-name" data-page-node-id="Y2QFOAtFQfhyPpBbMu9gvU">北屯</span><span class="pb-elev" data-page-node-id="bkca403UQMuGZQxqL6ul9F">海拔500m</span></div>
+          <div class="pb-temp" data-page-node-id="mOed5chuOZQxOO1GrrxhFx"><span style="color:#16a34a" data-page-node-id="vprttYNGz6OMWFaWQJYbYf">17°</span><span class="slash" data-page-node-id="WAsYRx0Xa0Rk0xMKskFEbR">/</span><span style="color:#0891b2" data-page-node-id="Uda2I8rt1mpwz59aBgBOA3">9.5°</span><span class="pb-unit" data-page-node-id="BQAJJTc0PGQWcsgmlVEqcG">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="fH6liQB7MT2BoPd5xM7VH8">体感 4.8°~15°</div>
+          <div class="pb-wx" data-page-node-id="mEsPevTYzShwrXiTFz0EI8">🌦️ 小毛毛雨 </div>
+          <div class="pb-meta" data-page-node-id="1bsduF9XVEm41kmkjBYqrX">💧湿度55% · 🌧️降水概率23% · 降水0.6mm</div>
+          <div class="pb-meta" data-page-node-id="AqLik5MQinCL6VES0KkLx9">💨风27km/h · 阵风52km/h</div>
+          
+        </div>
+        <div class="place-block" data-page-node-id="5AL8xtjNKBbAAa8cfKC0Fo">
+          <div class="pb-head" data-page-node-id="faNs1jZNGoQy3qVGfLEXHg"><span class="pb-name" data-page-node-id="T1D5CrK4QLNtcBI3922GmH">乌鲁木齐</span><span class="pb-elev" data-page-node-id="AiHawZOPNpBo88zdpAaNHI">海拔920m</span></div>
+          <div class="pb-temp" data-page-node-id="lQ5wEMJhxEjzQ862DMLZXO"><span style="color:#ea580c" data-page-node-id="EvKHrKsdSmRes1KHhD6j9p">22°</span><span class="slash" data-page-node-id="FbYZBIcKUHyj6MWx2eGes5">/</span><span style="color:#0891b2" data-page-node-id="oUVDIgT2Rs6IAtGZEIJp73">10°</span><span class="pb-unit" data-page-node-id="lkHURAaP0A99OzAr5gXlB1">最高/最低</span></div>
+          <div class="pb-feel" data-page-node-id="OyQEFct6pQDNgCTvjXgCrD">体感 7.2°~18°</div>
+          <div class="pb-wx" data-page-node-id="EZUk8Z3DKKMxjuK1HuBWa7">🌦️ 毛毛雨 </div>
+          <div class="pb-meta" data-page-node-id="fCxG3FKzsaU9sLi2ct39sP">💧湿度39% · 🌧️降水概率20% · 降水1.8mm</div>
+          <div class="pb-meta" data-page-node-id="kHyuhUVdrQK2GFgd5U8Ftg">💨风19km/h · 阵风46km/h</div>
+          
+        </div></div>
+    </div></div>
+
+  <h2 data-page-node-id="0CXTElt2YiwW0CDM7UBEDQ">⚠️ 重点预警</h2>
+  <div class="alerts" data-page-node-id="OXgj9zQhICcxfLHtTMDm8h"><div class="alert" data-page-node-id="ABkBMMADxnbLSfoxwrv8YZ"><div class="alert-h" data-page-node-id="800BJ3Dy8aQseDTckT1YDL">❄️ 禾木·吉克普林（10.3–10.4）</div><div class="alert-b" data-page-node-id="nVEPE2ZPRJNfA46vI82Sb6">10.3 有降水(雪或雨)、夜间 6℃；实际住宿点吉克普林约 1800m，夜间大概率破冰点。羽绒服+冲锋衣+保暖层是刚需，垭口 2750m 行车段更冷。注：CMA官方预报村庄以雨为主，雪更可能在吉克普林/垭口高处。</div></div><div class="alert" data-page-node-id="N8HAsfw3X4VFKLTs7Mglto"><div class="alert-h" data-page-node-id="N5XBDG7v3kaThfJbfd6n5X">🌧️ 赛里木湖（10.1–10.2）</div><div class="alert-b" data-page-node-id="crBGQsESi5RLr0A5OTJWP6">白天仅 10–14℃、湿度 65–79%、10.2 阵风达 72km/h。风冷效应明显，务必防风冲锋衣；湖边停留时间长，备热水。</div></div><div class="alert" data-page-node-id="oVRbkzOdSHKFjOWIMiyAHr"><div class="alert-h" data-page-node-id="891lNn4gSWTSibwrDClYL0">🌧️ 喀纳斯（10.5）</div><div class="alert-b" data-page-node-id="d254diRjH6NlscDSW2s9sD">中雨 3.9mm、湿度 69%，15–16℃但体感偏冷。防水冲锋衣+抓绒，鞋要防滑。</div></div><div class="alert" data-page-node-id="9kLutNE2NH2KhLDIXEgDpY"><div class="alert-h" data-page-node-id="4TeF5ON2jZnDgKfLtS5wO3">💨 乌尔禾（10.2）</div><div class="alert-b" data-page-node-id="HVtSslXz7FDhHlXaYAjAao">阵风 63km/h，魔鬼城开阔地飞沙走石，墨镜+防风外套，注意相机防沙。</div></div><div class="alert" data-page-node-id="d8qJkAVE26EEKEeSiyCcx9"><div class="alert-h" data-page-node-id="Bx7zapkDjm67tFLvzt7Q6Q">🌀 北屯→乌市（10.6）</div><div class="alert-b" data-page-node-id="wGLk7irsCDBFwrfGYkBaLj">返程日北屯阵风 52km/h、乌市傍晚毛毛雨，登机前留件防水外套。</div></div></div>
+
+  
+  <h2 data-page-node-id="PvxEsPx4FbKHAXqgcZr8Tj">📡 多源交叉验证与结论修正</h2>
+  <div class="banner" style="background:linear-gradient(120deg,#eef4fb,#e2edfb);border-color:#cfe0f5" data-page-node-id="Xe9ox8RKW04ZkP5KXWtJMQ">
+    <div class="big" style="color:#1e40af" data-page-node-id="wrzVD6U85ICrMxDEj5mZFB">不只看一个模型：我叠加了 4 类独立数据源</div>
+    除 Open-Meteo（ECMWF / GFS / ICON 全球模式集合）外，补充了：
+    <b data-page-node-id="F2EEXhmxmEaZVvDJCUhzlC">①中国天气网 / 中央气象台</b>（CMA 国产 GRAPES 模式，对新疆地形分辨率最高、最权威）；
+    <b data-page-node-id="BJyCwioUJXnGcIpUD5Wtgi">②墨迹天气</b>（商业预报，常处偏冷一端）；
+    <b data-page-node-id="t38I1Jy0CTgsRBHanJELQC">③1981–2010 年气候均值</b>（中国气象数据网，用于标定"今年偏暖还是偏冷"）。
+    三家交叉后，结论比单看 Open-Meteo 更稳、也更敢下判断。
+  </div>
+
+  <h3 style="margin:18px 0 8px;color:#1e40af;font-size:15px" data-page-node-id="bezPIgU7uFZUphdT2n7nC3">🔍 山区（禾木 / 喀纳斯）出现明显分歧 —— 这是最大的不确定性</h3>
+  <div class="tbl-scroll" data-page-node-id="AybQnjhF6MK1rzCS8QQwgg">
+  <table class="wx-tbl" style="min-width:600px" data-page-node-id="jAdBmRJVRfJ4NktLaTiBqn">
+    <thead data-page-node-id="90WpjLesqnKtU1YQ9P89ul"><tr data-page-node-id="tgK6wgBIrzdOvq8PeQkdAZ"><th data-page-node-id="H5Y0WkaGckdYCj1qHMojjI">数据源</th><th data-page-node-id="LqUCH3YFMLOFtk9RovjcT9">禾木 10.03–10.05</th><th data-page-node-id="GAatbNXdcGXINAGKlG0CkE">喀纳斯 10.05</th><th data-page-node-id="7OUCWMMVvECChEcCPjnUCV">性质</th></tr></thead>
+    <tbody data-page-node-id="LKwvyUBVkauwr1MlLhcQ6b">
+      <tr data-page-node-id="pVo2wl7JnslvnNkkDw7j1V"><td data-page-node-id="oIDGnlxP98hj3NYwP2IDMq">Open-Meteo</td><td data-page-node-id="nGuvSHVJEhRHvfy6aKpc9V">中雪/小雪/阵雪，夜 2–9℃</td><td data-page-node-id="gZzS2nk8NckpTfIc2Q1uqz">中雨 3.9mm</td><td data-page-node-id="oXpFa543G0EKpQmSTIIjSQ">全球模式集合</td></tr>
+      <tr data-page-node-id="CvixydLe3FdwYvZgbAIVhG"><td data-page-node-id="H1NjR1bXydJgLHNf081gwK">中国天气网(CMA)</td><td data-page-node-id="rY3bI0jGDnDWWrfXA89hAC">多云为主，夜 3–9℃，仅雨</td><td data-page-node-id="LMDDaRNoDmkUnDp8HxhfJV">阴/雨，4–13℃</td><td data-page-node-id="WOs1pAvF4KtmthYbeDFxVV">官方·地形高分辨</td></tr>
+      <tr data-page-node-id="srOvCevF52CjmPya5tnvHo"><td data-page-node-id="xdpMo7PwEtuG5dypcaQHY6">墨迹天气</td><td data-page-node-id="bedxyhBDTl2YqXeEEIilYZ">10.04–06 雪，夜 −3~−7℃</td><td data-page-node-id="AjNWR8TZNBHvdIkiPpdiHd">雪，−4~1℃</td><td data-page-node-id="sQBXXnz99bpag8W8xiu6PN">商业·偏冷端</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="alert" style="border-left-color:#1e40af" data-page-node-id="QufFJD1jGaXcWB48gm9b4s">
+    <div class="alert-h" data-page-node-id="1bPjqHLqEXbF8ZPLpKfTsh">🧭 怎么解读这个分歧？</div>
+    <div class="alert-b" data-page-node-id="S5pNwV6FecTPlYjQrNjPdP">
+      • <b data-page-node-id="vbkq1coATl81kXp7BJ004k">"冷"是确定的</b>：三家一致认为山区白天 13–19℃、夜间 2–9℃，且至少有一个源跌破冰点。<br data-page-node-id="xY9rQwktMPjkG9QFjyApxP">
+      • <b data-page-node-id="EU2T9pGuelQVlDT6lmHqPs">"下不下雪"分歧大</b>：CMA 认为山谷村庄以雨/湿冷为主、基本不下雪；Open-Meteo 与墨迹认为会下雪。<br data-page-node-id="UXFpdjkjG1HkohtFnE335u">
+      • <b data-page-node-id="IMbZ3h69Li40MeWV4H7fHg">雪更可能落在高处</b>：你们 10.3 住的<b data-page-node-id="MTBqBCaVZvA7gUfKPX6E4p">吉克普林(~1800m)</b>、阿禾公路<b data-page-node-id="6aFSLD1gsORqkBWQRsX7GC">垭口 2750m</b> 比山谷村庄高一大截，雪线以上大概率有雪/结冰，村庄反而可能是雨。<br data-page-node-id="Js1U9m9ErrU5lwF99ul2GM">
+      • <b data-page-node-id="iZx4eiplhLUwKqeyyABhdF">打包策略不变、且更必要</b>：既然多源在"冷"上一致、在"雪"上分歧，保守按"<b data-page-node-id="XCPhYwO7d2mOdI3LHvzFyF">夜间破冰点 + 可能降雪</b>"准备 —— 羽绒+冲锋+帽手套方案完全成立。
+    </div>
+  </div>
+
+  <h3 style="margin:18px 0 8px;color:#16a34a;font-size:15px" data-page-node-id="Hdh41eBFtcOdqVzNqxyVDy">✅ 已确认可信的部分（两源几乎逐日吻合）</h3>
+  <div class="alert" style="border-left-color:#16a34a" data-page-node-id="nRzLAA0ifSGt6iKbz58ii9">
+    <div class="alert-b" data-page-node-id="oVOUWBU0XK2Mwr3bzEztNl">
+      • <b data-page-node-id="DFBLNdU6CjdjXwCnGgAFzh">低海拔段（乌市/精河/博乐/乌尔禾）9.29–10.04</b>：Open-Meteo 与中国天气网逐日高度吻合（白天 20–24℃、夜间 10–13℃，10.02 乌市有小雨）。这部分可信度很高，放心按"秋装+薄外套"准备。<br data-page-node-id="Emhh9ibiPxEsNOMQRs47bU">
+      • <b data-page-node-id="MMLlbbBs1HPXdDgvKCIx7v">仅返程日 10.06 有小幅分歧</b>：CMA 略凉且雨（乌市 17/6），Open-Meteo 22/10 毛毛雨 —— 登机前留件防水外层即可。<br data-page-node-id="lUM1I2szcUWVks2Vf5zNwy">
+      • <b data-page-node-id="JNuNMC0F2DUz43YcbuFWFm">气候标定</b>：今年低海拔明显偏暖（博乐预报 20℃ ≫ 30 年均值 14.6℃），所以低海拔可比气候均值穿得少；山区则与均值持平或更冷，保暖不能省。
+    </div>
+  </div>
+
+  <h3 style="margin:18px 0 8px;color:#b45309;font-size:15px" data-page-node-id="H0CyDGjDNnVkWaPZDwhLjm">📌 据此新增的 3 条建议</h3>
+  <div class="alert" style="border-left-color:#b45309" data-page-node-id="vJEJgQyz3CHvINsO1L0DVJ">
+    <div class="alert-b" data-page-node-id="kKBdI3coQsCkT9SHfJH5r1">
+      • <b data-page-node-id="tngfWv7iYQ36MA1bAStNEl">鞋必须防水防滑</b>：山区降水不确定（雪/雨/融雪路面），普通运动鞋不够，徒步鞋/雪地靴更稳。<br data-page-node-id="AIxjbxk6Y3sT0Wiadrar8t">
+      • <b data-page-node-id="mY0u3xqGYqhkZDbsKkQnE8">摄影党注意</b>：清晨是全天最冷时段，观景台/晨雾按冬季装备（禾木晨雾、神仙湾晨雾常逼近 0℃）。<br data-page-node-id="W60XI3Tc6n17AvntFymBHj">
+      • <b data-page-node-id="DnDMDCpYvNrmoz9bPUBTGP">关注交通管制</b>：深秋强降雪时阿尔泰山旅游公路可能临时管制（布尔津—贾登峪—景区），出发前查阿勒泰地区交通运输 / 喀纳斯景区公告；阿禾公路垭口若积雪，留意交警管制。
+    </div>
+  </div>
+
+
+  <h2 data-page-node-id="v61U2wvLIfsY3FdEPD9zbU">🧳 打包清单（可勾选，自动保存）</h2>
+  <div class="chk-group" data-page-node-id="f7J8hY0azocl1BSOjN8AB3"><h4 data-page-node-id="vipVoS1cjbYc2qHqyBqAbU">🔥 必带保暖层（山区段 10.3–10.5 每人必备）</h4><ul data-page-node-id="Xi7LPZdsfUKfUEzkPbKlmp"><li data-page-node-id="Ve7GDkAxq8oioxywtGSvDj"><label data-page-node-id="Hk5sXI4GYgEndsAoFnUeWY"><input type="checkbox" data-k="🔥 必带0" data-page-node-id="dfD7rMIZiP0r5bC5eWDgrp"><span data-page-node-id="lKfKL0Z4vYUVSH7a8UiAra">羽绒服 / 厚棉服（禾木·喀纳斯夜间近冰点，垭口更冷）</span></label></li><li data-page-node-id="kLPBT6cMBEZEB9erLIuHv4"><label data-page-node-id="D99e5VEKxrzHmVdPr5dNBT"><input type="checkbox" data-k="🔥 必带1" data-page-node-id="yDiUu7USFSgGtPsGgqxJtU"><span data-page-node-id="9QA5RGDf1tPArEP82iCb2s">抓绒衣 / 羊毛衫（中间层）</span></label></li><li data-page-node-id="a9kjaycyf98tskttHFEHDP"><label data-page-node-id="eN3EjZb5E2medb30vUxnTx"><input type="checkbox" data-k="🔥 必带2" data-page-node-id="JCkob2sBajYRE2qRKR1Dpr"><span data-page-node-id="cDPTViWah28P7C2cD9sNOF">保暖内衣 / 秋衣秋裤（至少 2 套）</span></label></li><li data-page-node-id="M8MfN4W5B3UrLHDgEFxzU3"><label data-page-node-id="oZCMxiG0BdzFOmW5MlNfLl"><input type="checkbox" data-k="🔥 必带3" data-page-node-id="IwE8jBnRzTlNm5Gjmxl1d1"><span data-page-node-id="UG4tPlxv0rgBDXCBskkKJP">冲锋衣（防风防水）—— 赛湖大风、禾木下雪/雨刚需</span></label></li><li data-page-node-id="zuxK0P9PCqYnR3V1YM2FHp"><label data-page-node-id="zrPbTiWaw0vCjUE1ZWVgtP"><input type="checkbox" data-k="🔥 必带4" data-page-node-id="elZ4ld207eK6lcGf1BcP2Q"><span data-page-node-id="vmhe1vhFOVHyixEbvJTFOB">厚裤 / 保暖裤（一条即可，外裤选防风面料）</span></label></li><li data-page-node-id="45Hpylf9ICGLZeRE9I6Inh"><label data-page-node-id="EJbXeR1TVlgqDawVjnFlNk"><input type="checkbox" data-k="🔥 必带5" data-page-node-id="PZQSmydMTJIVTMI06uqSdo"><span data-page-node-id="CmGei1PhPHIO3C5z615dEy">保暖帽 + 手套 + 脖套/围巾</span></label></li><li data-page-node-id="o6wE4uPiNFTud9KPslDXYr"><label data-page-node-id="fOPvIWG8lRE9dS4JK51iW3"><input type="checkbox" data-k="🔥 必带6" data-page-node-id="qojA2cW7ZNVx0Cb3SvCNJA"><span data-page-node-id="6fXpAcA0HFQEHylMz1UvBO">防水防滑鞋 / 徒步鞋 + 厚羊毛袜（2–3 双）</span></label></li><li data-page-node-id="L4CrwB54lRyrieBxp2K3an"><label data-page-node-id="PXGZPQrt31GhjH3kHDlnZ1"><input type="checkbox" data-k="🔥 必带7" data-page-node-id="WkxMsQ5GuryHtbB6CKDGT4"><span data-page-node-id="gHmqlOCtOK4qNOld7tsnJE">暖宝宝（贴身/手机保暖，山区段随身）</span></label></li></ul></div><div class="chk-group" data-page-node-id="HujGfCrVGU6HIoE7pOoZxE"><h4 data-page-node-id="3Cfixub5JuMXmooeyonMTM">🧥 市区·低海拔舒适层（9.29–10.2、10.6 乌市）</h4><ul data-page-node-id="fqnRUmgnt5SYVisKNcHWKg"><li data-page-node-id="POCnU6HxD1txWfsiA4lzHp"><label data-page-node-id="J5yhIxmtdYOMvKCrqLMPeL"><input type="checkbox" data-k="🧥 市区0" data-page-node-id="6ptnPE031pBpvASc7MufHE"><span data-page-node-id="Bx8t48EaMrDSG3Y6riHKCJ">薄外套 / 风衣（乌市、精河、乌尔禾白天 20℃+ 用）</span></label></li><li data-page-node-id="2Q7clpbf2WRdBhQtbVajQN"><label data-page-node-id="5cHyBFHzgefUgr2rucCAbt"><input type="checkbox" data-k="🧥 市区1" data-page-node-id="UYAyUD8zWNbWZVNaVlNt4W"><span data-page-node-id="ygCFXJW0c4B4e6PsaNXqK7">长袖 T 恤 / 衬衫（2–3 件）</span></label></li><li data-page-node-id="2GdKklMo8bnNbRCYBHhrFR"><label data-page-node-id="Ik3TuiDi12iFnIjPvUZgz0"><input type="checkbox" data-k="🧥 市区2" data-page-node-id="zpmG5ZaBR1RiRPjGGOlU9v"><span data-page-node-id="nRFPi1karAtAb3hyNCNx5z">单裤 / 牛仔裤</span></label></li><li data-page-node-id="0Gh9GTXEfSDpKIIdEVFW7V"><label data-page-node-id="KcvgmvkCiTwwR1xTMam9up"><input type="checkbox" data-k="🧥 市区3" data-page-node-id="9K2juNwNetn8XpvPPWkDEC"><span data-page-node-id="WE8xSkTRzUd5VHY5xlP0Lm">运动鞋 / 休闲鞋</span></label></li></ul></div><div class="chk-group" data-page-node-id="0NTNpzuy5sp1nqtXi7KL0B"><h4 data-page-node-id="VWBVp2bpcpYCG2YXPgST8P">🌦️ 雨具与防护</h4><ul data-page-node-id="2Q0EJAkJJVoOYzHaHHBUxR"><li data-page-node-id="fORRPHbnxFw1xIIcyH5YL8"><label data-page-node-id="hx4DboNrqwgz9MM4sEaaMw"><input type="checkbox" data-k="🌦️ 雨0" data-page-node-id="yaLk6zeChBvoxhHpDKn1nT"><span data-page-node-id="aEES6pV7nElLvNWgVAiWkn">折叠雨衣 / 雨伞（10.2 赛湖·乌尔禾、10.5 喀纳斯有降水）</span></label></li><li data-page-node-id="6mHbGgHEPBSDu55ta3K5jg"><label data-page-node-id="ux0cXnbA7QmsfGPFe0Vpe6"><input type="checkbox" data-k="🌦️ 雨1" data-page-node-id="empTWEC6KVFC99HhQfa0se"><span data-page-node-id="XSp4LQ0WVqq3mdjHj7uNWG">防晒霜（高海拔紫外线强）+ 墨镜 + 遮阳帽</span></label></li><li data-page-node-id="GYLlHaOl1Qbg2GZXNFRHBq"><label data-page-node-id="tgrA2mRoFJSXixuAu65ssh"><input type="checkbox" data-k="🌦️ 雨2" data-page-node-id="EDEWwhsDwXxrghbqZnjV9k"><span data-page-node-id="o3BwlhxRJHx9jiJ57RpGWw">润唇膏 + 身体乳（精河/乌尔禾/乌市极干燥）</span></label></li></ul></div><div class="chk-group" data-page-node-id="vh2yl0H77YA2dZeIRAy00s"><h4 data-page-node-id="qPcyX0Nrdliqt0rDZgXg4G">🎒 通用与药品</h4><ul data-page-node-id="EapirYxO6OWR2vpLtvdBZh"><li data-page-node-id="xfuC5FiCjE5McZHBZLIjUH"><label data-page-node-id="2ZF6QxIFy9cGh5hQQGE7q6"><input type="checkbox" data-k="🎒 通用0" data-page-node-id="AzGT80qcYN0z4BBw8pZ1YW"><span data-page-node-id="5D4DgQ2mnSfV1my3AzK5YG">保温杯（喝热水在寒区很关键）</span></label></li><li data-page-node-id="9H3PDLwCrGJ4xYH2iUVlgD"><label data-page-node-id="EHwioC3w8lOgxhJf59H3oG"><input type="checkbox" data-k="🎒 通用1" data-page-node-id="aV1XaDSFCbZDDtRGuKicvG"><span data-page-node-id="aRHMPF7GwNeVcIt9aDoo5J">常用感冒药 / 肠胃药 / 创可贴</span></label></li><li data-page-node-id="qgF9BVnAaAYqMrIfLhHCYJ"><label data-page-node-id="YDddRR7lvOgXgyv0cUgD7Y"><input type="checkbox" data-k="🎒 通用2" data-page-node-id="M0EURnYXC6A5jGVjagBK2A"><span data-page-node-id="9ivXAwP5ZbS2WnnnJ1gXS6">充电宝（低温掉电极快）</span></label></li><li data-page-node-id="diRGeKakB1tMv6H2UPSBz8"><label data-page-node-id="ZPD3BEfrGRb9g0JxNJxqWV"><input type="checkbox" data-k="🎒 通用3" data-page-node-id="2tW9HjXyHNEDFbBxFPe3l1"><span data-page-node-id="oPUdNAwCOdLLAllQbFZ2F0">防晒兼保暖两用头巾</span></label></li></ul></div>
+
+  <h2 data-page-node-id="gGEogakTXvTSkO92TNp7K3">👕 每日穿搭建议</h2>
+  <div class="wear" data-page-node-id="6Cy72aQQ1vIHVpbLW3mwHf"><div class="wear-row" data-page-node-id="pBqR3O1jJSCqwwqu7TdO9o"><div class="wear-day" data-page-node-id="2y8qkaW1HbseHivX5ov37C">9.29 抵达乌市</div><div class="wear-tip" data-page-node-id="O0bSFevbWhQLZyEQ36F6vV">薄外套+长袖，落地 21℃/11℃，单裤即可；夜间加件外套。</div></div><div class="wear-row" data-page-node-id="DWifz4v6YvW4ORKtnoSUgD"><div class="wear-day" data-page-node-id="VfhDbTs9CbIdeWaucR3CEn">9.30 精河</div><div class="wear-tip" data-page-node-id="q94Ts9CG3OVzZlOJMVa4yw">白天 22℃，单裤长袖；S101 沿途风大，备薄风衣。</div></div><div class="wear-row" data-page-node-id="1NPn3UAjYCkZOjS4JwTZXJ"><div class="wear-day" data-page-node-id="V4cA9vw9sZQNCx8trhB7IS">10.1 赛湖+博乐</div><div class="wear-tip" data-page-node-id="6apoDnNF8UC8ZrFKgmtClK">⚠️赛湖仅 14℃/9℃、风大湿度高，需冲锋衣+抓绒；博乐住 22℃/13℃，回酒店可减层。</div></div><div class="wear-row" data-page-node-id="7ZpGBqnWZNh7h8147YkfiH"><div class="wear-day" data-page-node-id="JzPap7wMqWDHSSQy133gaU">10.2 乌尔禾</div><div class="wear-tip" data-page-node-id="Y5ZltrtW5IFXYp3N0f2p6K">乌尔禾 23℃但阵风 63km/h，外套要防风；白天偏热可内穿短袖。</div></div><div class="wear-row" data-page-node-id="IBpfcjZSYRGCSc3PcynNyl"><div class="wear-day" data-page-node-id="u9vbVUuTe0j7XtqyVG27m4">10.3 阿禾→禾木</div><div class="wear-tip" data-page-node-id="N8b99tGWM8MkznR9yCsBJA">🔴重点防寒：禾木有降水(雪或雨)、夜间 6℃（吉克普林破冰点），羽绒+冲锋+帽手套全上；垭口 2750m 更冷，车上常备厚衣。</div></div><div class="wear-row" data-page-node-id="vjhrwmPbEs2rVIKEj3Hano"><div class="wear-day" data-page-node-id="jVdgyAVUlUsqFgpCg7FaKK">10.4 禾木→喀纳斯</div><div class="wear-tip" data-page-node-id="jSPTk0XJWZ4OgbYtpbQXXi">禾木 14℃/7℃，喀纳斯 15℃/3.5℃（体感近冰点），保暖层别脱。</div></div><div class="wear-row" data-page-node-id="aPLJTyw1q66Z4IGAKSrxup"><div class="wear-day" data-page-node-id="LVLdwZNG16ZHMHVybCiJu3">10.5 喀纳斯</div><div class="wear-tip" data-page-node-id="L1emInTM2qrLGZa68GTuKW">15–16℃但中雨、湿度高，冲锋衣防水+抓绒；夜间 6℃。</div></div><div class="wear-row" data-page-node-id="YIBmvm50u8GRKLauzkVZB9"><div class="wear-day" data-page-node-id="y43mnyXVKVNsntbi38KaIB">10.6 北屯→乌市</div><div class="wear-tip" data-page-node-id="I69nEqTgaKCEBCy0EZFFyw">北屯 17℃有阵风，乌市傍晚毛毛雨 22℃/10℃；返程航班前备件防水外套。</div></div></div>
+
+  <h2 data-page-node-id="4ZfxPB4H5d5fwB6msAB0G9">📊 各地完整逐日数据</h2>
+  <div class="tbl-scroll" data-page-node-id="5q0a6NxjLXuYEpoi0rj8HJ"><div class="tbl-wrap" data-page-node-id="xUZmTmzFOQisve8DnL5BpA"><table class="wx-tbl" data-page-node-id="rLh0XTt5QDeNHKc7qJhyc2">
+      <thead data-page-node-id="OfWbuVa43qJ3hWhLtPCLHz"><tr data-page-node-id="jeTZsayA20RfYXAPVsnabe"><th data-page-node-id="uC1hM0PpDOJF5guTgHOCLP">日期</th><th data-page-node-id="ROBM5njGmMfYriuYVbBWMK">最高</th><th data-page-node-id="c875bky6FAkXDB1L4vYq4e">最低</th><th data-page-node-id="Zf8fJt9wwTn75ER7kYaRxx">天气</th><th data-page-node-id="DXJBtqFie2PrYuSDtpbAD2">降水概</th><th data-page-node-id="iFBIAjJoYwX8eXh7zdp3Bd">雪cm</th><th data-page-node-id="icgitKsDfm6urcyg4Y9iNY">湿度</th></tr></thead>
+      <tbody data-page-node-id="w0FdRbNZ3oLrQAKtPkJWJC"><tr data-page-node-id="Fbr77BrpEoTGw6qxQPFzc4">
+          <td class="dt" data-page-node-id="OR0GDaZ2tVhEdPzBu4RQrP">09-29</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="bA9DJHyfP57BpHxfLZwj9z">21°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="LVJadVelBT877GGXCI52TO">11°</td>
+          <td data-page-node-id="AFm6UgKW0Ohqy3oG0Df9vD">☁️ 阴</td>
+          <td data-page-node-id="BRqOMQn5tjtPmh9cyRtbTC">0%</td>
+          <td data-page-node-id="TvklC9uxypBGEHSgivMrou">0</td>
+          <td data-page-node-id="tRVgVkZ0DT0tLK03D6J94f">30%</td>
+        </tr><tr data-page-node-id="IXqTl5qNNcPGdZ1syPC65e">
+          <td class="dt" data-page-node-id="2IFbhFpFDs1HdS2lLQSW2T">09-30</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="lLqQjUwFurbMW5YxKOZdl7">22°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="GP7UdcNxgYZjcM28rXXzDN">12°</td>
+          <td data-page-node-id="YHevb6YHLfGX3XoAFNxWEy">☁️ 阴</td>
+          <td data-page-node-id="3SGFFo42n712cMhyDIHqV2">0%</td>
+          <td data-page-node-id="nCZYMxKxG1YCdb9ZnNjLnb">0</td>
+          <td data-page-node-id="qO3GsME5bQU5wmG24fC1iv">26%</td>
+        </tr><tr data-page-node-id="uP557DQDxE1y80ABtBOxaa">
+          <td class="dt" data-page-node-id="WXKkGbjXi9WPol4qPMRGju">10-01</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="pnX4JwHQKR0jQW4Lc0dE0l">23°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="mvQaQoKff58V6w7t7beXnO">13°</td>
+          <td data-page-node-id="DwCRlCYFHGYkLZh04fsr1x">☁️ 阴</td>
+          <td data-page-node-id="13RfcqPw5g9yzal853RVHi">8%</td>
+          <td data-page-node-id="QvQI7dHRcPplysPv26l2ul">0</td>
+          <td data-page-node-id="yi9Ak63p4nNYQ0nK5okfkP">25%</td>
+        </tr><tr data-page-node-id="gJ5aZX7eyeK6S1I0PkRg41">
+          <td class="dt" data-page-node-id="qQdCJ0H1xNDhGeb9ksuTt4">10-02</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="pFCpXFo96WaGMIs835KWCn">21°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="WyHFCyf7SqR0tTZM6G3Cnp">12°</td>
+          <td data-page-node-id="V5D5R7yUaFxGsQE8iWTggt">☁️ 阴</td>
+          <td data-page-node-id="cx3tfbgCCw1GCHOVMnELv6">25%</td>
+          <td data-page-node-id="XJPS8DVrN5LSIMaQVpliF5">0</td>
+          <td data-page-node-id="t51SI9cgAKZcGuLRfl8TdJ">23%</td>
+        </tr><tr data-page-node-id="tSJZQ9TVnkSMH9fAAf6O0S">
+          <td class="dt" data-page-node-id="NMoO5bQn1WHx2lEMpnS5Bk">10-03</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="7WJ1M6WcHFMNk5qR5I8G3s">20°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="kAQ8HEXJh4NEdmCH0BgMRL">9.7°</td>
+          <td data-page-node-id="EXQZfwdnZlOaW2sJnb15gF">🌤️ 大致晴</td>
+          <td data-page-node-id="Blsrkt0Xn5vmD32qg0MNMe">15%</td>
+          <td data-page-node-id="v1ndSx9D9ZQVCaOajwu2xo">0</td>
+          <td data-page-node-id="WxBYTSI5hfm0mzqDXV09oP">37%</td>
+        </tr><tr data-page-node-id="tuPAGg6CeXQQstJQeOFtIS">
+          <td class="dt" data-page-node-id="UvaJJYB1ptEL0FnEjhqnH0">10-04</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="EoV8ZM56aBxSCZLFa8nOu4">24°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="D79KfENtGwsXhD7xpJekaK">9.9°</td>
+          <td data-page-node-id="3CQNAqB1RpX4HiDYJKuo4G">☁️ 阴</td>
+          <td data-page-node-id="cwCihyN8EW464XNeHnVy1m">5%</td>
+          <td data-page-node-id="bVThHf2gTAJzvybF1T678W">0</td>
+          <td data-page-node-id="xo6rMPdhG5JPZmO7FYBHrK">27%</td>
+        </tr><tr data-page-node-id="ulLfPWbVAz9VX3cMvSLmJM">
+          <td class="dt" data-page-node-id="rEdhwyGOlMN3ZZRgC9ICv5">10-05</td>
+          <td style="color:#dc2626;font-weight:700" data-page-node-id="wenoS5JtEfWJ7a2lJ4Nvih">28°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="VLr8LG89NKwlEUuLcZ27gN">12°</td>
+          <td data-page-node-id="NXT5rR4sU1qzD5j3esbFRP">⛅ 局部多云</td>
+          <td data-page-node-id="owlKDouU1Iv6LoiHMzqRQj">16%</td>
+          <td data-page-node-id="oESKJNkXk1doELPUEgFmzp">0</td>
+          <td data-page-node-id="40ia1SYbo1vMk7gSfzN7DL">27%</td>
+        </tr><tr data-page-node-id="vjA4q6Bpm67ObizJDQa86h">
+          <td class="dt" data-page-node-id="PhDkFjKdpu5BgHhaTLPm6l">10-06</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="Uq5nSJecYpdtq1CIgiERr6">22°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="5dvkjHnztJJHSljFqbRVAh">10°</td>
+          <td data-page-node-id="FJozUmnF7QVT8gohfMFhm6">🌦️ 毛毛雨</td>
+          <td data-page-node-id="LbdDxtrehm8OEa2FjhgWt8">20%</td>
+          <td data-page-node-id="F3RvyFQ1O7L6DUNzs58YVQ">0</td>
+          <td data-page-node-id="7YfJHeu3kIAoI0E1zx8ZRr">39%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="1nJ9g78bTusdjX0P1SOG8V">乌鲁木齐 · 海拔920m</div></div><div class="tbl-wrap" data-page-node-id="TVJAvXEe8qCAFimwW9P3ou"><table class="wx-tbl" data-page-node-id="kPPaFKZPTKCJKBx7NFNX95">
+      <thead data-page-node-id="u0dp4o0PPf5ybNfYKVB9M1"><tr data-page-node-id="RCYIbl1BME8PHlz0JOoTAb"><th data-page-node-id="ozMjfhyEvx3CIQ6gTgBarI">日期</th><th data-page-node-id="QueOLqm7k2rvATPiKnefim">最高</th><th data-page-node-id="szYns2qoE4X7Dsy3RI4ku3">最低</th><th data-page-node-id="EQRqXAtKsJi8E3A9oeWjXZ">天气</th><th data-page-node-id="g5STn2Di0RXrt6GJVYPxtR">降水概</th><th data-page-node-id="G101oJdc7FI3BdG1pTiEP1">雪cm</th><th data-page-node-id="2zRAk4f7sQ99SmkE4WNTHX">湿度</th></tr></thead>
+      <tbody data-page-node-id="0HL3eAUwCJUU1YE6gw928G"><tr data-page-node-id="acpzkj0VXMSpDl2vnhzbe6">
+          <td class="dt" data-page-node-id="4BYF9Ib2SGwXM6FXSFj8hG">09-29</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="ZEUqzI2f0mmFPDjYRglN5F">22°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="oJiqwF14HT1empNIAXU56G">13°</td>
+          <td data-page-node-id="w26mDwLsTU6DfqlwTW2bLf">☁️ 阴</td>
+          <td data-page-node-id="yzDNGnHQ3pFpCufUaBSDRF">0%</td>
+          <td data-page-node-id="fAPRTby4HVpmG2vXVUf3HB">0</td>
+          <td data-page-node-id="fXlBYcbKYXSaoXvM5cQY9v">24%</td>
+        </tr><tr data-page-node-id="5OxY5p7UzOw4qfzcEwFOFw">
+          <td class="dt" data-page-node-id="gfHOjDoXhm8UhUz5sK442d">09-30</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="RJvBYrOjJO0r0SSqmUHBDe">23°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="wUfRJt0MGeAmrDdcIJspF4">13°</td>
+          <td data-page-node-id="dASsZsLEYDRmNJpiDP1twm">☁️ 阴</td>
+          <td data-page-node-id="xMPyPI3RaGaGZJceL98bWx">0%</td>
+          <td data-page-node-id="nBD6src79f3jlpDj9o9SoM">0</td>
+          <td data-page-node-id="0lHSmioe9RB43OZhdGU5QM">29%</td>
+        </tr><tr data-page-node-id="y2tv9VkuWPH2nKwRnz0jsB">
+          <td class="dt" data-page-node-id="UOMJheXdlFcaKxmrj7pfZj">10-01</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="BFLcabQBXxxlsTttj9cARQ">22°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="fFprx3X3vsV1cZifkTqXIq">14°</td>
+          <td data-page-node-id="SI4Y9wuEWNaJhlwQtxuyKI">☁️ 阴</td>
+          <td data-page-node-id="nA7tJ256NYk0Bd4VsbwtlI">12%</td>
+          <td data-page-node-id="oGMTyjAuy0ECWDy41ZxXXS">0</td>
+          <td data-page-node-id="b2xZ12dUDYZeQHIMD5F56k">29%</td>
+        </tr><tr data-page-node-id="PPhsb4K9bW2QvhPw34ejfE">
+          <td class="dt" data-page-node-id="fJGnP9HYjesXbq4BVoDMy3">10-02</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="JanpCJCqmU3TtRKsfq2C9f">19°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="EqTXJnLuz3DiIdXYN3Cyfo">14°</td>
+          <td data-page-node-id="jc1vKYATAvinTxT7Qd3J7A">🌦️ 阵雨</td>
+          <td data-page-node-id="qSjlRkU9s66VLMxsh17W5t">51%</td>
+          <td data-page-node-id="6Ztu5UHzmxPyJD4iscye0m">0</td>
+          <td data-page-node-id="1NXzFcVtMSNVwbpwMAf4BP">47%</td>
+        </tr><tr data-page-node-id="gtu1Nxua6j9RsBedxOolBl">
+          <td class="dt" data-page-node-id="YpUKgof8zW9TxucCRLsVXb">10-03</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="TGhjxDMhBNOjrVVi3sERvo">20°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="47nXD13i7DqKQKm43zcJOg">11°</td>
+          <td data-page-node-id="ecVI6OO0epm5XzZz1LHKpK">🌤️ 大致晴</td>
+          <td data-page-node-id="yCUgmoMUFDnG2gtC2ycs8s">2%</td>
+          <td data-page-node-id="dV6DJYRGtGjfWWBPug3yTp">0</td>
+          <td data-page-node-id="FNbrfnP2gluWqhWILgrcHY">58%</td>
+        </tr><tr data-page-node-id="l6sxnIKC4DcUHBFildJuCE">
+          <td class="dt" data-page-node-id="QnkzCcIqWoVur9d8AUdZpU">10-04</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="F3zZwsGMYM5iHBMs7OaOyO">20°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="6Uf1puaQ4F8CgY7OxC7ION">12°</td>
+          <td data-page-node-id="yRE6wuuXfIPzHIiAhAHmYo">☁️ 阴</td>
+          <td data-page-node-id="C2G2LmlzQslMnxmuIgnQ34">8%</td>
+          <td data-page-node-id="jGUA7Rbj4rTntC3PwxJWU8">0</td>
+          <td data-page-node-id="zF0E89nu0P0Kvn51DOWddk">48%</td>
+        </tr><tr data-page-node-id="qRwbDJyCrKhSt2qFO4DwWU">
+          <td class="dt" data-page-node-id="FaNWpAbIQE35fAnAzay09a">10-05</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="csOT9GKLM8K5tUhbGQQeYC">23°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="pSkH695S91TNmYDPO2G4rH">12°</td>
+          <td data-page-node-id="Wd2z5WAyZSA0bau4Mzr5uM">☁️ 阴</td>
+          <td data-page-node-id="zgYXWWUm8lrPRZBZbbhhiV">22%</td>
+          <td data-page-node-id="ZgZretqdAAwB0hxUJbspSP">0</td>
+          <td data-page-node-id="zwQCSwah0DxvNpzghgjnik">41%</td>
+        </tr><tr data-page-node-id="6lC2gfpwiFGqLWktlMLQRD">
+          <td class="dt" data-page-node-id="jbjJmD311fjjEYDZCMl0NK">10-06</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="SR3yZG5dtE8GCZXU18bzkm">17°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="nGiIIDKWc5ZTCFAfxb7OFH">11°</td>
+          <td data-page-node-id="TDPTqWRMRI5IWQDExA7I6V">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="5yBETP5TlOxLX8yWOjgWCv">27%</td>
+          <td data-page-node-id="U7ex55vCUwLQCyUA3HcqrN">0</td>
+          <td data-page-node-id="wsKIfMZSgLruPdE9wdEYPU">50%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="7UjybtxLifWSj7mE5LCS2S">精河 · 海拔320m</div></div><div class="tbl-wrap" data-page-node-id="o0EUYS4N68DD75dAMEKz6f"><table class="wx-tbl" data-page-node-id="VZhvmgADkO9Q7yCwoAxjj6">
+      <thead data-page-node-id="pbQSNZrnulfLu7h6rssOJv"><tr data-page-node-id="nTyWoTmtWsBpGjWjog31EO"><th data-page-node-id="lqXcv9QZmGmkvyRr2HY0Ka">日期</th><th data-page-node-id="F7lwNahVwOLmWnXribCtoI">最高</th><th data-page-node-id="oRGSE7xIeiXxDrw03c1G2O">最低</th><th data-page-node-id="ahWMFAapqAIFspyzBCCOpT">天气</th><th data-page-node-id="4eXyPLkBgC7M7TsktJbW85">降水概</th><th data-page-node-id="gLjfwuTvARJUD8AUsDnfO0">雪cm</th><th data-page-node-id="pGTT24Sv4YFREWKVM2Paqj">湿度</th></tr></thead>
+      <tbody data-page-node-id="eZ1djg58z6VFMwvNgCMBR8"><tr data-page-node-id="AXKKKFW5wETbLBIvEp8HpV">
+          <td class="dt" data-page-node-id="WTXpXxh6e7d1WAp60LGawo">09-29</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="YftIWZysNzWNtz7bUtxw5T">12°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="uOhAxRQfVgPW4lMzhFVmRP">5.6°</td>
+          <td data-page-node-id="t04Loz13Bx31ch7EigVad0">⛅ 局部多云</td>
+          <td data-page-node-id="8345o5vzSG4rEVaJLJLKbt">0%</td>
+          <td data-page-node-id="7UtRPmB2iyUwDsMmvkm13E">0</td>
+          <td data-page-node-id="SXrJW6FXlHAhKGnUZWhtRW">67%</td>
+        </tr><tr data-page-node-id="zkYn868GfSux9onkNspz0U">
+          <td class="dt" data-page-node-id="m5d4ka3h0ygW50ShxbWFE6">09-30</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="IieHcKEqFjhFn2NwvI7E3g">16°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="10vnQmXYA9WrBrwFI11rN3">5.4°</td>
+          <td data-page-node-id="FfFJtf8WLcANrZlh9M6xNa">☁️ 阴</td>
+          <td data-page-node-id="vqF5grKe5fRc6YkYgd6W0D">0%</td>
+          <td data-page-node-id="zBnzmWRxnJM4WIiQ7C1UAJ">0</td>
+          <td data-page-node-id="528nChTgD3Jdvu51An4ef4">61%</td>
+        </tr><tr data-page-node-id="RllPuH5tt9NF4NTMMc5zp4">
+          <td class="dt" data-page-node-id="wmcLDYS7Xf70tI1PW3XqiB">10-01</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="7BDBATB1jTe2DmkQ7FsH2y">14°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="KcfYwj0d6C8587kTMFivxl">8.9°</td>
+          <td data-page-node-id="PEsyKYRVMt1LNxqFJ4vBDe">🌦️ 毛毛雨</td>
+          <td data-page-node-id="aBcr8Ft3P7hzUCdu7R5AFU">18%</td>
+          <td data-page-node-id="YRDRVWePjwHDWW8XuBA32f">0</td>
+          <td data-page-node-id="LwwBjEJfV3VjQt3tpNUU0x">65%</td>
+        </tr><tr data-page-node-id="ll7IUkXz0jwyeAYuIVoXuX">
+          <td class="dt" data-page-node-id="wRkFJhhteIBU26XXp6lYXu">10-02</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="5jFHuFuW4BsmZIinsBg6Fu">9.8°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="AMpq3bHix9GXNouOBhTbNK">5.7°</td>
+          <td data-page-node-id="Wv46g4Zi0IkOGsByCTrEZn">🌧️ 中毛毛雨</td>
+          <td data-page-node-id="yKDnpifnPCEQniAvcplVKR">62%</td>
+          <td data-page-node-id="j0hSaKdtBs1wZGRDFrwFJD">0</td>
+          <td data-page-node-id="giLNQtNSHymCD1P0kF48QN">79%</td>
+        </tr><tr data-page-node-id="x4rcBPzh38kE7xPO5Qn56Z">
+          <td class="dt" data-page-node-id="cdLvbWJwcjGSAW9rhYXQ3x">10-03</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="UpB1n5I9jk6am9hxt5Oipl">13°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="tfweXzNm5853OLI664QUJE">3.2°</td>
+          <td data-page-node-id="J4ojcv21f88lg2Ptk0S0W0">⛅ 局部多云</td>
+          <td data-page-node-id="mC4EjvugOfHjDTMExjLlAH">6%</td>
+          <td data-page-node-id="j7ycwlFD5qlCDd5QfeZYES">0</td>
+          <td data-page-node-id="UKJrBTej6hF1sZc5Htut8o">71%</td>
+        </tr><tr data-page-node-id="A5rsBpvEbqi80KMFRz2awP">
+          <td class="dt" data-page-node-id="axicNtrYUltG8j4e1GI3bi">10-04</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="pDli0tbJPE5ho1Jpw6v7TX">16°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="QDYF97mLDVxDT7sugwKrmQ">6.1°</td>
+          <td data-page-node-id="ndYRyQYt6DsVm71RRZp9xc">☁️ 阴</td>
+          <td data-page-node-id="J6OQjWJ8rlTXYEyXYvOOMg">25%</td>
+          <td data-page-node-id="vM226t5wDF7EvgU2A4t7fg">0</td>
+          <td data-page-node-id="WSiAqnFb2ATeOELqHoH2T5">53%</td>
+        </tr><tr data-page-node-id="JjeDSvBqqVou9RzzoScrB6">
+          <td class="dt" data-page-node-id="K8qrc3FfvrQ4kbzF76aSQt">10-05</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="Xr9K52JKFjoliyDkD7XrEi">18°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="xQiQ3kNm8gjOl1nEJWsjFD">9.2°</td>
+          <td data-page-node-id="zIANsTXJqJ7FSwAUFenRuo">☁️ 阴</td>
+          <td data-page-node-id="tipWIseirEoNQm4Pti2KY2">35%</td>
+          <td data-page-node-id="7BuXIOHqgFTeVNXWju0Fyv">0</td>
+          <td data-page-node-id="PdT2OFdWuUVQBVdU4VyNYM">54%</td>
+        </tr><tr data-page-node-id="HH19rhKpRtKflJZg3Nuwd9">
+          <td class="dt" data-page-node-id="wgkcPSCp7fsExLXfuI9cMd">10-06</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="bb6NTvLEzGH7qcA6shzg9A">14°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="CEgL75FcL9AD9XNtet2WIU">2.1°</td>
+          <td data-page-node-id="OWYXTRged5VTen1nJevuJr">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="24nCtQD6N80ueuKbU5T3hF">35%</td>
+          <td data-page-node-id="zfGMG80q2BszsZ076OFfpT">0</td>
+          <td data-page-node-id="rmtO8JvB0KSrONoLWnj6WZ">78%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="GgaBn6Do7pV4soJ2Vmq3Ep">赛里木湖 · 海拔2070m</div></div><div class="tbl-wrap" data-page-node-id="NOonp0zVAtUajleTOAuPLL"><table class="wx-tbl" data-page-node-id="zmIKvt1GtIS6ERo0ya6Ojs">
+      <thead data-page-node-id="9rFC1T0QEnYLtAgM7eTimj"><tr data-page-node-id="yjh7Kh40HCB2aXaFJJJ6Ex"><th data-page-node-id="SCIQmrPVHo8LuUQ9mpcsbY">日期</th><th data-page-node-id="KiPa3pz9qj3DpWN1mvW1YK">最高</th><th data-page-node-id="KoXM9cGN9kvMPD3Zjsy4Ds">最低</th><th data-page-node-id="VX8iRv5Iuyjmte7aHWFs5q">天气</th><th data-page-node-id="72MxMJSkAVCbWpWPLvtbBT">降水概</th><th data-page-node-id="hmj9HdbvjnWG1cEnITyE5t">雪cm</th><th data-page-node-id="UNqRWwROJgBmfDkeVvas42">湿度</th></tr></thead>
+      <tbody data-page-node-id="CoDe0jlUtTyCiAkzOM9yPL"><tr data-page-node-id="6jBCqJSxr8aoPZetTTpMzr">
+          <td class="dt" data-page-node-id="lAokxqfBUdQXCKOsSmz5Ju">09-29</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="KWVyQOMsg54qmzJcJTB5eM">21°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="7UOtvjEQBm2tEbNQlGUx2h">12°</td>
+          <td data-page-node-id="m9Cq0FWv5V5mU2aZRO0830">☁️ 阴</td>
+          <td data-page-node-id="zD7fYxnipXLEyj4UsqkPj1">0%</td>
+          <td data-page-node-id="26CFl1nb5ImrKaYvK173yf">0</td>
+          <td data-page-node-id="dxVM3YS8ZeX76dGmYkxb2G">39%</td>
+        </tr><tr data-page-node-id="Qupzu9phtRjUoKZoAeRyNV">
+          <td class="dt" data-page-node-id="tq6xIjPpGqxt0ZNMfwN4UT">09-30</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="G4CMa4LSD1NJ9xahaFnxhG">22°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="K1OVLeKm5YC2i63NI7Fyvq">11°</td>
+          <td data-page-node-id="jl5gF3zkbfaPN6DeXSsj1v">☁️ 阴</td>
+          <td data-page-node-id="NLm2t8IT5vy8lwrXgZFNJd">0%</td>
+          <td data-page-node-id="YbJs6jv7Md3UoB8sMD96b1">0</td>
+          <td data-page-node-id="jB59Au0Ch8MG5lBK39f07O">34%</td>
+        </tr><tr data-page-node-id="Sb239LFBppM2ynAgSEHVV5">
+          <td class="dt" data-page-node-id="7vyOQow2pP0PkWK3mN6GGJ">10-01</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="XPBGlfhU3lfOGItWdNWJ0G">22°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="orYmWI6YQqc2067rr14txe">11°</td>
+          <td data-page-node-id="oMXBhezu5XKQ5CJ6YmFYbj">☁️ 阴</td>
+          <td data-page-node-id="6J4WeSksk0HBdDvbhDD6Kj">4%</td>
+          <td data-page-node-id="EZdPw2m3780pdkeeJJ8tjg">0</td>
+          <td data-page-node-id="GFRlGVPMB0VbtqBhvyQMie">38%</td>
+        </tr><tr data-page-node-id="XlElv94WSa41by7pxkhBZa">
+          <td class="dt" data-page-node-id="xTDFI4Ikpd0O5M4ajUjfKs">10-02</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="0G1JTDh3dJ6bXebVBAr5tg">18°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="XrMvtYkLjd12ps65y6CUPR">12°</td>
+          <td data-page-node-id="r4vagSSPNUwCQpkdw9DHt0">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="4Q4VGNUJVHAoVjGAOt212m">52%</td>
+          <td data-page-node-id="twZoVdg5300hYTRHxSdEiY">0</td>
+          <td data-page-node-id="Akwm0iwqMQ9pEb20cGzzFS">56%</td>
+        </tr><tr data-page-node-id="eL6OOko6UHllKmsVrzVCfa">
+          <td class="dt" data-page-node-id="ECkdfOPLWX7TYPxOL1wwdu">10-03</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="z6TbphtY7D6puXjP21hDSG">21°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="hsneUNMhKHn9CAD7i7gh6s">9.8°</td>
+          <td data-page-node-id="iz4JVQXwxHNt8PDU0I0cKe">🌤️ 大致晴</td>
+          <td data-page-node-id="QtQvxdPPCsUmT554DieYBv">8%</td>
+          <td data-page-node-id="B9ABSGRTFgM7EPbncVlIXY">0</td>
+          <td data-page-node-id="K0oTkRVZbg6huF9BmxKy6v">57%</td>
+        </tr><tr data-page-node-id="KXQn4jLnVFIHvsvwKNE4k3">
+          <td class="dt" data-page-node-id="ZRbnkKWFknXXUhcw5e5Rja">10-04</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="dIyhQAO93hQDnIhwrbf2qe">20°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="K7QeMFvXfFlDUwNsLBcYsq">10°</td>
+          <td data-page-node-id="QaUs2YJvJKnDqyRLU0T7MN">☁️ 阴</td>
+          <td data-page-node-id="Hhb6AdqUCb7MrNoaGcUxfN">8%</td>
+          <td data-page-node-id="NMTvj5TVIdeK6GXb1iqLtg">0</td>
+          <td data-page-node-id="c533egJGndXhot8MphTngm">55%</td>
+        </tr><tr data-page-node-id="8X7WTTPz8wtPD6p7DdYmgG">
+          <td class="dt" data-page-node-id="YBFgpCvDweYYFUWXSykzww">10-05</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="wwsbJ28bJvGduHTOtm9e75">22°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="4mlvcGIUM7H0Lv1kNe96y9">10°</td>
+          <td data-page-node-id="ze4DokR3CrIX2bt2KS827O">☁️ 阴</td>
+          <td data-page-node-id="MktP35fRCLbFcnmg1Xo6fd">28%</td>
+          <td data-page-node-id="C67zixZz2HpY801o3Ho7O0">0</td>
+          <td data-page-node-id="A5H3ZaKdyPAEfmne2qqzaB">53%</td>
+        </tr><tr data-page-node-id="DYdrtMvvsmbmDHaXhBwJQ2">
+          <td class="dt" data-page-node-id="NYnLTIx5UvHfqNcaqDEq9V">10-06</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="fzZvSHtxfJuKmyBtJeFYHM">19°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="sxreSZbnB5gnV7cqcphW0b">12°</td>
+          <td data-page-node-id="sSGyxlAJsH2pFI6mWwuW3a">☁️ 阴</td>
+          <td data-page-node-id="973cCbK5pd4SQVW19Z4Qxe">33%</td>
+          <td data-page-node-id="skvSYeIqUWBuQo8TcjkPb5">0</td>
+          <td data-page-node-id="g6aRoTMTuZK5hMLkPPdujh">54%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="oFlcTbKCxqA3EWA2oLM6NY">博乐 · 海拔500m</div></div><div class="tbl-wrap" data-page-node-id="7MzkT5BzvIrWw1BagB4805"><table class="wx-tbl" data-page-node-id="E2AeLQTPYWOBgyb8dlouTr">
+      <thead data-page-node-id="dzu7RppINeOCFZns5LS1GT"><tr data-page-node-id="zwHFVdFTVpFc7YyMhzHCqL"><th data-page-node-id="wYi4zGXKXPfoMVQSkb0mqP">日期</th><th data-page-node-id="pnn7MoUgVLOYpDsNWFok8z">最高</th><th data-page-node-id="QMeNgWEeX7I5hEn5sk7hI2">最低</th><th data-page-node-id="XaEsHvH2GdxPkXdLeCK3tx">天气</th><th data-page-node-id="bBDvXxBG3JfXH4HwtIc5rR">降水概</th><th data-page-node-id="EGJ9Q0J4PxoTk2R6KPqanI">雪cm</th><th data-page-node-id="MFqvpC3AFG5DcB8Z5ny2wH">湿度</th></tr></thead>
+      <tbody data-page-node-id="fK2e3eDo2jMf61UFJXRAjs"><tr data-page-node-id="cwz15QzHgDGhDdHA5F0dw6">
+          <td class="dt" data-page-node-id="iEV5IohUpKTkwqTMwEYybR">09-29</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="6UCQKIFEJLusMKxMZdvhhU">23°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="tJKGQCJDYH8CPxp1HuIpKu">12°</td>
+          <td data-page-node-id="gAzTrH0gc6e5T21g7OglZd">⛅ 局部多云</td>
+          <td data-page-node-id="9GHmNksv8ugSWwkfKvwWye">0%</td>
+          <td data-page-node-id="KEHTvbZpro7Ap6L2PQstIH">0</td>
+          <td data-page-node-id="mTnWXJA6fxmRrqdTkSFN1n">27%</td>
+        </tr><tr data-page-node-id="Z2XoexClJckL4xR3yeBqEH">
+          <td class="dt" data-page-node-id="szPEuEhWqHKHGGwVTuQuU6">09-30</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="RvlRlKkAmAKD3c4sth0Vw0">24°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="v6pCg1hMztLX3NBFSlxVQj">10°</td>
+          <td data-page-node-id="JlkeItVpPMkZzL7iekY4U6">⛅ 局部多云</td>
+          <td data-page-node-id="QjmAq3FlfWKGuCAlXcXh3w">0%</td>
+          <td data-page-node-id="aixcSgI5YLt5Qp9C3ooMFN">0</td>
+          <td data-page-node-id="o39tBreORhrZL9il2ccdDa">24%</td>
+        </tr><tr data-page-node-id="Yp8BoKX3jXdKnnOPLV01v6">
+          <td class="dt" data-page-node-id="PW0Lvju52zXgtGjiIQtq40">10-01</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="EbNoZagLAcokroZqtsybKZ">25°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="TQ5lpulvWiELUoPiO6tQaU">12°</td>
+          <td data-page-node-id="dWNAZww5JCENTCIRSfMrX4">☁️ 阴</td>
+          <td data-page-node-id="QcXYfUMm0Lo2ZXG80E9PVz">0%</td>
+          <td data-page-node-id="BcUGnMlrVB9S7rEAxejHXn">0</td>
+          <td data-page-node-id="QBnREVe0RC9KjD1mlNGhQt">17%</td>
+        </tr><tr data-page-node-id="DfWrGA8Vw8ZF8juwUEIl9w">
+          <td class="dt" data-page-node-id="W0WKYxHeLhn9hHDa50to5K">10-02</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="0RSTxlKOYnMVvyp0hcIY7V">23°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="wS3TrSa3ypebHUgH2Ddfaf">16°</td>
+          <td data-page-node-id="IKEYdOaf0GFtrWZnoB8Oxk">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="2H5p5FTVq2BzCMBQytsfIq">24%</td>
+          <td data-page-node-id="WjmUnsc2x3BIVORslOx4Bq">0</td>
+          <td data-page-node-id="ELHK1nivoAERilPFk48R7x">29%</td>
+        </tr><tr data-page-node-id="P2vyYWEGcKU3RQf3Ve2ACE">
+          <td class="dt" data-page-node-id="x6ZRJVzSmm8QnLDV5fcaCW">10-03</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="9EP1RC5YOHu4M8r3a6KQBc">23°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="siJCPwCLlp9MBEVODnaDyZ">11°</td>
+          <td data-page-node-id="LlngUooSfFon21xscjdk5q">⛅ 局部多云</td>
+          <td data-page-node-id="Hl38cKKLwu6cCKvEKDTCt1">8%</td>
+          <td data-page-node-id="X2TqilQH5vMC2UpDAyRQtI">0</td>
+          <td data-page-node-id="VAYqGoSmfs3wHNYrBV4TSu">52%</td>
+        </tr><tr data-page-node-id="YtvLBEQmPQ50T5BAg9OcCg">
+          <td class="dt" data-page-node-id="qBVIT5OVEfUBjuHD1iLRBT">10-04</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="EKDOH9uU7wrMdyAacK57WD">22°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="1iIlyWctA3RBdRFFCGrVA0">11°</td>
+          <td data-page-node-id="UAVOwO1pn8FxkKC9z7UTgQ">☁️ 阴</td>
+          <td data-page-node-id="L2xgHHwDjKiKVlQPQriCBi">7%</td>
+          <td data-page-node-id="wy9yyh2q66bvp5AvvnXrlw">0</td>
+          <td data-page-node-id="eTm7s1H7MJD3imUOmhFjAC">42%</td>
+        </tr><tr data-page-node-id="FQ5GJcKSBU7thq2l7ok5VE">
+          <td class="dt" data-page-node-id="viF2EckSUZY0dDWFMyxelj">10-05</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="INyst5s8qo4zVEOipJJfYV">25°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="zKU1qh2BxObdmRMDjpRPVS">13°</td>
+          <td data-page-node-id="1ppeBML1veYFetCEKG96uL">☁️ 阴</td>
+          <td data-page-node-id="DdEqtgdyz9Ad9xvBwsHSmY">16%</td>
+          <td data-page-node-id="qCSfwvuwT3t12LAAlyEHKW">0</td>
+          <td data-page-node-id="pbE7AMxzCUiLG0G1N4SA0z">32%</td>
+        </tr><tr data-page-node-id="SAsqX6qt98a9ZBswKIwUac">
+          <td class="dt" data-page-node-id="yFAGe13YQnwHGXdVvBeQ3j">10-06</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="BVMsQuxvyWHepAQwghJ0Fy">21°</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="bFz3LIEv9S3JPudprwxgDQ">12°</td>
+          <td data-page-node-id="4DPEjGPgC4UjFix1J38F5F">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="jsfPS0c3G88XHv04GH4fCi">22%</td>
+          <td data-page-node-id="i25EwhPxwdeLA2dR8ZTYal">0</td>
+          <td data-page-node-id="f4wzdgjuIM5MsswTNtegLY">40%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="yplFHr44Dbr9x84cpoguxV">乌尔禾 · 海拔300m</div></div><div class="tbl-wrap" data-page-node-id="msAONpm57erdTyxxWtsuhS"><table class="wx-tbl" data-page-node-id="G42SytOMbdbQjAbNurRH0z">
+      <thead data-page-node-id="N75xLvdjDhENDDB8x9br5b"><tr data-page-node-id="bDltcP0keTYeLIlgidtT5B"><th data-page-node-id="ybn320MLlSA4moHcmWDcL2">日期</th><th data-page-node-id="vP8YiC9w0hckJyyAWQ1J9w">最高</th><th data-page-node-id="fHZF9mpIRUKldtLcmDw6rc">最低</th><th data-page-node-id="WyFAIrAoMasag01YwZoBBe">天气</th><th data-page-node-id="8kLlI4yhmRjjcnvt5EOAyh">降水概</th><th data-page-node-id="TBx1NcX8vJ9ITGc5q8lhuv">雪cm</th><th data-page-node-id="2CbH87xuNn3LrNkbS2pH77">湿度</th></tr></thead>
+      <tbody data-page-node-id="6xgDaqWcDofHZuxkKsG1Cu"><tr data-page-node-id="rCe8qHZhGjFcJKqUTHa9jE">
+          <td class="dt" data-page-node-id="etRlD6GmEV1iy7S2zG2x58">09-29</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="wbU6coRGEflaavG6lFhxKz">14°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="VhMfCQtkcHEKnLFQgcmWpD">3.6°</td>
+          <td data-page-node-id="kEDncLwrOKm4wfQ82icp7H">☀️</td>
+          <td data-page-node-id="KaKvT3UMoltf2z2cztEEFd">0%</td>
+          <td data-page-node-id="V0DLE5LQSFbSd34F8i96En">0</td>
+          <td data-page-node-id="HEcCa8nECS252h2VNE9tnk">41%</td>
+        </tr><tr data-page-node-id="v7DkGxhMFwKICbDnHHE497">
+          <td class="dt" data-page-node-id="fFkxg9qk9L3zWnUAcxRARs">09-30</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="XixSNcns6FzvMY8lydf01K">14°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="X283U4JBFPb2jFejKa8dge">7.4°</td>
+          <td data-page-node-id="0pB9OrYOaenhpEqCBKc0qB">☀️</td>
+          <td data-page-node-id="p7cCoGmxFcVvhRc1QOrxfa">0%</td>
+          <td data-page-node-id="uwfTGthblxXziiGk7ww4EH">0</td>
+          <td data-page-node-id="vWHMVRmV7EQpOAgJBkuMPG">36%</td>
+        </tr><tr data-page-node-id="M9fUSi7Akz2hqwuX1Yy4Nt">
+          <td class="dt" data-page-node-id="wBRVIz92pBMViLDeHSOB2K">10-01</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="xrr9UsLZQ3Ez5dFgC1lAIc">13°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="ORBYw1LUvppKP27SERQCUe">6.4°</td>
+          <td data-page-node-id="nP6rt2S4bDgFkT5wDH5Bho">☁️ 阴</td>
+          <td data-page-node-id="JcjUEDtumi5odDyedtVrLF">0%</td>
+          <td data-page-node-id="YL4YBuRnTyd3vAnp734Iw2">0</td>
+          <td data-page-node-id="tZUGCxVLKsyOoCdH680SW2">45%</td>
+        </tr><tr data-page-node-id="QCuAqx35eTyyHYMG3n5Ujm">
+          <td class="dt" data-page-node-id="HsMSb04e1A76f47g12Fd4t">10-02</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="auzNJd4cSbkja9m3sWVvFh">15°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="Y5rJvcC8JvGuYMb2lHwNJY">4.5°</td>
+          <td data-page-node-id="a02I9Y39uGSTOpUqDctOAL">☁️ 阴</td>
+          <td data-page-node-id="K6MYxyNOD1Cwc8hvIXz739">29%</td>
+          <td data-page-node-id="odQtq1zp7Gb87i9IJM6y3I">0</td>
+          <td data-page-node-id="QpCBxtv4sjsCY5yYC9OaIp">47%</td>
+        </tr><tr data-page-node-id="6nKIyvUdetnGa9Dh1eEE0N">
+          <td class="dt" data-page-node-id="zCUqSydzVPlbHEpbrFKpf4">10-03</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="gxtU8eNEkFK6CT8kIko4BL">11°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="raQyKf2XrK3tsksFXHLu6I">6.1°</td>
+          <td data-page-node-id="ThENW7452pSDJ0Hyf7AYcd">🌨️ 中雪</td>
+          <td data-page-node-id="uVHSf0r5op8k4iOWFeO6xR">29%</td>
+          <td data-page-node-id="mVx63LqNAFpvC3CylChcqm"><span class="sn" data-page-node-id="QkjEv7pSR6Tk80lkzjCGyI">1.1</span></td>
+          <td data-page-node-id="OtQ4fBKstSGFJOXEo5xXBo">75%</td>
+        </tr><tr data-page-node-id="jj90DAzQz5TQbCuNSsX6X7">
+          <td class="dt" data-page-node-id="knkJKd5wHjcl7fCVqIkwZc">10-04</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="gHJgNXkBhJrANoBJ9oQMrh">14°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="vGn9zHyoWIZuG9d1NPRcnZ">7.4°</td>
+          <td data-page-node-id="T5cFb4kST6FCvXc2xjSkLZ">🌨️ 小雪</td>
+          <td data-page-node-id="sL0E9ZhWhcWMF0K0XEYEbf">23%</td>
+          <td data-page-node-id="NPX27mFdMlCezvHfdi6viA"><span class="sn" data-page-node-id="GqOEo2wYi6aIrFE78B7CPj">0.4</span></td>
+          <td data-page-node-id="WZeuf9c0LAFmojma7qk1Fg">61%</td>
+        </tr><tr data-page-node-id="1ukPmAO1EPg3qM8Eg7Cwyn">
+          <td class="dt" data-page-node-id="vtSzmmfl88M22BRo0SR38G">10-05</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="bIWHGLvUfPC3cc8GGVvc7i">16°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="VWlXvPaF33dhZA5GDORFqa">9.3°</td>
+          <td data-page-node-id="5xvcfN0RLqE7sIonmnCxuO">🌨️ 阵雪</td>
+          <td data-page-node-id="sTGqCfvISetLI5QAsNmo5v">43%</td>
+          <td data-page-node-id="FaSPv4VVdsyNpyJRGAIGgY"><span class="sn" data-page-node-id="IxF5WukWBwTRXEdr6g4ltQ">0.2</span></td>
+          <td data-page-node-id="tsjdlYeTstyjXOBXUJ524Y">69%</td>
+        </tr><tr data-page-node-id="rCRHA4kG43GXkpsBucEiEI">
+          <td class="dt" data-page-node-id="o1UFDmWxtnsP7ZQcG57JZE">10-06</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="1GarXPTUprBhUY5KrD12G1">12°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="AXKMBa3j2matuHQxOpkHhm">2.3°</td>
+          <td data-page-node-id="Zs5scjUe0zrv1FEmNrylki">🌨️ 阵雪</td>
+          <td data-page-node-id="NEEYCoezYBDwyacIqIv65g">44%</td>
+          <td data-page-node-id="lQmsl1PLSXiLUqA6iOR451"><span class="sn" data-page-node-id="cbUU6tz7ppJB5juuxVtDlF">5.2</span></td>
+          <td data-page-node-id="8uNtbITTi4vlAq20vy8XMw">95%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="F99EGXEVgJQ5taDH9m76QH">禾木 · 海拔1120m</div></div><div class="tbl-wrap" data-page-node-id="sB5oh2xb9CXxiReyKkDuX5"><table class="wx-tbl" data-page-node-id="V0VHAFBZt92qEPa8TeMofE">
+      <thead data-page-node-id="mzkT3D4reVl0M5KXOFwwSq"><tr data-page-node-id="q5lVsAvFKSEENvgMCJqzyp"><th data-page-node-id="ct1cZu9xgNZPK516lkENFg">日期</th><th data-page-node-id="fbW0cNoWIcH70Tm05MVX7f">最高</th><th data-page-node-id="1japYvqE2hRH4VTevRhO4Y">最低</th><th data-page-node-id="ZJoAmTMdUZG37bZfL532Vu">天气</th><th data-page-node-id="YcNrAUjA6fpX9nIH7fzoD8">降水概</th><th data-page-node-id="dafuAKDPOFY4Wh9IAV8Egq">雪cm</th><th data-page-node-id="ELbPuKb6LavqAnSSqMUZ6I">湿度</th></tr></thead>
+      <tbody data-page-node-id="BpaIX6moiBe0RhLnJbpvBJ"><tr data-page-node-id="gl0fDQBTQPeuaquIvMrqfC">
+          <td class="dt" data-page-node-id="5OGkblccQKQLJvmzIwBTHV">09-29</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="BUHEP8FVFaLCjinHEHYFHK">16°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="cZXJH4Y8KueUan2Fynidlj">2.3°</td>
+          <td data-page-node-id="PpeR19qWF0KEUXXcewXmyu">☀️</td>
+          <td data-page-node-id="azCI80CNN37kPaZBsoBuqc">0%</td>
+          <td data-page-node-id="v5QD3uYmZRTa2MwkhGGzTq">0</td>
+          <td data-page-node-id="T6djfxA5WnIR7cUAlgHpdx">38%</td>
+        </tr><tr data-page-node-id="YsmuxdXNlyTyqhqFm17Ef7">
+          <td class="dt" data-page-node-id="0yPTzOynFNiwHtkExAwSV2">09-30</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="mgFcBEPMNc9b5YH3kep1aa">16°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="0jJquhxRTfOCchXt0O1Bn2">3.6°</td>
+          <td data-page-node-id="WQDUNHwGQ03LgvmKdiR0r9">☀️</td>
+          <td data-page-node-id="KzdE2AehE91my5VBtCFFq4">0%</td>
+          <td data-page-node-id="7Y2ATiC7kj6FV11XwXLcHi">0</td>
+          <td data-page-node-id="rqVFVLK4vRhotnKqwiugt9">51%</td>
+        </tr><tr data-page-node-id="THhTPyvCzH7AVNzBtUYd05">
+          <td class="dt" data-page-node-id="cX1MPUNqEWuMHFk6Q0dVkR">10-01</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="2gnEwrIEO0uBLjB2AhbJBy">14°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="na66EdCTlCbq1utEAfKOBi">1.7°</td>
+          <td data-page-node-id="HI9CunUvutTlqumDCmZNWE">☁️ 阴</td>
+          <td data-page-node-id="GHqfFFH834oL3pX1mwKDzO">0%</td>
+          <td data-page-node-id="Kf0u94CmmjakIR2vFSiajR">0</td>
+          <td data-page-node-id="MMBPbWOAx1D3hFA4SGdbHa">60%</td>
+        </tr><tr data-page-node-id="4YHWTmULhrFLF4T5ghv2su">
+          <td class="dt" data-page-node-id="YgkHnBxGJXq6vhaSAEkeQU">10-02</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="xg4YpL0OEhhcFIjpQMk9Sc">16°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="nEshtR0Fu2TaDFAtAeCf9h">1.4°</td>
+          <td data-page-node-id="gQ9OUiIQO7op3ewSqBVoC2">☁️ 阴</td>
+          <td data-page-node-id="hWogQB9fY4anJpQS0DwMDH">36%</td>
+          <td data-page-node-id="yb66c5t2LkEM8sykRiIrK9">0</td>
+          <td data-page-node-id="d1LHPxJaFCOPrQTILxnbFo">49%</td>
+        </tr><tr data-page-node-id="zwhEukSiLdhY5kiii2mAx7">
+          <td class="dt" data-page-node-id="GxFwCH57DANXwEODzubUSP">10-03</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="0xl594y1ULfYs93yLNtMGk">13°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="Tx1ZsDjMjXBEmkuTDb6iNS">3.3°</td>
+          <td data-page-node-id="M9bcMbboLKCIWBPxJTf9Ao">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="8LK01MOwlDVl4cLKdNhLt7">33%</td>
+          <td data-page-node-id="3ZBhHKUTwu9Ak8chGyBUzE">0</td>
+          <td data-page-node-id="B6P2jJ2PIvneRmMGHlm34i">68%</td>
+        </tr><tr data-page-node-id="AxyApPMKt9Ex3AQrE1lx1P">
+          <td class="dt" data-page-node-id="TvXZGtdn6VtVvFvJGAx7Sj">10-04</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="RWq9uwMGjkp5dn2tGBS5PG">15°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="JDysrUgjFVBnUd85MLDfsw">3.5°</td>
+          <td data-page-node-id="TK8ahQPIyhZg4aiG83JV1E">☁️ 阴</td>
+          <td data-page-node-id="o8qwIkIEGqvYZF8ZC88F7L">24%</td>
+          <td data-page-node-id="s8nkPueVLSTgmLl3yuTGr8">0</td>
+          <td data-page-node-id="AIGedBrCNfDSF40JdSI9Cg">65%</td>
+        </tr><tr data-page-node-id="MEwhFMbWUDWTaH7ySVttId">
+          <td class="dt" data-page-node-id="5WLNVM6A1clHNbsg3vHEgn">10-05</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="uBrxm6T1i1JoA3tqF7lMrJ">16°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="1nCkBXInXGeUTmyRGNpyw1">6.6°</td>
+          <td data-page-node-id="OfFRNVWMGOWBlEnpSLmXBm">🌧️ 中毛毛雨</td>
+          <td data-page-node-id="XnfTaFphorsS9kfo9tbBlA">43%</td>
+          <td data-page-node-id="fzxdf1oQUj0EK69Dq8LWiZ">0</td>
+          <td data-page-node-id="oGxolVBAw2uzqQooBkWAF6">69%</td>
+        </tr><tr data-page-node-id="ZLSmx55NMotHl53QeUe9Vm">
+          <td class="dt" data-page-node-id="jMB3HRgDuGhpwl66W0pQJO">10-06</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="Wt2l6AmyCSS1p7algsq28O">9.8°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="9s5sC7JvB8XtcrSPFEUFNI">2.1°</td>
+          <td data-page-node-id="Em8U9i4H94ssNzn3scC6dh">🌦️ 阵雨</td>
+          <td data-page-node-id="84F2TttIhmPKSMCGMmw3Hm">51%</td>
+          <td data-page-node-id="W7VNfSqpqalIbdUwf62fYY">0</td>
+          <td data-page-node-id="EEIH0jfps48vuwK6ty37bK">79%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="MLuR5qCrELVszua6Ph59To">喀纳斯 · 海拔1374m</div></div><div class="tbl-wrap" data-page-node-id="KcLE4lVS3zzdhKypbkLB9E"><table class="wx-tbl" data-page-node-id="2fsswPXJ184u7vnBcVXg5v">
+      <thead data-page-node-id="XbZ7HrW0vY998KQKSFVvVt"><tr data-page-node-id="5hC9vmvvggYHgFYTRF0RQf"><th data-page-node-id="9qd9Ye86jWHkkTC10KEkUI">日期</th><th data-page-node-id="SuKeFU1GXKtDKUP64eFEmU">最高</th><th data-page-node-id="H7cJa5JXscQFCqbmG0ipwK">最低</th><th data-page-node-id="SJEo2rBlAcHh5y3O8gkgQP">天气</th><th data-page-node-id="osAq5S83xs3MucNESBsMGX">降水概</th><th data-page-node-id="JGyja7lHSkcskniUTelHxE">雪cm</th><th data-page-node-id="RaSbx5wYVVvR92Ddt4KKwD">湿度</th></tr></thead>
+      <tbody data-page-node-id="GoO5OWYKJRaYP8HD5iBkIX"><tr data-page-node-id="Em9KA45503vFwFeasjAYnq">
+          <td class="dt" data-page-node-id="eJmjx6Vs5RFUqFLKzd12Fa">09-29</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="MCNHclSYCcE5fAbevdm5W3">18°</td>
+          <td style="color:#2563eb;font-weight:700" data-page-node-id="mxAG4N1Hxan1ohrhAHI1Jh">4.6°</td>
+          <td data-page-node-id="YZywdgoj4V8Ydr8HDpXEIW">☀️</td>
+          <td data-page-node-id="J2GFz6DAl0hpkqZbbShyEL">0%</td>
+          <td data-page-node-id="bTx6zEhUtlvEawD7oT7gwg">0</td>
+          <td data-page-node-id="UhHYfNYKMPbbpaUw0g07eH">34%</td>
+        </tr><tr data-page-node-id="LRwyL9a2Lz6URAu1oY94Iw">
+          <td class="dt" data-page-node-id="JnLwdulQLKS1rF6Qv2mETL">09-30</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="x78emHB1I6CqEF5UD8C30q">21°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="KjwnkO1PgEGzMpV72MWEhp">7.9°</td>
+          <td data-page-node-id="6gydLcifpCN9ijJpXAB4Ge">☀️</td>
+          <td data-page-node-id="3XQFXujbAhWFbw2CBou8Z9">0%</td>
+          <td data-page-node-id="4NQndtLl3MdLfsyXf7KjwH">0</td>
+          <td data-page-node-id="CQZ6dD3OsWl5VbX1JIogCM">26%</td>
+        </tr><tr data-page-node-id="WVJOfkONh3RZyV7Nyl3m10">
+          <td class="dt" data-page-node-id="tkiSb6TaA1TBuOdxfzPZql">10-01</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="grVJA97mEp1fn28XdLCudt">20°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="7edPBxlA9Lmre9FLwUAVu9">7.8°</td>
+          <td data-page-node-id="hB3PtbydWXjjYdhNh7hN2V">☀️</td>
+          <td data-page-node-id="c26GuC0HWjsptrO16iAadE">0%</td>
+          <td data-page-node-id="MVz70RWOMOvMNw4r2yVARE">0</td>
+          <td data-page-node-id="jTurIN9isNQQi4wzFHGM7t">30%</td>
+        </tr><tr data-page-node-id="U1HPkONK4sy1iVjNkx3hqO">
+          <td class="dt" data-page-node-id="t0DevlMxn3CxbAtSaLF5sm">10-02</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="65pz0vhNtGlqM0ONqT6LXf">20°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="4AL4EagvZjFfS6rFTLzydg">5.6°</td>
+          <td data-page-node-id="zVLw3ltCr2cpClXf4Qhltm">☁️ 阴</td>
+          <td data-page-node-id="f3HFWJxzIEeBkOlMHJMvYu">12%</td>
+          <td data-page-node-id="OqjuHHlrnFVXMaSXhbQac3">0</td>
+          <td data-page-node-id="9gYjFSgc9dPPp8rSTOqLws">26%</td>
+        </tr><tr data-page-node-id="QQYoZEp5ztDvEXs9AJnSee">
+          <td class="dt" data-page-node-id="UG8PgFdCUYrffbTfC0FqDN">10-03</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="Qti5fLQZra5FWJE3VeN6MQ">18°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="w0bNyoL9S1Bs5TuAaOgJBS">8.3°</td>
+          <td data-page-node-id="xEemMqKZBdreUw3seJgHAZ">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="pUYhyG2k2uYIUFPmAf6KTB">12%</td>
+          <td data-page-node-id="DIYaH20um16fzWVWAg01cm">0</td>
+          <td data-page-node-id="S4cxToNBWLNSmFY4lLhGt0">61%</td>
+        </tr><tr data-page-node-id="eGyVJyMnRo9xF2pMCoHysw">
+          <td class="dt" data-page-node-id="HYVCpcagCkKEueY9sWkLOo">10-04</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="q3OR3A17XCZX9nJ16QDS4f">20°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="flxuLTM1dgGVDVOuykJsaF">7.5°</td>
+          <td data-page-node-id="5Gus2Xr07X8QESiqGNsmA5">☁️ 阴</td>
+          <td data-page-node-id="FoG9Zf6qKmprsxaGG298tv">10%</td>
+          <td data-page-node-id="EThDnHSqfvBGQUHadOXGqH">0</td>
+          <td data-page-node-id="PGZ83TArwq2gOUELG77FMP">47%</td>
+        </tr><tr data-page-node-id="6XvOn9yXLJDuTn3fFR3m4T">
+          <td class="dt" data-page-node-id="W4ZTFqWoLJmhMFPsRtv8H5">10-05</td>
+          <td style="color:#ea580c;font-weight:700" data-page-node-id="KvRQiFhXtTUsLVVRImNPa4">23°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="9uWcuqDUxJd8jatk4JSnJ6">11°</td>
+          <td data-page-node-id="GB96zNXLud6zPWWAK0TmHk">☁️ 阴</td>
+          <td data-page-node-id="DebkB4EJSxtQoPvrl6i2c4">29%</td>
+          <td data-page-node-id="QjGbKUDpjiFTo30MybIVqZ">0</td>
+          <td data-page-node-id="AXvNZfr4362tWKGutsyWnA">33%</td>
+        </tr><tr data-page-node-id="BrncuL7588jV3qXeINao7E">
+          <td class="dt" data-page-node-id="m1CoFMtJMJdiAECv62ehmI">10-06</td>
+          <td style="color:#16a34a;font-weight:700" data-page-node-id="hyNCuI2DcFpTGqchfURdox">17°</td>
+          <td style="color:#0891b2;font-weight:700" data-page-node-id="u3No3XaLGjeuEq2Q5GYcoI">9.5°</td>
+          <td data-page-node-id="s2FtQVbKCcSMXtgjox08G6">🌦️ 小毛毛雨</td>
+          <td data-page-node-id="q39WDPtwn8UHhnJq6kJOIB">23%</td>
+          <td data-page-node-id="KdiJEnY7MGkCE3dC0QhhiP">0</td>
+          <td data-page-node-id="OlOjPx7ZepVHKeyftAlPuh">55%</td>
+        </tr></tbody></table>
+      <div class="tbl-cap" data-page-node-id="aX5jCYkhAytJMeTfCK8En7">北屯 · 海拔500m</div></div></div>
+
+  <footer data-page-node-id="YSHTBsvwN6sUCaYOM0MFb1">
+    本页为出行前静态快照，数值已按各地点真实海拔修正；山区雪情为多源交叉后的保守估计。<br data-page-node-id="n0s8dEYdMhcNjX26e8dwts">
+    临近预报在出发前 1–2 天最准，9.28 抓取时已覆盖全程；山区（禾木/喀纳斯）雪量可能随系统微调，留意最新预报与景区交通公告。<br data-page-node-id="RlfqhhEYB0F7iepopQf4Cr">
+    祝一路秋色满山、平安顺遂 🍁
+    <div style="margin-top:12px"><a href="index.html" style="color:#c8893a;font-weight:700;text-decoration:none">👉 返回《我们的阿勒泰》行程手册</a></div>
+  </footer>
+</div>
+<script>
+const KEY="xj_pack_2026";
+try{const s=JSON.parse(localStorage.getItem(KEY)||"{}");
+document.querySelectorAll('input[type=checkbox]').forEach(c=>{if(s[c.dataset.k])c.checked=true;});}catch(e){}
+document.querySelectorAll('input[type=checkbox]').forEach(c=>{
+  c.addEventListener('change',()=>{
+    const s=JSON.parse(localStorage.getItem(KEY)||"{}");s[c.dataset.k]=c.checked;
+    localStorage.setItem(KEY,JSON.stringify(s));
+  });
+});
+</script>
+</body></html>
