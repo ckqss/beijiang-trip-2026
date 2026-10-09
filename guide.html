@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="HKoky8DyfWfiYmoXV3XW29"><head data-page-node-id="uBbl1M08CZhPsnomr6QEVU">
+<meta charset="UTF-8" data-page-node-id="1k1oGX1DfV42sHewtMBvv8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" data-page-node-id="zjByDtVDdO1DJGSnF04c7e">
+<title data-page-node-id="f0XJ7gyeFSAyQ3nJjeJ6to">北疆8天7晚自驾保姆级攻略 · 真实实测</title>
+<style data-page-node-id="JWsyKnUHjkOUfgFwNAMlRp">
+:root{
+  --bg:#f7f3ec;
+  --ink:#2c2620; --ink-2:#5c5347; --muted:#968a78;
+  --gold:#c8741f; --gold-2:#e0943a; --gold-soft:rgba(200,116,31,.10);
+  --xhs:#ff2442; --xhs-soft:rgba(255,36,66,.08);
+  --green:#2e9e6b; --green-soft:rgba(46,158,107,.10);
+  --blue:#2b7fd6; --blue-soft:rgba(43,127,214,.08);
+  --card:#fffdf9;
+  --line:rgba(140,100,50,.14);
+  --sh-sm:0 1px 2px rgba(90,60,20,.05),0 4px 14px rgba(90,60,20,.06);
+  --sh-md:0 2px 6px rgba(90,60,20,.06),0 16px 40px rgba(90,60,20,.12);
+  --r-lg:22px; --r-md:16px; --r-sm:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;color:var(--ink);line-height:1.78;background:var(--bg);}
+img{max-width:100%;}
+b{color:var(--ink);}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 90px;}
+
+/* ===== fade-up ===== */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ===== 小红书风 作者条 ===== */
+.authorbar{display:flex;align-items:center;gap:11px;padding:14px 16px;position:sticky;top:0;z-index:50;
+  background:rgba(247,243,236,.86);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
+  border-bottom:1px solid var(--line);}
+.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex:0 0 auto;box-shadow:var(--sh-sm);}
+.authorbar .meta{flex:1;min-width:0;}
+.authorbar .nm{font-weight:800;font-size:.92rem;}
+.authorbar .sub{font-size:.7rem;color:var(--muted);}
+.follow{background:var(--xhs);color:#fff;border:none;border-radius:999px;padding:7px 18px;font-size:.82rem;font-weight:700;cursor:pointer;flex:0 0 auto;}
+
+/* ===== 封面 ===== */
+.cover{position:relative;margin:14px 0 8px;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);min-height:440px;display:flex;align-items:flex-end;}
+.cover-bg{position:absolute;inset:0;background:url('hero.jpg') center 35%/cover no-repeat;filter:brightness(.74) saturate(1.1);}
+.cover::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,8,.05) 0%,rgba(20,14,8,.18) 42%,rgba(20,14,8,.72) 100%);}
+.cover-in{position:relative;z-index:1;width:100%;padding:20px 22px 22px;}
+.cover-tag{display:inline-block;background:var(--xhs);color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.06em;border-radius:999px;padding:4px 13px;margin-bottom:12px;box-shadow:0 4px 14px rgba(255,36,66,.4);}
+.cover h1{font-size:clamp(1.9rem,8vw,2.7rem);font-weight:800;color:#fff;line-height:1.28;text-shadow:0 2px 18px rgba(0,0,0,.5);}
+.cover .lead{margin-top:10px;font-size:.92rem;color:rgba(255,255,255,.94);text-shadow:0 1px 10px rgba(0,0,0,.5);line-height:1.8;}
+.cover-stats{display:flex;gap:9px;margin-top:16px;flex-wrap:wrap;}
+.cover-stats .cs{flex:1;min-width:84px;text-align:center;padding:10px 6px;border-radius:14px;background:rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);}
+.cover-stats .cs b{display:block;font-size:1.05rem;color:#fff;}
+.cover-stats .cs span{font-size:.64rem;color:rgba(255,255,255,.72);}
+
+/* 互动条 */
+.engage{display:flex;align-items:center;gap:18px;margin:0 2px 4px;padding:12px 6px;color:var(--muted);font-size:.82rem;border-bottom:1px solid var(--line);}
+.engage .e{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none;}
+.engage .e .ic{font-size:1.05rem;}
+.engage .e.on{color:var(--xhs);}
+.engage .sp{margin-left:auto;}
+
+/* ===== 章节导航 ===== */
+.chapnav{position:sticky;top:67px;z-index:40;display:flex;gap:7px;overflow-x:auto;padding:10px 2px;margin-top:8px;
+  background:rgba(247,243,236,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);scrollbar-width:none;}
+.chapnav::-webkit-scrollbar{display:none;}
+.chapnav a{white-space:nowrap;text-decoration:none;color:var(--ink-2);background:var(--card);border:1px solid var(--line);
+  border-radius:999px;padding:6px 14px;font-size:.78rem;font-weight:700;box-shadow:var(--sh-sm);transition:all .2s;}
+.chapnav a:hover,.chapnav a.active{color:#fff;background:linear-gradient(135deg,var(--gold),var(--gold-2));border-color:transparent;}
+
+/* ===== 通用 section ===== */
+section{margin-top:46px;scroll-margin-top:130px;}
+.sec-h{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.sec-h .emo{font-size:1.5rem;line-height:1;}
+.sec-h h2{font-size:1.35rem;font-weight:800;line-height:1.4;}
+.sec-desc{color:var(--muted);font-size:.84rem;margin-bottom:18px;}
+.divider{height:4px;width:46px;border-radius:99px;background:linear-gradient(90deg,var(--gold),var(--gold-2));margin:6px 0 16px;}
+
+/* ===== callout ===== */
+.callout{border-radius:var(--r-md);padding:14px 16px;font-size:.86rem;line-height:1.85;margin:14px 0;box-shadow:var(--sh-sm);}
+.callout .tt{font-weight:800;display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+.callout.red{background:var(--xhs-soft);border-left:4px solid var(--xhs);}
+.callout.red .tt{color:var(--xhs);}
+.callout.green{background:var(--green-soft);border-left:4px solid var(--green);}
+.callout.green .tt{color:var(--green);}
+.callout.gold{background:var(--gold-soft);border-left:4px solid var(--gold);}
+.callout.gold .tt{color:var(--gold);}
+.callout.blue{background:var(--blue-soft);border-left:4px solid var(--blue);}
+.callout.blue .tt{color:var(--blue);}
+
+/* ===== tags ===== */
+.tag{display:inline-block;border-radius:999px;padding:2px 11px;font-size:.7rem;font-weight:800;vertical-align:middle;margin:2px 4px 2px 0;}
+.tag.red{background:var(--xhs-soft);color:var(--xhs);}
+.tag.green{background:var(--green-soft);color:var(--green);}
+.tag.gold{background:var(--gold-soft);color:var(--gold);}
+.tag.blue{background:var(--blue-soft);color:var(--blue);}
+
+/* ===== 路线时间线 ===== */
+.tl-route{list-style:none;position:relative;padding-left:8px;}
+.tl-route::before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--gold-2));}
+.tl-route li{position:relative;padding:0 0 16px 40px;font-size:.88rem;color:var(--ink-2);}
+.tl-route li .dot{position:absolute;left:4px;top:5px;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--gold);box-shadow:var(--sh-sm);}
+.tl-route li b{color:var(--gold);font-weight:800;}
+
+/* ===== 每日卡片 ===== */
+.day{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-sm);margin-bottom:20px;overflow:hidden;}
+.day-head{display:flex;align-items:center;gap:12px;padding:15px 18px;background:linear-gradient(180deg,rgba(200,116,31,.07),transparent);border-bottom:1px solid var(--line);flex-wrap:wrap;}
+.day-badge{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#fff;border-radius:10px;padding:6px 13px;font-weight:800;font-size:.82rem;white-space:nowrap;letter-spacing:.03em;}
+.day-t{font-size:1.02rem;font-weight:800;flex:1;min-width:200px;line-height:1.5;}
+.day-km{font-size:.74rem;color:var(--muted);white-space:nowrap;font-weight:700;background:var(--gold-soft);border-radius:999px;padding:4px 12px;}
+.day-body{padding:18px;display:grid;grid-template-columns:1.4fr 1fr;gap:18px;}
+@media(max-width:720px){.day-body{grid-template-columns:1fr;}}
+.day-main h4{font-size:.82rem;color:var(--gold);font-weight:800;margin:4px 0 8px;display:flex;align-items:center;gap:6px;}
+.ulines{list-style:none;}
+.ulines li{position:relative;padding:5px 0 5px 18px;font-size:.88rem;color:var(--ink-2);line-height:1.75;}
+.ulines li::before{content:"";position:absolute;left:3px;top:13px;width:6px;height:6px;border-radius:50%;background:var(--gold);}
+.day-side{display:flex;flex-direction:column;gap:10px;}
+.box{border-radius:var(--r-md);padding:12px 14px;font-size:.84rem;background:rgba(200,116,31,.05);border:1px solid var(--line);color:var(--ink-2);}
+.box .lab{font-weight:800;margin-right:6px;color:var(--gold);}
+.box.hotel{border-left:3px solid var(--blue);}
+.box.food{border-left:3px solid var(--gold);}
+.box.cost{border-left:3px solid var(--green);}
+.box.tip{border-left:3px solid var(--green);}
+.box.warn{border-left:3px solid var(--xhs);}
+.box.warn .lab{color:var(--xhs);}
+
+/* ===== 表格 ===== */
+.tblwrap{overflow-x:auto;border-radius:var(--r-lg);background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-sm);}
+.tbl{width:100%;border-collapse:collapse;font-size:.83rem;}
+.tbl th{background:rgba(200,116,31,.07);color:var(--gold);padding:11px 13px;text-align:left;font-weight:800;white-space:nowrap;font-size:.78rem;}
+.tbl td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2);}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl td:first-child{color:var(--ink);font-weight:700;white-space:nowrap;}
+.tbl tfoot td{font-weight:800;color:var(--ink);background:rgba(200,116,31,.05);}
+.tbl .em{color:var(--gold);font-weight:800;}
+
+/* ===== 卡片网格 ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
+.kcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:17px 19px;box-shadow:var(--sh-sm);}
+.kcard h3{color:var(--gold);font-size:.95rem;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+.kcard ul{list-style:none;}
+.kcard li{padding:5px 0;font-size:.85rem;color:var(--ink-2);line-height:1.7;}
+
+/* ===== 经验卡 ===== */
+.exp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+.exp .ec{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--sh-sm);}
+.exp .ec .n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:var(--gold-soft);color:var(--gold);font-weight:800;font-size:.82rem;margin-right:8px;vertical-align:middle;}
+.exp .ec h4{display:inline;font-size:.95rem;font-weight:800;}
+.exp .ec p{font-size:.84rem;color:var(--ink-2);margin-top:8px;line-height:1.75;}
+
+/* ===== footer ===== */
+footer{margin-top:54px;text-align:center;color:var(--muted);font-size:.78rem;padding-top:22px;border-top:1px solid var(--line);line-height:2;}
+footer .heart{color:var(--xhs);}
+
+/* 浮动收藏按钮 */
+.fab{position:fixed;right:16px;bottom:20px;z-index:60;background:var(--xhs);color:#fff;border:none;border-radius:999px;
+  padding:12px 18px;font-size:.84rem;font-weight:800;box-shadow:0 8px 24px rgba(255,36,66,.45);cursor:pointer;display:flex;align-items:center;gap:6px;}
+.fab:active{transform:scale(.95);}
+</style>
+<style id="__dm_no_drag_style__">* { -webkit-user-drag: none !important; }</style><style id="__dm_bindable_badge_style__">[data-sp-bindable="database"]{outline:1px dashed #0088ff;outline-offset:2px;border-radius:4px;}[data-sp-bindable="database"] *{pointer-events:none !important;transition:none !important;animation:none !important;}[data-sp-bindable="database"]{transition:none !important;animation:none !important;}</style></head>
+<body data-page-node-id="700T3qdwDUnM32R0yDxuJY" style="position: relative;">
+
+<!-- 作者条 -->
+<div class="authorbar" data-page-node-id="4be4jEgpsZUv4NGbqXNBTw">
+  <div class="avatar" data-page-node-id="DE3SNH3daX8r7HYWbs9hkk">🏔️</div>
+  <div class="meta" data-page-node-id="BHrIc6xdxCqAtofoSFmWyP">
+    <div class="nm" data-page-node-id="los3O5BgxKiesEoewCQHmU">凯铨的旅行笔记</div>
+    <div class="sub" data-page-node-id="aKX2QCS5aldeEnUWwJavxe">北疆·阿勒泰 · 2026 国庆实测</div>
+  </div>
+  <button class="follow" onclick="this.textContent='已关注 ✓'" data-page-node-id="DDKSr8DmAlgUMUXoMjkl4X">+ 关注</button>
+</div>
+
+<div class="wrap" data-page-node-id="FKj3FOIlLwVFC3yqQQZxLp">
+
+<!-- 封面 -->
+<div class="cover fade-up visible" data-page-node-id="bc4TaeFGS6K9fhrpZR3qx2">
+  <div class="cover-bg" data-page-node-id="9egMffgmE0YdJVtABGG8TA"></div>
+  <div class="cover-in" data-page-node-id="KEIAyaHsHmb9IuVJc5st28">
+    <span class="cover-tag" data-page-node-id="aZFrOWDXC8bfD4EJo5PikC">保姆级攻略 · 真实实测</span>
+    <h1 data-page-node-id="Y6c0DH5WH7PIctGl8Wp9ZT" style="">北疆8天7晚自驾<br data-page-node-id="aALGGq3yaI4RwaDCbKGEF8">到底怎么玩才不踩坑</h1>
+    <div class="lead" data-page-node-id="1LUX6EFFgSYI3GmWW338WA">乌鲁木齐 → S101 → 赛里木湖 → 艾兰盐湖 → 阿禾公路 → 禾木 → 喀纳斯 → 北屯。8人2车，2772公里，一份回来后认真整理的「后悔没早看」级攻略。</div>
+    <div class="cover-stats" data-page-node-id="yCiVRWPDmqONxLZj5QBSUa">
+      <div class="cs" data-page-node-id="kXwlmlhHKAeL7P27mb0w3Q"><b data-page-node-id="LlogjuoAEj6vGNDIgYv3wn">8天7晚</b><span data-page-node-id="K8nshR95W84nGefGvRWPTp">新疆段</span></div>
+      <div class="cs" data-page-node-id="FLy1fkrtjztkeLbiMFzeOc"><b data-page-node-id="P42RbCAneceTnM2cOFCdVm">2772km</b><span data-page-node-id="TJ42rk1aDmKzO4GxvutMMP">总行车</span></div>
+      <div class="cs" data-page-node-id="70EIb4OL4UVrGZNkVzwCPi"><b data-page-node-id="vxG7t2Nx5juhxaoOQD6HBu">8人2车</b><span data-page-node-id="xQtPKJmov91olxEtMJLajP">同行</span></div>
+      <div class="cs" data-page-node-id="JHDCiLFjk2hHAPMckgOyz4"><b data-page-node-id="uZJnyXy1L4KjJSh1gfOBZo">¥8803</b><span data-page-node-id="0poSy13xKGI8UNgI4eQLQU">人均花费</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 互动条 -->
+<div class="engage fade-up visible" data-page-node-id="eepSINHbBoZxw5sZtmvlh1">
+  <div class="e" onclick="toggleLike(this)" data-page-node-id="NUooDtgtDcWmmrHr9Hyc8S"><span class="ic" data-page-node-id="ZJOs3ayNA8OpBZdvcAIK4b">❤️</span><span class="t" data-page-node-id="Za8XjWWlloVFcIUCHt6Pu5">3.2万</span></div>
+  <div class="e" data-page-node-id="mDFEF9WQUzGUplpE7puNUX"><span class="ic" data-page-node-id="7Ai7p4CFo1bGS96ve6ZIY5">💬</span><span data-page-node-id="uG9ZAxOek0pqL48GVV0OVg">1868</span></div>
+  <div class="e" data-page-node-id="G73AWbNtHdpTCmhR11JTRO"><span class="ic" data-page-node-id="UbvOcwhn7h2c7cNed5TrXc">⭐</span><span data-page-node-id="XLYriDc0JulipbtFGS9dTB">收藏</span></div>
+  <div class="sp" data-page-node-id="UjEHl67g1i7BEUC6qTPqTm"></div>
+  <div class="e" data-page-node-id="KaDxDAVfCMBVPKHDDzAwYk"><span class="ic" data-page-node-id="sVEAhyPpLwLI7nLEoUjtvw">↗</span><span data-page-node-id="ljfjeoFFe2aGDd4KCDEGzL">分享</span></div>
+</div>
+
+<!-- 章节导航 -->
+<nav class="chapnav" id="chapnav" data-page-node-id="v9PDkiLZOUqkfOoCWriXyA">
+  <a href="#overview" data-page-node-id="dic9L6wCypiuDJ9uhC6QoB" class="">📌 攻略概览</a>
+  <a href="#route" data-page-node-id="cNOHMGI7s5gkRhWHcYAezn" class="">📅 每日路线</a>
+  <a href="#stay" data-page-node-id="jYjVoCslwXp4MRMEgGz6mI" class="">🏨 住宿</a>
+  <a href="#food" data-page-node-id="e8BJCX8jUpGBeRMnnxwK31" class="active">🍜 美食</a>
+  <a href="#cost" data-page-node-id="iVXMTr3rC7375yhAQ11EJZ">💰 费用</a>
+  <a href="#pack" data-page-node-id="Q6ofDL6agsPfhcYfnBfaCH">🎒 行李</a>
+  <a href="#tips" data-page-node-id="TGq9iDMx3o581AfWFEgLYK">💡 经验</a>
+</nav>
+
+<!-- ===== 攻略概览 ===== -->
+<section id="overview" class="fade-up visible" data-page-node-id="PZ3ctiEgaEqX76mwHHUA7y">
+  <div class="sec-h" data-page-node-id="Bbk9OSbHt8ow5JQ6jL8r61"><span class="emo" data-page-node-id="IsCFZ3uPwyXkB1Mhs3pQTm">📌</span><h2 data-page-node-id="kjuiPKdwqzrDkE8uxRI5aK">攻略概览 · 一眼看懂</h2></div>
+  <div class="divider" data-page-node-id="326etkCkUVCGJTLGeQgY5J"></div>
+  <p class="sec-desc" data-page-node-id="QSe34axJx14n6EFUUudlRc">这是一份<strong data-page-node-id="K7nGPUL1VwUAWbM2oLr2Co">回来之后</strong>整理的复盘攻略——路线、住宿、餐饮、花销全是真实发生过的，附带"早知道就好了"的避坑提醒。下面先给你整条路线的时间线。</p>
+
+  <ul class="tl-route" data-page-node-id="mlQ0X2kh1QZg1HqGIOiMDI">
+    <li data-page-node-id="8BoPTPqlsf1ptsIgHvGsdi"><span class="dot" data-page-node-id="BCUTPj4jSCOATolRNqqSOx"></span><b data-page-node-id="pu1G3isldItej6uz564CKc">D0 · 9.29</b>　抵达乌鲁木齐，集合休整（全季机场奥莱店）</li>
+    <li data-page-node-id="ZlOfUxOBc8gJVNltaaRDww"><span class="dot" data-page-node-id="RjfGw3A9a4WqRoHYK2OU1M"></span><b data-page-node-id="GOixEx2KJZ5XNjuhU1q6yJ">D1 · 9.30</b>　S101 百里丹霞 → 肯特瓦斯水库 → 安集海大峡谷 → 精河</li>
+    <li data-page-node-id="OBflum0EuRd096iLBxH00B"><span class="dot" data-page-node-id="9E8sYYrQ3PFFXt9CAR1a74"></span><b data-page-node-id="THfd9I5xO7CI3AytRg16Gb">D2 · 10.1</b>　精河 → 赛里木湖逆时针环湖 → 博乐</li>
+    <li data-page-node-id="dvBBSXOgyQldy6KIe27yaC"><span class="dot" data-page-node-id="zyPLpXdgza57HJFg7JAlMo"></span><b data-page-node-id="zfuUNUbLrGQ3S188cqKjAH">D3 · 10.2</b>　乌苏午餐 → 艾兰盐湖（放弃魔鬼城）→ 世界魔鬼城附近住宿</li>
+    <li data-page-node-id="fJe3Gb6KNAfs52FTrXIB2n"><span class="dot" data-page-node-id="Z6tOBmKAI7YfxUjO7YWO4P"></span><b data-page-node-id="lWmvGYbFdKAEri3ugStJi2">D4 · 10.3</b>　阿勒泰加油补给 → 阿禾公路 → 禾木</li>
+    <li data-page-node-id="pBFi1h64dmytsnVHUqg7G6"><span class="dot" data-page-node-id="x9UwiALquEDXvdlfR7Ghn5"></span><b data-page-node-id="ABBbDQwJ9cBrNADjiewebb">D5 · 10.4</b>　禾木村自由活动 → 转场贾登峪 / 喀纳斯</li>
+    <li data-page-node-id="cJqMuNHsYzWXRj0wblp3XR"><span class="dot" data-page-node-id="Lm0BXKE8iAaGP3ZQ47TmrA"></span><b data-page-node-id="IfGAdLNjbAahMWXWXcATAz">D6 · 10.5</b>　喀纳斯三湾（月亮湾/神仙湾/卧龙湾）→ 北屯</li>
+    <li data-page-node-id="ky1GKOA5Z2YIzB4YX7E7RX"><span class="dot" data-page-node-id="wkEQnxRbF1WBGce16aKGu7"></span><b data-page-node-id="DQgryMKUR34hfOH1nccL4Q">D7 · 10.6</b>　北屯 → 乌鲁木齐 → 19:55 航班离开（当晚北京大兴机场住宿）</li>
+  </ul>
+
+  <div class="callout gold" data-page-node-id="ASgtNORYtAgq9FeDvpoqhM">
+    <div class="tt" data-page-node-id="j56h3HeHlUT6FFsX1XrE5u">🧭 阅读口径（很重要）</div>
+    每日景点顺序、出发时间和车程来自原行程计划，不代表全部都"完美完成"；餐饮、住宿调整和费用另按实际记录整理。未来复用时，车程、景区开放、限速、门票和活动时间<strong data-page-node-id="ODlmjfPthJS0NHVwOVomvo">请以当日信息为准</strong>。部分住宿金额原为约价，费用汇总不是最终完整账单。
+  </div>
+
+  <div class="callout blue" data-page-node-id="ZRtypQKrgV3LiLftFDMFyv">
+    <div class="tt" data-page-node-id="TAU0XHQne7NVAZzl9qHhsr">👥 同行 &amp; 时间</div>
+    新疆段 9.29 → 10.6，共 <b data-page-node-id="90DjQW1jUuTaggXJs9ZYIp">8 人</b>：凯铨、绮玫、子扬、依雯、锦民、静莹、咕咕、伟豪。全程 2 车出行，总行车 <b data-page-node-id="xFQcrxRliF6xPro8ptHf0r">2772 公里</b>。另有北京大兴机场住宿及香港返程交通记录。
+  </div>
+</section>
+
+<!-- ===== 每日路线 ===== -->
+<section id="route" class="fade-up visible" data-page-node-id="O4fEqZxpixb3N8gOLSquJr">
+  <div class="sec-h" data-page-node-id="kD7ftxClccVMJpt7dw9jCc"><span class="emo" data-page-node-id="YBzGqGku1VtZu5eMjZq6wj">📅</span><h2 data-page-node-id="XaP37mUw2a4QFmM64r93lZ">每日路线与玩法 · 8 天拆解</h2></div>
+  <div class="divider" data-page-node-id="WV37QqZpfbEZb7DmZIQ07Q"></div>
+  <p class="sec-desc" data-page-node-id="HvErmRxq05VROden9N0ClQ">每天拆成「路线 / 看点玩法 / 餐饮 / 住宿 / 花费 / 避坑」六块，直接照着抄作业。</p>
+
+  <!-- Day 1 -->
+  <div class="day" data-page-node-id="EP0keBBxcYzHuq2T0Mdkzg">
+    <div class="day-head" data-page-node-id="vgiEHwGZLHfK9UlRaXEyWS"><span class="day-badge" data-page-node-id="bMzM1KBUQPf2IVGIA3yMFh">Day 1</span><span class="day-t" data-page-node-id="YRvayxczGNxtD2g56bWIJU">9.29 抵达乌鲁木齐 · 集合</span><span class="day-km" data-page-node-id="CphzmnUv5asGp2r5w1H0y5">落地休整</span></div>
+    <div class="day-body" data-page-node-id="r8b5oDU2RhIJvPqTDbLkG2">
+      <div class="day-main" data-page-node-id="SlS2vJPPrUhAPpwlPgBiRU">
+        <h4 data-page-node-id="lEsaBmoQ50m8qH1H6rNo34">🚩 当天记录</h4>
+        <ul class="ulines" data-page-node-id="DC3gvvvZJLPhgug0nD6UNW">
+          <li data-page-node-id="Z5faJXXnrhKGO4SGYmt1be">成都机场午饭、特产豆干，晚上到乌鲁木齐吃<b data-page-node-id="LVD7IriD393YXmCI5nAFvI">阿里木小烤肉（红旗路总店）</b></li>
+          <li data-page-node-id="6uZon0yKSuUaY0YscRu9kI">入住全季酒店（乌鲁木齐天山国际机场砂之船奥莱店）</li>
+          
+        </ul>
+        <div class="callout tip green" style="margin-top:12px" data-page-node-id="KO8YI2251Vc982iiSchAVr"><div class="tt" data-page-node-id="PGY5R5CnmfjYDAGMeuEvyn">✅ 实测建议</div>第一天就是落地补给+吃肉，别排太满。机场奥莱店离机场近，取车方便，适合当集合点。</div>
+      </div>
+      <div class="day-side" data-page-node-id="jM8ecus55zjt8G4HWtKKzx">
+        <div class="box food" data-page-node-id="QYG64cQCASjvNJAM78q2jx" style=""><span class="lab" data-page-node-id="4AdSTyDHG04InkL4E4jPtP">餐饮</span>成都机场午饭 ¥51；特产豆干 ¥22.8；阿里木小烤肉 ¥77.5；往返市区滴滴车 ¥9 → <b data-page-node-id="nYqOZCDKA0LpfD3GTHs6H1">人均¥160.30</b></div>
+        <div class="box hotel" data-page-node-id="53YpgiJJsOaDttWakw6e9m"><span class="lab" data-page-node-id="ITCuMvBPV3jz5Znsc3ncf3">住宿</span>全季（乌鲁木齐天山国际机场砂之船奥莱店）· 高级大床房 · <b data-page-node-id="heBX6kZJlRWdqZFzjHpvzJ">¥299.57</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="day" data-page-node-id="6VAygfY29zmbeHkIF2j6f7">
+    <div class="day-head" data-page-node-id="vIVEgLKLRtJ81hrPfBK2zo"><span class="day-badge" data-page-node-id="H1WyTGYV8fVKmOTRjuBVxM">Day 2</span><span class="day-t" data-page-node-id="CiTCIySz6C2mtTVJGOW6Tx">9.30 S101 丹霞画廊 → 精河</span><span class="day-km" data-page-node-id="ymCWBXsFDvUCvTz20VCRgp">全天长途</span></div>
+    <div class="day-body" data-page-node-id="vD0dlADmKozSp5uwn2jZXV">
+      <div class="day-main" data-page-node-id="5gz1bE0y7V1kiOCayZfcP5">
+        <h4 data-page-node-id="yzC5E7b3LrhtURHUC9Ras6" style="">🚩 路线​</h4>
+        <ul class="ulines" data-page-node-id="jYRbpM7gxr2zFpeHj4upVh">
+          <li data-page-node-id="hKBQ5kwZAXJ9C2D30DYvEz">百里丹霞（导航"S101百里丹霞观景台"）约 1h43m</li>
+          <li data-page-node-id="ZnUcK3zK50hRS4dPHrDVnF">肯特瓦斯水库（沿 S101，午饭在景区外解决）约 1h17m</li>
+          <li data-page-node-id="ffV3yogvDh90PTidHNtMyl">安集海大峡谷 约 1h58m</li>
+          <li data-page-node-id="oq0jpvGjCwGke6bc7qxNfI">精河丽枫酒店 约 2.5h</li>
+        </ul>
+        
+      </div>
+      <div class="day-side" data-page-node-id="MagDPQlKZySMupsqhzCgBY">
+        <div class="box food" data-page-node-id="6Q9vEHyzhvhef4ZlsG1fjw" style=""><span class="lab" data-page-node-id="mntPs2NTNJWu8yHvDqT2RM">餐饮</span><b data-page-node-id="ayZBRsBhDpRDFBj5hcyOvD">五道崖农家院</b>午饭 人均¥48.13，味道绝了，红焖羊肉，大盘鸡，超大份；晚间外卖（必点酸奶刨冰！） ¥30 → 人均 ¥78.13</div>
+        <div class="box hotel" data-page-node-id="6bjbv06raySxqNLnvC82qA"><span class="lab" data-page-node-id="G99bU2mD93cAlahzBKHEMo">住宿</span>丽枫（精河人民公园店）· 雅致大床房 · <b data-page-node-id="4rJ23RyYxvIsze2zNG1bq5">¥225.00</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="day" data-page-node-id="oMxDcww1NpneBo6JLKCS2i">
+    <div class="day-head" data-page-node-id="8RYmkd6iF2RkVxm48oq1Qy"><span class="day-badge" data-page-node-id="dxtXHsDI0eT4kDMRfsvZzE">Day 3</span><span class="day-t" data-page-node-id="4GFiJg8CxlgQd1JXDImTok">10.1 赛里木湖环湖 → 博乐</span><span class="day-km" data-page-node-id="z7J8RchU3ih9Lpc1teLF2t">约230km·轻松</span></div>
+    <div class="day-body" data-page-node-id="KL1t7h5IgtJBuOkhOHJ6eC">
+      <div class="day-main" data-page-node-id="FccecT9OS4qN1i1h2MUy5q">
+        <h4 data-page-node-id="x64vSWHBz13oxgXZx2mGOA">🚩 12:00–18:00 逆时针环湖深度游（预留6h）</h4>
+        <ul class="ulines" data-page-node-id="3CV3APg7pzqFsJMEWiFFGR">
+          <li data-page-node-id="fVIwwtm6Dj9frTqMwzejdD">推荐顺序：东门 → 月亮湾 → 亲水滩 → 点将台 → 西海草原 → 克勒涌珠 → 网红S弯 → 松树头 → 南门</li>
+          <li data-page-node-id="Sgnm57mXQxZdztzMYf7QkD">亲水滩可近距离看天鹅；克勒涌珠是原记录推荐的天鹅观赏区，湖水湛蓝</li>
+          <li data-page-node-id="pUjjZpKzqcNWE0eJWscjVg">松树头短途徒步登高，可俯瞰赛湖并远眺果子沟大桥</li>
+          <li data-page-node-id="B4a47vGbrk0k1pLGMOsRfM">18:00–19:00 南门驶出，顺路打卡果子沟大桥观景台，再导航至博乐（约1h/85km）</li>
+        </ul>
+        <div class="callout warn" data-page-node-id="HsZ3yNWNlLbAnbJBKbnFzR"><div class="tt" data-page-node-id="fH4iFMiE6tyrtF11CvD9it">⚠️ 避坑</div>环湖限速 30–50km/h、<b data-page-node-id="mrss17S5lZRf28d1LXbgw3">仅可在观景台停车</b>，随意路边停车可能被罚；以现场标识为准。原笔记推荐逆时针顺光，下午拍照更好。</div>
+      </div>
+      <div class="day-side" data-page-node-id="jJtDETBzLpxmdZcVRn5u7c">
+        <div class="box food" data-page-node-id="QRerYF7UPHlHBtv7IvVCvA" style=""><span class="lab" data-page-node-id="ELFcYnoUSWyynT6DZ2lvIC">餐饮</span>午饭景区吃泡面；晚饭<b data-page-node-id="ottt0HTtpfbodOhM4Xja2a">西域食府</b> ¥461.9（羊肉焖饼、包尔萨克）→ 人均 ¥57.74</div>
+        <div class="box hotel" data-page-node-id="B3ESsAA3ti4j5KAZK9UCbb" style=""><span class="lab" data-page-node-id="f7IGcKqRS7xTrGr6f5UwnG">住宿</span>博乐隆泉博悦（博物馆滨河公园店）· 家庭房 · <b data-page-node-id="vgpJ5ERAtjT5gI4DRHDCX7">¥286.50</b></div>
+        <div class="box tip" data-page-node-id="NEl8DpgyBj45j1m2DVHmU3"><span class="lab" data-page-node-id="78YHO8Yip1racpo3g6ZdS2">提示</span>国庆首日 G30 车流大，但此天车程轻松，是全程唯一休整日，可睡到自然醒。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="day" data-page-node-id="m4jleoklJaxlWpxELEEYQJ">
+    <div class="day-head" data-page-node-id="P0gi6BqoHEVicSZd2EYVBG"><span class="day-badge" data-page-node-id="NsGna8KaNhOSrsf4MYfjZ7">Day 4</span><span class="day-t" data-page-node-id="rcao4EVXBMVRQ7CBOFkdQd">10.2 乌苏午餐 → 艾兰盐湖</span><span class="day-km" data-page-node-id="z4hEgKo03Z93vnwVhqc5Le">放弃魔鬼城</span></div>
+    <div class="day-body" data-page-node-id="rCo6Shi1p1E2mjr9dBx1UB">
+      <div class="day-main" data-page-node-id="aJIOrvmAFvh3cvIjMcYgS9">
+        <h4 data-page-node-id="hM1fNnzCPBn9Utpiiwl4Nl">🚩 当天要点</h4>
+        <ul class="ulines" data-page-node-id="8yYt0p45vPHNYGEHshkcs4">
+          <li data-page-node-id="lOdWZcbOpAj0hH4s8im1LD" style=""><b data-page-node-id="tlqhc3qCQoSyy7j3x9g0Xr">09:30 准时出发</b>，目的地艾兰盐湖（景区关闭时间写的是18:00，但电话沟通后确认最晚可以19:00进园）</li>
+          <li data-page-node-id="Emv1Ds2JbcWY81Lb7Dtda1">中途乌苏下高速，预计 13:00 左右到<b data-page-node-id="mhkgz4yEpsqXwV771gYVCP">相约丝路大盘鸡（乌苏店）</b>午饭</li>
+          <li data-page-node-id="45LNqusCFYbPFO7pnRbdG1">艾兰盐湖门票 <b data-page-node-id="HX9hP6cnuDa0W9gBnDPuxZ">¥25/人</b>，已确认实际支付</li>
+          <li data-page-node-id="7kxTEcK3Gv3pNZ7MCJ8dIH">晚餐：马克拌面、雄师傅烧烤和酒水（详见餐饮章节）</li>
+        </ul>
+        <div class="callout gold" data-page-node-id="B0KQAsOzxW6Lax7zB3m3tb"><div class="tt" data-page-node-id="qupjkUGSOevaVziFVg2qrf">📷 拍照穿搭</div>蓝天、白盐地背景，原笔记推荐<b data-page-node-id="ICe8IXsHZtUTaphOz2THjo">红色或黄色等亮色衣服</b>，出片率拉满。</div>
+      </div>
+      <div class="day-side" data-page-node-id="wrDaeBuer9NZgrycOA8HJQ">
+        <div class="box food" data-page-node-id="pqR8GAZzkFlRVTypASb6yT" style=""><span class="lab" data-page-node-id="Zea9TEN7eKpsCZmYraAXsr">餐饮</span>相约丝路大盘鸡 ¥43.63/人；马克拌面 ¥123；雄师傅烧烤 ¥35/人；伊力特曲 ¥32 → 人均 ¥131.13</div>
+        <div class="box hotel" data-page-node-id="EZXoiDnWbui0GTPh8IIW9F"><span class="lab" data-page-node-id="8UTibnh2grCWwW1imBisL9">住宿</span>美高酒店（世界魔鬼城店）· 雅致大床房 · <b data-page-node-id="3L8UQzskRVGYXvYLeKNdYR">¥435.00</b><br data-page-node-id="dw5ab1J2lLSgAstFxSwFkM"><span style="color:var(--muted);font-size:.78rem" data-page-node-id="T3YJggBz8zW6INiRj2F2Bt">⚠️ 住在附近 ≠ 进入魔鬼城游览</span></div>
+        <div class="box warn" data-page-node-id="vkI8rVLhibVDvFF60h9hxu"><span class="lab" data-page-node-id="1mwkFbiBkjHaofRpUDXKO7">路线调整</span>原计划放弃世界魔鬼城——理由是场景与 Day1 景观相似、预判阴天难见日落。这是当时选择，不是对景点的普遍结论。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 5 -->
+  <div class="day" data-page-node-id="36O4IJAlJ6mlJAAYQwoJlf">
+    <div class="day-head" data-page-node-id="TuE5O1XBQz9QQBkpOTRH0X"><span class="day-badge" data-page-node-id="SIgZJHZArmPX2Jf75txBnF">Day 5</span><span class="day-t" data-page-node-id="8w0elvir2tbwg69Y7p6yiH">10.3 阿勒泰补给 → 阿禾公路 → 禾木</span><span class="day-km" data-page-node-id="j9t8FdKhAnTSdpVWR7MHDD">约530km·关键日</span></div>
+    <div class="day-body" data-page-node-id="qpD2iHYxWEj0SCZ0Qg2ocJ">
+      <div class="day-main" data-page-node-id="NgsFv1KFbyYt83HFcf4ReN">
+        <h4 data-page-node-id="thjvTeBt3whZvdL7RUXRm9" style="">🚩 阿禾公路途经点​</h4>
+        <ul class="ulines" data-page-node-id="TpQN8iiXpGOxpWJ2xkNaJE">
+          <li data-page-node-id="awIoxrjnVYZSjt6uAwIlFP">08:30 出发（最晚 08:45），先到<b data-page-node-id="foK240J7y8b3BFJE6YiuUU">中国石油阿勒泰市团结路加油站（纯汽油）</b>加油</li>
+          <li data-page-node-id="0Dx19YmHLDMCzLVbM6LmJR">该段约 321km / 3h30，预计 12:00 抵达，可快速泡面补给</li>
+          <li data-page-node-id="zk1jO0huHhXTjowr7hwJ1O"><b data-page-node-id="bOx5iejwyBWaCD3cnOLbW3">乌希里克 13:30</b>（停40min，必去）：雪山+湖泊+草甸同框，可能有云海倒影、水鸟牛羊</li>
+          <li data-page-node-id="mQhcH3qvGfePZb04bNI7hV">撷芳停车区 16:30（停30min）；<b data-page-node-id="VJBink2c7o6b53tnKG9VMr">托勒海特草原 18:00</b>（停30min，必去）：阿禾公路最高点，高山草甸+风蚀石林大场景</li>
+          <li data-page-node-id="Uxx8OQFDWy1ca3Z3vmxCM0">望禾观景台（已取消，原预计没时间）</li>
+        </ul>
+        <div class="callout warn" data-page-node-id="VISbKzJkWBGGVdRdGApIFe"><div class="tt" data-page-node-id="vssJGSXeYLQZdwvFDgH46N">⚠️ 避坑</div>导航位置仅供参考；托勒海特附近碎石野路坑洼，<b data-page-node-id="TCo8jH2YFdfGE9gV8vBe9P">优先选择正规观景台</b>。阴天观景效果弱，部分路边收费拍照点可按需跳过。目标 19:30 前抵达禾木。</div>
+      </div>
+      <div class="day-side" data-page-node-id="PmX4Ew3xSQOIpd2y7HuyHo">
+        <div class="box food" data-page-node-id="QOhEIGyVZgSakG7HcTjQFN" style=""><span class="lab" data-page-node-id="fQKD87axieEJgCnKhaQt4y">餐饮</span>雪都不夜城：德克士 ¥23、茶水 ¥17、茶芭蕾；禾木地摊火锅 ¥900 → 人均 ¥152.50</div>
+        <div class="box hotel" data-page-node-id="RpwFwKFvEMyl8Dq4Ngkn1M"><span class="lab" data-page-node-id="Jgl0xDUBwQOl3hoRkoJvxj">住宿</span>全季（布尔津禾木游客服务中心店）· 高级大床房 · <b data-page-node-id="INNBMrJ3rXCmPES9wIcIPB">¥1251.00</b><br data-page-node-id="oaFEOMQfv8pu6qSpXJcDmC"><span style="color:var(--muted);font-size:.78rem" data-page-node-id="OREsg05CAgEdloIhnj1aG3">有免费班车往返游客中心</span></div>
+        <div class="box tip" data-page-node-id="qsAKRzqYCozTfkLKnwPA6u"><span class="lab" data-page-node-id="YbbeNJJTfvTtN0jD7qlkpk">提示</span>晚上参加禾木篝火晚会；火锅感觉有点贵，可权衡。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 6 -->
+  <div class="day" data-page-node-id="OgrV9HQKYCHf3jQA4nR2Se">
+    <div class="day-head" data-page-node-id="AzYWqf1Qb9znEUWSLZWGkM"><span class="day-badge" data-page-node-id="ndJ38DIs62yFm39eeA4VRN">Day 6</span><span class="day-t" data-page-node-id="ZpBxdkAOAbIaoxnG1epEPg">10.4 禾木自由 → 贾登峪 / 喀纳斯</span><span class="day-km" data-page-node-id="LzB7lenxep1SWIBr3rRtEI">约66km·轻松</span></div>
+    <div class="day-body" data-page-node-id="L4DZFQa8guK4J2HnOBsSlV">
+      <div class="day-main" data-page-node-id="SJnsiLqOoBAJ6lP97paEjp">
+        <h4 data-page-node-id="RKQoofRYRxQxGrHrkHJbW6">🚩 当天要点</h4>
+        <ul class="ulines" data-page-node-id="Qbpx3hAskQ9MAlE55BsF7l">
+          <li data-page-node-id="r4VhPNohJkmGaT3GyoZ7m4">上午自由活动、逛禾木村，<b data-page-node-id="Hpsc0YmbW4xCao6ekBu9xS">13:30 前集合</b></li>
+          <li data-page-node-id="uQV7Y8IIZCoR8bBldRoQE9">下午前往贾登峪（约 66km，相对轻松）</li>
+          <li data-page-node-id="0Ju9kqBKe9Dvd7FFR0oRnN">入住喀纳斯童话故事酒店后，原计划去附近喀纳斯湖游玩</li>
+          <li data-page-node-id="GiKrgpvWM6gCapmmcaJXY6">全季酒店早餐评价很好，当天吃早午饭</li>
+        </ul>
+        <div class="callout green" data-page-node-id="kaJwNADfWNiY7kdxU9XLCf"><div class="tt" data-page-node-id="xvcYklCCEFgbIQg28Jg4s8">✅ 实测好评</div>全季酒店早餐/早午饭评价很好；晚餐在贾登峪<b data-page-node-id="T7bvSQfVT4Srw1e3xGAA0b">疆上鲜餐厅</b>吃烤羊腿，值得。</div>
+      </div>
+      <div class="day-side" data-page-node-id="fq0jGudu2iRMuQyHsSTa4P">
+        <div class="box food" data-page-node-id="VJhID8abwFmrv3RFpqLvK2" style=""><span class="lab" data-page-node-id="vFbpYZFkd5fSZCLmaGI0ew">餐饮</span>全季早餐（最好吃的一顿酒店早餐，有大虾！）；疆上鲜餐厅烤羊腿 <b data-page-node-id="PQuvnZLv70AeskW32bQpoA">¥117.40/人</b></div>
+        <div class="box hotel" data-page-node-id="w1gbK3GAFBPJdZkajOGv4j"><span class="lab" data-page-node-id="7GwprSuGu63nYrFkffPT5S">住宿</span>喀纳斯童话故事酒店 · 2间云渡观景家庭房（每间可住4人）· 按两人计 <b data-page-node-id="ui3GnAVbKoq5171eGWUovG">¥600.00</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 7 -->
+  <div class="day" data-page-node-id="qovvigGIFQSW1HbOXmeYZS">
+    <div class="day-head" data-page-node-id="PRimREWFidIcAxQ1LZhHXS"><span class="day-badge" data-page-node-id="6mblAMSrDboCsO9Ixb3lMy">Day 7</span><span class="day-t" data-page-node-id="lFZaStXqFSdaHaXYTY2qQ9">10.5 喀纳斯三湾 → 北屯</span><span class="day-km" data-page-node-id="ln3IPk4XaH1BRWJSJE9BUV">约240km·3.5h</span></div>
+    <div class="day-body" data-page-node-id="8gbh3yypAfU80wABdOyd5l">
+      <div class="day-main" data-page-node-id="W0rtEfOhIrrkL9M4ST9rB2">
+        <h4 data-page-node-id="MRgN41Ll3sD4W2p5ZDTuEN">🚩 当天要点</h4>
+        <ul class="ulines" data-page-node-id="E3ytpPBFk3zdSI9887Z1UM">
+          <li data-page-node-id="taRGaYrCqtaiY6htiD1iU8">原计划游览喀纳斯三湾：<b data-page-node-id="ZHFxb1P2g16UAKHlN2jLIU">月亮湾、神仙湾、卧龙湾</b></li>
+          <li data-page-node-id="NRZRZwLGOmG8DOJDYeyaDE">约 16:30 出发前往北屯银泰酒店，车程约 3.5h</li>
+          <li data-page-node-id="6VkKXXFllOpRHvm2Pj8j6i">晚餐在小渔村鱼馆（北屯购物公园店）</li>
+        </ul>
+        <div class="callout tip green" data-page-node-id="35GZrXMVl1EFcUlbSwlX35"><div class="tt" data-page-node-id="ZlP657zKJX8iwCVIXKaDuh">✅ 实测好评</div>北屯当地鱼类菜肴惊艳：烧五道黑、香煎狗鱼、黑豆腐、冰茄，强烈推荐。</div>
+      </div>
+      <div class="day-side" data-page-node-id="Wpb90327Pt162ulnsXkQvg">
+        <div class="box food" data-page-node-id="ZkY8flw4yqdTVHxI4us9Kf"><span class="lab" data-page-node-id="cbX0M0uB7sfolBjsjCUaxh">餐饮</span>肯德基 ¥63.10/人；小渔村鱼馆 ¥75.60/人 → 人均 <b data-page-node-id="LNMniduudpCY5n5ZwrZjnY">¥138.70</b></div>
+        <div class="box hotel" data-page-node-id="sLtQRy2eVexemQxCs2hEUL"><span class="lab" data-page-node-id="ClzbVuiU6guf1bb0VM6nOn">住宿</span>北屯银泰酒店 · 大床房 · <b data-page-node-id="AMqLHw1SA1C0JZEwIfx9iO">¥328.00</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 8 -->
+  <div class="day" data-page-node-id="bEyPspnrVgSnmGFo2jGXDj">
+    <div class="day-head" data-page-node-id="RHlLoSrtLFWBVTDtBe0Tnv"><span class="day-badge" data-page-node-id="hOJ7m89v3fx2H6G7UXayPD">Day 8</span><span class="day-t" data-page-node-id="KFhGaNwuWjls45XigZ0cq0">10.6 北屯 → 乌鲁木齐 → 离开</span><span class="day-km" data-page-node-id="cLJEKB0hbt1tpNYbxSVUSt">约440km·4.5h</span></div>
+    <div class="day-body" data-page-node-id="BLxePMLucD6dnJ8KKWt0iw">
+      <div class="day-main" data-page-node-id="qc8hHuQcdmIEPHAyMRwraK">
+        <h4 data-page-node-id="EejoBTpUXCEs0fOQArVNAO">🚩 返程要点</h4>
+        <ul class="ulines" data-page-node-id="E4Gkvzu6q9QEYZANp9SRQH">
+          <li data-page-node-id="BPtyoHtXEcODH4OTnEGniP"><b data-page-node-id="cpXgJAFC8AwmnYXu79Yo9H">07:30 出发</b>前往乌鲁木齐，原预计 4.5h，约 12:00 抵达</li>
+          <li data-page-node-id="BRG1rkBWqFJp1GJQVkAyZJ">午餐/购物：魏家羊羔肉；到金泉商城逛街买手信</li>
+          <li data-page-node-id="4QXdMuqCCvO7YoMIPCUeHr">停车经验：商城附近不好停，原笔记建议停<b data-page-node-id="xR57d3EjsHQkaKNUXoMYtI">兆恒国际大厦</b>（离吃饭点也近）</li>
+          <li data-page-node-id="to48eNnDnKvYrj2vBuU4KR"><b data-page-node-id="P4z3bzQWMZEsOIbGsXNGxk">19:55</b> 原计划搭飞机离开新疆</li>
+        </ul>
+        <div class="callout warn" data-page-node-id="cQ0wmIkCuz0t1N3eCa5EWp"><div class="tt" data-page-node-id="rfWwcDgZNr4NckEfIzQqQq">⚠️ 避坑</div>金泉商城附近不好停车，提前规划停兆恒国际大厦，省得绕。</div>
+      </div>
+      <div class="day-side" data-page-node-id="AOrH7WLnEhTUpBQ7wIVOTp">
+        <div class="box food" data-page-node-id="2g1ItMshbPNCK4eCQm5IWp" style=""><span class="lab" data-page-node-id="QHbHgmL8OQ03j5io7qodBq">餐饮</span>魏家羊羔肉午餐</div>
+        <div class="box hotel" data-page-node-id="WlAEFels5ci3bZUSVIU7Kh"><span class="lab" data-page-node-id="P0QSatk7dtGiEQ5zrDMFFc">当晚住宿</span>城际酒店（北京大兴机场）· <b data-page-node-id="yoo9JYHNRy2WJrHp8haYgj">¥366.00</b>（后续香港机场快线、高铁已计入账单）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 住宿 ===== -->
+<section id="stay" class="fade-up visible" data-page-node-id="Oc0XSbQK206j5Fg7F7NqZl">
+  <div class="sec-h" data-page-node-id="2rFO91wJ6GVKisdDFG1UOz"><span class="emo" data-page-node-id="7LrdAAvjbYq9PTtFYDpPen">🏨</span><h2 data-page-node-id="e2XyoKYjhQ3DDBOKBkfrfJ">住宿清单与避坑</h2></div>
+  <div class="divider" data-page-node-id="NfDVxOPyRdpj573j29aSFe"></div>
+  <p class="sec-desc" data-page-node-id="NinUAA4YkNdd6FIE0pCtod">金额按原页面"两人记账"口径整理，部分是约价，<b data-page-node-id="NERQI8qhTCkcGqfJDxEwj8">不是 8 人全团住宿总额</b>。下表是复盘时实际记的账。</p>
+
+  <div class="tblwrap" data-page-node-id="PzzhkqeLNYFo2a8XEF4ChM">
+    <table class="tbl" data-page-node-id="pTBlgePbAhA1Zz5KCYvOft">
+      <thead data-page-node-id="r93kVuqynDpDrQCSz1DzGe"><tr data-page-node-id="AtMd1EBSmK7oZPkxiDzUTo"><th data-page-node-id="QGza9noFMisOfN1y8hKFiA">入住区间</th><th data-page-node-id="2mLq2AMIOonFd7KypxRkdT">酒店</th><th data-page-node-id="JHWoLyawuE3M1ONN4KcPeY">房型 / 分摊备注</th><th data-page-node-id="0iH36Fw47v8YYiIS3PCj4g">两人金额</th></tr></thead>
+      <tbody data-page-node-id="4uyMKHzunxPNmubRb5FlIm">
+        <tr data-page-node-id="4P4jZjJrih8hFldGA5x7ik"><td data-page-node-id="kSBOwY0Qq0MH2qPzuvvILs">9.29→9.30</td><td data-page-node-id="iOUSXe3ohFnAoERPhPb2FC">全季（乌鲁木齐天山国际机场砂之船奥莱店）</td><td data-page-node-id="TQHmOwFBvrTM7fc3HAlinD">高级大床房</td><td class="em" data-page-node-id="hcvO1lJJKd5iGRvi1nAPiQ">¥299.57</td></tr>
+        <tr data-page-node-id="6mJvWwxm9ZHOuKRlJRkGpd"><td data-page-node-id="3LkZEszcecyKDaV7PYpBVi">9.30→10.1</td><td data-page-node-id="By5EjLNM8VttsVU9SPohyw">丽枫（精河人民公园店）</td><td data-page-node-id="5WL4kssOJbWODH2V3gJINq">雅致大床房</td><td class="em" data-page-node-id="6DYTpZPzpJrCHcWKLCE5y5">¥225.00</td></tr>
+        <tr data-page-node-id="iBIm0yjutSOpVPGkqUjkaP"><td data-page-node-id="GPedyXNMhnON5JhzhgoaVJ">10.1→10.2</td><td data-page-node-id="rgdXngoaFe18AVHPfZHF27">博乐隆泉博悦（博物馆滨河公园店）</td><td data-page-node-id="MYVDNecm9oHd56QOyFUmJl">家庭房 · 573÷2</td><td class="em" data-page-node-id="t4xDwaFrM2v7G31msqHRSq">¥286.50</td></tr>
+        <tr data-page-node-id="kqOX0re4LGIh0rMHp9xiji"><td data-page-node-id="ZGgokUdXWjqrM471XEZLA9">10.2→10.3</td><td data-page-node-id="xiE3v7v9SthYQAMqqb8lli">美高（世界魔鬼城店）</td><td data-page-node-id="C0ZJbU1WUGY3s1dEUkNBMj">雅致大床房</td><td class="em" data-page-node-id="L76F18VCnPCSpfPr2cBoVj">¥435.00</td></tr>
+        <tr data-page-node-id="jhEhm9CV378eANZNSiaSqA"><td data-page-node-id="KtwNW7VghzOfFjAfBaLPFs">10.3→10.4</td><td data-page-node-id="TlQTdLRIhJBGFbciFbPiL4">全季（布尔津禾木游客服务中心店）</td><td data-page-node-id="2ktT9HdCYYoAap1mO0bxO3">高级大床房</td><td class="em" data-page-node-id="S7vLGLbeSxsoFkGTtvrbp1">¥1251.00</td></tr>
+        <tr data-page-node-id="07zdm6QN10bLCVFvE3ZwTR"><td data-page-node-id="frSf8xsPLkfG7RBbceaiYR">10.4→10.5</td><td data-page-node-id="19PyngC6nsilSGtR54auBB">喀纳斯童话故事酒店</td><td data-page-node-id="q3wq0dXaRS5eEA7ogf9OgY">2间云渡观景家庭房（每间住4人）</td><td class="em" data-page-node-id="LUAo1jUIls9LBDKc07AqBK">¥600.00</td></tr>
+        <tr data-page-node-id="X8FC9D6W71IqpBwF2eoFEK"><td data-page-node-id="gZfC6WERUKtykAzGePXXQD">10.5→10.6</td><td data-page-node-id="vCkb8jIcgm5KBzkZm6raUl">北屯银泰酒店</td><td data-page-node-id="Wy8cFIc5hryPFcEwiAyLJD">大床房</td><td class="em" data-page-node-id="NZfdsDt0kdZdR2nvj0u8ZH">¥328.00</td></tr>
+        <tr data-page-node-id="9FRnGn7jwNdaVDg2C05Czj"><td data-page-node-id="2WQwbJypcUkyQMJSxIe60E">10.6→10.7</td><td data-page-node-id="T8q6L3ME2JbywSDFw8Zxwr">城际（北京大兴机场）</td><td data-page-node-id="zvMEnOzfzA6Cz8BHt9lDqP">房型未注明</td><td class="em" data-page-node-id="OmiZj1veM7NVLunAXbYs5N">¥366.00</td></tr>
+      </tbody>
+      <tfoot data-page-node-id="AqQv4ZpnHdCZIHcyYKptCs"><tr data-page-node-id="5CFTECd28iW6CHwC0B9mfY"><td colspan="3" data-page-node-id="MmTdZAaNH0iIypE3cQl74h">合计（8晚·两人记账）</td><td data-page-node-id="Yyp09DBxGw4BHhhgh19PDr">¥3791.07</td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="callout warn" data-page-node-id="bTwV1LjfSVRaBaIePdT5sN">
+    <div class="tt" data-page-node-id="tcU8jZRpFUwAVS2a6Ln835">⚠️ 血泪避坑：住宿卫生优先</div>
+    原记录中<b data-page-node-id="eRrazVH0yM0O8ITUu62o0E">得仁营地城市星空酒店（北屯市）独栋约¥358 因卫生较差被取消</b>，临时改订北屯银泰酒店。复盘结论：<b data-page-node-id="JssCdDYhG4fAeRFsWJCNjd">卫生差直接换，别将就</b>。喀纳斯房费原记录"2间云渡观景家庭房，约1200元，一间可住4人"，统计沿用页面明确的"两人¥600"口径，不另行推算8人总额。
+  </div>
+</section>
+
+<!-- ===== 美食 ===== -->
+<section id="food" class="fade-up visible" data-page-node-id="zSHeTuEMyNXz4OZg91eXbn">
+  <div class="sec-h" data-page-node-id="GnJ8cbCPUdaC8A4fGCjLnV"><span class="emo" data-page-node-id="5xuUVupD6j6XdkEgrt5V6s">🍜</span><h2 data-page-node-id="ygLHoO6UoTgfJ0PcobkQtL">餐饮地图与口味回顾</h2></div>
+  <div class="divider" data-page-node-id="j7xUuABb0LJ3l8ASOPqTAR"></div>
+  <p class="sec-desc" data-page-node-id="K7kz7AGUepXvZTPYHe9ABL">已知餐饮小计：<b data-page-node-id="lI1vJP7kBspIVVHJYcsK8a">人均约 ¥835.90，两人约 ¥1671.80</b>。下表为各餐记录（人均已知金额）。</p>
+
+  <div class="tblwrap" data-page-node-id="3sOqMhonX28MOC4RAlRUI2">
+    <table class="tbl" data-page-node-id="6ToQeKiFzovDHUwW3hWQKq">
+      <thead data-page-node-id="az47EQXHVFue5gSSlVsn7y"><tr data-page-node-id="jXKvFyk26S9HSlNdyJ3Br9"><th data-page-node-id="KjhypNuuTCsI3OV6ncAYjq">日期</th><th data-page-node-id="D1cN4ZczYprxDTPXmPRX9x">餐厅 / 餐饮记录</th><th data-page-node-id="UwLHVqfY4ida6RE6NIHFoa">推荐菜或体验</th><th data-page-node-id="SuAtIEFwoUabDNfBFGNqaz">人均</th></tr></thead>
+      <tbody data-page-node-id="oyvdLQhBV9TKjYfT8xrusl">
+        <tr data-page-node-id="WJITCiZHY44L6Kg1a4EMjn"><td data-page-node-id="QiDZqlVxBieEPYl1Y46ern">9.29</td><td data-page-node-id="TfrbfPWbhulwpi1svIJ6QO">阿里木小烤肉（红旗路总店）等</td><td data-page-node-id="juEG26zEhzLC3dnKaTNIkH">成都机场午饭、豆干、夜宵段烤肉</td><td class="em" data-page-node-id="5m9n5lnx2A77lwGfXGBOBC">¥160.30</td></tr>
+        <tr data-page-node-id="47B5nWlXE1JfTzqwXC39ke"><td data-page-node-id="7FL6TGm9NMjCGa9SRu2UX2">9.30</td><td data-page-node-id="q0XIGnf9bsjVT7UlNltsFA">五道崖农家院 / 晚间外卖</td><td data-page-node-id="MBgyVc1hAJ2YGrtBg2PAqX" style="white-space: pre-wrap;">农家乐：红焖羊肉，大盘鸡，韭菜炒鸡蛋；外卖：奔跑的肉饼子＋鸡柳；<b data-page-node-id="QHBNAow96X7z1DL3BGwDkZ">必点酸奶刨冰</b></td><td class="em" data-page-node-id="0lpi4BvkSV6039yOFzASid">¥78.13</td></tr>
+        <tr data-page-node-id="FHFc97H5WBj9wJJXhwyFut"><td data-page-node-id="Br9OFot58mxkGxfS8WyoUE">10.1</td><td data-page-node-id="g2xDJqbysqDhKcxD84KOkA">西域食府（晚饭）</td><td data-page-node-id="2Ev3lqaHCjtD0oUChs6GsI">羊肉焖饼、包尔萨克；景区泡面别有风味</td><td class="em" data-page-node-id="i2VnAPqULd7GzMzH716RJk">¥57.74</td></tr>
+        <tr data-page-node-id="iscokWLFYTrV2YHaYdH1zT"><td data-page-node-id="Bj714zFxZ9GykPTd6lFoW5">10.2</td><td data-page-node-id="LOSjwWX2n2PNZRPnLgi6xF">相约丝路大盘鸡 / 马克拌面 / 雄师傅烧烤</td><td data-page-node-id="ug1B345igSAk97nRWy813j">精酿：蜜桃乌龙、西柚茉莉</td><td class="em" data-page-node-id="HdR5jQtNyhldZ93tgSx93y">¥131.13</td></tr>
+        <tr data-page-node-id="PyxVPVuUjqxqPHVf2oKST0"><td data-page-node-id="5jdTbfrtq5JpdKcoMXaVJc">10.3</td><td data-page-node-id="r7DeGL7m8OPWP5FmCnXTM6">雪都不夜城 / 禾木地摊火锅</td><td data-page-node-id="AOXGRwDgiBeWVbSlLYb4Yt">第一次尝茶芭蕾；火锅偏贵</td><td class="em" data-page-node-id="pByFfjZHME63E1ndfwC45W">¥152.50</td></tr>
+        <tr data-page-node-id="j7CRe8k08V8vItlF466P4b"><td data-page-node-id="j9T37bMmey4DjHD7GGQveq">10.4</td><td data-page-node-id="MEb6smHGiFgazK1MK6jPgZ">全季早餐 / 疆上鲜餐厅</td><td data-page-node-id="l41r7FWaAw5ntmiXY5L3eu" style="">烤羊腿​</td><td class="em" data-page-node-id="IpPtZbNTIeeuQF1au6q5zJ">¥117.40</td></tr>
+        <tr data-page-node-id="9sbKTAFxCBDioah2j0Eci4"><td data-page-node-id="XxYvKNaPHiNiBHziubEtRS">10.5</td><td data-page-node-id="ro2CnDbfPXjE4Dn8VedZCY">肯德基 / 小渔村鱼馆（北屯）</td><td data-page-node-id="AWESIn80ZWC2vasX2Jy3pe">烧五道黑、香煎狗鱼、黑豆腐、冰茄</td><td class="em" data-page-node-id="bVQz8CvqmoIfN8MkheVIjC">¥138.70</td></tr>
+        <tr data-page-node-id="tFfCGi0nKvt95A2XInrJ1f"><td data-page-node-id="pZxcERubAIG0taLlOZuUMR">10.6</td><td data-page-node-id="vSiMMxMtZHAbDvtHIiFj01">魏家羊羔肉（午餐）</td><td data-page-node-id="59fojM9q1mKuiUTZbuuGO8">餐后逛金泉商城买手信</td><td data-page-node-id="JZgrHr5GjqNSTseBa5gRdQ" style=""></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout green" data-page-node-id="Q2vICX2VmDTdMwHZ4rcPOQ">
+    <div class="tt" data-page-node-id="7XVdO4dm7awrKGaHXPFYee">✅ 值得回味的餐食（闭眼冲）</div>
+    🍧 <b data-page-node-id="5H3rSSWUqbzgzKItNJDuSw">酸奶刨冰</b>（五道崖）· 🫓 <b data-page-node-id="4Get5SlJO8r6FYoyqEeiCC">羊肉焖饼、包尔萨克</b>（西域食府）· 🍖 <b data-page-node-id="E32tXHJ4LNMd2UiGDzPknb">烤羊腿</b>（疆上鲜）· 🐟 北屯当地鱼类（小渔村：烧五道黑、香煎狗鱼）。反之，<b data-page-node-id="jK922XyjltmpAPjWGC9508">禾木地摊火锅价格体验偏贵</b>，可权衡是否安排。
+  </div>
+
+  <div class="callout gold" data-page-node-id="aUbXlMBJ1HknfUttbW0TQ9">
+    <div class="tt" data-page-node-id="VL37aXoJB5s0xDIdDMGxeU">📷 出片穿搭提醒</div>
+    艾兰盐湖是蓝天+白盐地背景，穿<b data-page-node-id="7BhTtI7jav1VMEnJetoSmN">红/黄等亮色</b>最出片；赛湖、禾木、喀纳斯则以秋色+晨雾为主，暖色系外套也很好看。
+  </div>
+</section>
+
+<!-- ===== 费用 ===== -->
+<section id="cost" class="fade-up" data-page-node-id="OB2kH8ID63InzCO6ApMdF7">
+  <div class="sec-h" data-page-node-id="Aa9Gdm4Ljo3ubHhNegVotE"><span class="emo" data-page-node-id="fIraoL4THIGaJiUDAG10ir">💰</span><h2 data-page-node-id="YA2dfKtnnGhgNYU3qbeRMm">费用账本与分摊规则</h2></div>
+  <div class="divider" data-page-node-id="VdEBxRpBtzj1HxW9JuttGk"></div>
+
+  <div class="callout red" data-page-node-id="xC6zHoaQgDLU2dkJGJmCYs">
+    <div class="tt" data-page-node-id="g4ZeSk4DrXD5xlphjVeKR3">💰 已知费用小计</div>
+    <b data-page-node-id="c9I20lTlJ2F5WVnSQIvI0V">两人约 ¥17,607.05，人均约 ¥8,803.52</b>。已纳入香港机场快线和西九龙—深圳北高铁（两人共 ¥270）。住宿有约价、未标价费用尚未计入；<b data-page-node-id="a8XsrvJAPEsAuJ6SjNN0pp">不将两人费用×4 推算 8 人全团总额</b>。
+  </div>
+
+  <div class="tblwrap" data-page-node-id="p71EmFPK9Rn6eJ0x4HPxMk">
+    <table class="tbl" data-page-node-id="rclg7W1XOUVZWKAiwMJtDy">
+      <thead data-page-node-id="SAtsH2hta0w2woZ0t2SDiA"><tr data-page-node-id="luvrQP9geKlQDCQU2RbtLQ"><th data-page-node-id="iGebCfEk8vNzC25uZHyXlZ">类别</th><th data-page-node-id="H274hxdjhlECDAwBsvw6ku">原始金额 / 计算方法</th><th data-page-node-id="Q1u1zkWwCXFmGF7golOFMm">两人承担</th></tr></thead>
+      <tbody data-page-node-id="2056rXiYYFIHPIVvnAfRIJ">
+        <tr data-page-node-id="Y1fetk5JDZfsesXXGymWCP"><td data-page-node-id="hbeJ4CDyG4oCUsOQxdjFdC">往返机票</td><td data-page-node-id="42S8ONO2CvyErniHYrD1Df">3484＋3871；人均 3677.50</td><td class="em" data-page-node-id="J1GlDC1lrBNQ31NvbqZaf1">¥7355.00</td></tr>
+        <tr data-page-node-id="E7RqyNt2rVx6NCeQJGSK8W"><td data-page-node-id="KY6tk39YtvAO2sSgS9241b">住宿</td><td data-page-node-id="jZYTqTGdUxBw65ByWOaqBV">8晚两人记账金额</td><td class="em" data-page-node-id="jXSrqF1qiJWAp2p9O52MRc">¥3791.07</td></tr>
+        <tr data-page-node-id="RmNIHZRkfsDfWSgUvsZ1Ib"><td data-page-node-id="iOD8VrKtZvyKhKTs4zjWO6">租车</td><td data-page-node-id="7PBErbAB4M4RtXNa9bO8BE">3729.82＋超时费116＝3845.82；4人平摊</td><td class="em" data-page-node-id="DFR1sWkOiZEDQFbpn4LE3n">¥1922.91</td></tr>
+        <tr data-page-node-id="YE1GIseObaN5ivTy6qNGQb"><td data-page-node-id="lUa5hpnv3fsIIjtw9hE1Zj">油费</td><td data-page-node-id="eE194ahFaA4ryfYMPQk7UD">430＋316＋410＋450＋510＋567.54＝2683.54；4人平摊</td><td class="em" data-page-node-id="ZwiLGmdIObFhIOSxxD4O8F">¥1341.77</td></tr>
+        <tr data-page-node-id="polvh1BVDRvcBGBsNlP2qs"><td data-page-node-id="P9XMDMBLTWge17f2eGONXu">高速费</td><td data-page-node-id="GTFheXb59OJ3EY5Km8jFUY">68＋22＋24＝114；4人平摊</td><td class="em" data-page-node-id="X5GLgPFKqyk0CIRMiTGoMW">¥57.00</td></tr>
+        <tr data-page-node-id="tr5tFuzxrmIddrVP1NDxvC"><td data-page-node-id="ySFmh7fxNvXLS7ncZPZEMR">防滑链</td><td data-page-node-id="bmaxWrEXAAr82H9GbPnTwZ">350；8人平摊</td><td class="em" data-page-node-id="vbluMfPUuUQiuWannOmzCs">¥87.50</td></tr>
+        <tr data-page-node-id="oyJdqlRvmsUYIMPYV7dT3T"><td data-page-node-id="YkLjFlZksjG5siY0ouIM42">惠州机场包车</td><td data-page-node-id="dAO0Ap9LXGqAzGOhHSLJSX">原记录为两人 250</td><td class="em" data-page-node-id="d4whyWf4XkfyzLUHuusGKS">¥250.00</td></tr>
+        <tr data-page-node-id="xIF2gAeWm8OiY6L3H6k074"><td data-page-node-id="FtFXtF3335tucKvNQDKnSB">香港返程交通</td><td data-page-node-id="8dfFTKk2qFZXpkBbwVDq9f">机场快线 60/人＋西九龙—深圳北高铁 75/人</td><td class="em" data-page-node-id="awrGOdgR31EcAn0W6CPMRY">¥270.00</td></tr>
+        <tr data-page-node-id="fUeBwTEu1NxOELYhzkl95E"><td data-page-node-id="8HMESEizvIEErO0C9FVIBl">景区门票</td><td data-page-node-id="4JT6aaZVNPE8dsHzmvsF9G">喀纳斯460＋禾木150＋赛湖200＋艾兰盐湖25×2</td><td class="em" data-page-node-id="mQ6zLhJZMUCIuA102jSBXC">¥860.00</td></tr>
+        <tr data-page-node-id="PwES4irHuk2Ok6EeYwcegF"><td data-page-node-id="CG1Rs8sveftNBV9bkJhU3F">已知餐饮</td><td data-page-node-id="wrd0l1XFqLIIu4uD8E0SS0">人均已知费用 ×2</td><td class="em" data-page-node-id="8Z0ZwyITb6rTGYfEhU0UQu">¥1671.80</td></tr>
+      </tbody>
+      <tfoot data-page-node-id="qAcLTLLqcFEwxSLYzuyFyr"><tr data-page-node-id="WE4Jkoba4tTtGSSKvy8wcU"><td colspan="2" data-page-node-id="PX7jusxRM514hqbka70xS3">合计（不含未标价项目）</td><td data-page-node-id="ZHmHQBXwkCHHqhM0SbL6Ve">¥17607.05</td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="callout blue" data-page-node-id="wSuXfgDK2SpyEfdYpRh2Y5">
+    <div class="tt" data-page-node-id="c94cYiuTODGgBcc9GxIQPo">📊 统计图 &amp; 原始记录</div>
+    配套有费用可视化页面 <code data-page-node-id="yPOvdVUjMTdjdiAqh63cwR">travel_costs_updated_notion_agent_chart.html</code>（"其他交通"合并油费、高速费、防滑链、惠州机场包车及香港返程交通）。原始租车记录图片已留存（见原笔记附件），此处保留作原始凭证。
+  </div>
+
+  <div class="callout gold" data-page-node-id="lVOyzD2368Mj4lS6HyohG5">
+    <div class="tt" data-page-node-id="JMT61wvziClgQzpblqTXBs">📐 统计说明</div>
+    租车 4 人平摊、艾兰盐湖门票已支付，均已确认；油费/高速费 4 人平摊；防滑链 8 人平摊；餐费按各餐原分摊人数计算。行车总里程 <b data-page-node-id="ti2E0AYXPNE0ZAUdDrQdMV">2772 公里</b>。按完整精度计算后再四舍五入至分，合计与显示人均×2 可能有 1 分钱差异。
+  </div>
+
+  <div class="callout warn" data-page-node-id="VR6rcCkAogwcIGjM2yhTPf">
+    <div class="tt" data-page-node-id="YvUBMgsiRcEDjju6npulBZ">⚠️ 待补费用（别漏项）</div>
+    • 景区泡面、精酿啤酒、茶芭蕾等未注明金额的餐饮<br data-page-node-id="sLElRnTUwgDBmuyACoRzLc">
+    • 10.6 魏家羊羔肉午餐<br data-page-node-id="UskNm8riwRiPhUOeY4JIkA">
+    • 篝火活动是否付费及金额、停车费、手信费用<br data-page-node-id="yciTXo4117QeYRzni8us55">
+    • 未标价的衣物用品、药品，以及其他未记录的交通或消费<br data-page-node-id="rhVhLdF3gjsAuxli8YWJky">
+    • 返程账单：新疆段结束后仍有北京住宿及香港交通，复盘时一起保留，但衔接日期和航班需另补。
+  </div>
+</section>
+
+<!-- ===== 行李 ===== -->
+<section id="pack" class="fade-up" data-page-node-id="lMzVeORjYUBdeJ4CsmpOgi">
+  <div class="sec-h" data-page-node-id="e7vZlZEbnZqlz99PaQWpF5"><span class="emo" data-page-node-id="JtxOzGDdg78fP9OnaKrIq5">🎒</span><h2 data-page-node-id="PaBg3zmF2qYkTGsRfoWMNM">行李与药品准备</h2></div>
+  <div class="divider" data-page-node-id="Y0V1LvD5M1cpN6B2U24uGJ"></div>
+  <p class="sec-desc" data-page-node-id="Fcq7piAC5ToxCmZJDvi6L1">以下为原准备清单，不代表已经全部购买或携带——但北疆 9 月底 10 月初昼夜温差极大，保暖+防晒+保湿是核心。</p>
+
+  <div class="tblwrap" data-page-node-id="yEhps3ZNRdqX86V6Ad2W3E">
+    <table class="tbl" data-page-node-id="3aFROvpe81f9dGlEUmfm07">
+      <thead data-page-node-id="JOC4CMBaXXKbuewYgOVzw7"><tr data-page-node-id="ueh8ZC8iDBDRBhaEbTjXB3"><th data-page-node-id="h3m4W3DwWIhENrFd1PKrwQ">类别</th><th data-page-node-id="dbXwgdlBc8V9eJnn7TxowD">原清单</th></tr></thead>
+      <tbody data-page-node-id="uLUsFpkHg7zTWrWBUk57LB">
+        <tr data-page-node-id="TEZCsxW4mLBRJRxr6RBjU9"><td data-page-node-id="TUN2aSIWQNAfSmpzX96ZpG">外套/保暖</td><td data-page-node-id="148wbW2twqFdZOKrJBAxvJ">Columbia 三合一冲锋衣、韩国欧巴外套、优衣库老干部外套、粉红卫衣、黑毛衣</td></tr>
+        <tr data-page-node-id="dCoEm865NheyLbuHajKDuC"><td data-page-node-id="FEqTH12gVYGTH0hLSC2SRH">内搭</td><td data-page-node-id="pUYcACK1M2qwAldrnECEWn">3件内衣、3件短袖</td></tr>
+        <tr data-page-node-id="nC8qrrU3R3o6VIJeV7x7sh"><td data-page-node-id="ryf3Kih2KlZZr7i6viLMI0">下装</td><td data-page-node-id="U8aqAoza5uvQzxofJG8zPT">1条短裤、1条夏长裤、抖音长裤、白色长裤、优衣库黑长裤</td></tr>
+        <tr data-page-node-id="e9LK8BMYcJKjK3AUEJsakJ"><td data-page-node-id="r3OGBHpNlzSRL3aDREv7u0">内裤/洗漱</td><td data-page-node-id="3d1UrlMjqqnAn7adkFvRVE">8条一次性内裤（已购）、一次性毛巾</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid" style="margin-top:16px" data-page-node-id="nbbWAns2VCOYIQQaeh0KyA">
+    <div class="kcard" data-page-node-id="CCWx3RLma14sX8IOVcUGUJ">
+      <h3 data-page-node-id="HfO7J3Ah19vJPLJXEl8opo">💊 药品与护理</h3>
+      <ul data-page-node-id="eE475zwOvfXMmp2iOyd3sC">
+        <li data-page-node-id="dTYASpcZFUGEc2kOXasGOo">润唇膏（新疆超干，必带）</li>
+        <li data-page-node-id="u3fwWSPI6JIbCTHw6J8Dzx">鼻塞喷雾（抗过敏）</li>
+        <li data-page-node-id="kf2u6m7UEIpxkFErl20P3w">红霉素软膏</li>
+        <li data-page-node-id="ibEBGmIduVW6UYnlFfRThG">润喉糖</li>
+        <li data-page-node-id="2T0VIL4JbpyCmHkmt14E6v">感冒药、退烧药</li>
+        <li data-page-node-id="ERQ3pvLKOv7ltl5tsOSCd6">创可贴、酒精消毒用品</li>
+        <li data-page-node-id="CpvwaQrdlKNTGaYQqTdeZ6">健胃消食片</li>
+        <li data-page-node-id="nGv3B6cwQpXE0CUgQEy3Fj">药膏 / 涂抹瓶</li>
+      </ul>
+    </div>
+    <div class="kcard" data-page-node-id="MzJCAAXvxr6Gm2HZB5AUSw">
+      <h3 data-page-node-id="iuKfvSShLECyQspvPr1bQo">🧳 复盘补一句</h3>
+      <ul data-page-node-id="b5q5bBF7ILDAXa48VdVFNU">
+        <li data-page-node-id="b1rItSXtCX4hUk22pvxaHg">冲锋衣三合一真的用得上，山区傍晚体感 0℃ 以下</li>
+        <li data-page-node-id="yv5k87gpjlnSnOnAnht2cA">一次性内裤+毛巾是长途救星</li>
+        <li data-page-node-id="B7gIksqrEizQjm6E8o9uc6">保湿/护唇别嫌麻烦，北疆干到怀疑人生</li>
+        <li data-page-node-id="Jp6FKP674YI6LnlXuaRIqu">防晒也要带，高海拔紫外线强</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 经验 ===== -->
+<section id="tips" class="fade-up" data-page-node-id="aODMuTEAdanAzROJFVv5Ix">
+  <div class="sec-h" data-page-node-id="YBdUGCrc5B21sS0slOpaHP"><span class="emo" data-page-node-id="dc38s0x1qhgg4TGd8ZLycy">💡</span><h2 data-page-node-id="8PD8kLY96ZIFR1AFGHxuKQ">下次复用最值得记住的经验</h2></div>
+  <div class="divider" data-page-node-id="dndOTWLo7cnYNIbzO2J34a"></div>
+  <p class="sec-desc" data-page-node-id="B5zGcmuzaQfELI9PnVodLf">这 9 条是整趟下来最有价值的"早知道就好了"，照着做能省一半心。</p>
+
+  <div class="exp" data-page-node-id="SoCDIvyhoKNOZtS3O8AFY7">
+    <div class="ec" data-page-node-id="3lkbxC7CUv9qoeZwZUcjwx"><span class="n" data-page-node-id="085pycHqOe1QU75fDADVT7">1</span><h4 data-page-node-id="PowtISRUcMxh9yTd2ruSeG">长途日提前准备</h4><p data-page-node-id="2qNLQFPbOy2WdQLUOMWSTx">S101 当天路程长，出发前先上厕所；阿禾公路当天需预留加油、补给及停靠时间。</p></div>
+    <div class="ec" data-page-node-id="ylFxR0lRAwRtcHKPaLW7tM"><span class="n" data-page-node-id="rVBglwfFNcWMoE9prTkqDy">2</span><h4 data-page-node-id="rAJ2daed0rktaQgDJRVyKc">租车行提前确认</h4><p data-page-node-id="ztHlKw51cD4IciaxhLosOi">提前联系租车行确认保险、车辆事宜，做好临近重新订车的准备。</p></div>
+    <div class="ec" data-page-node-id="Ge89qhAJOu4RZ4tmlA8ggT"><span class="n" data-page-node-id="jeHFATEj44EfcbRVYTaLce">3</span><h4 data-page-node-id="aV1GdHmjRza1750txgD94N">观景点要能取舍</h4><p data-page-node-id="GMZ3u4MJHrQ3SaFBjAUeFT">阿禾公路原计划把望禾观景台列为待定，优先保留乌希里克、托勒海特草原；19:30 抵达禾木的目标与夜间活动一起考虑。</p></div>
+    <div class="ec" data-page-node-id="BMmdMHj3i8qtcnkw4xM2tH"><span class="n" data-page-node-id="5ZjT0OECvasmxdJxnszXea">4</span><h4 data-page-node-id="Cj0VLEOChg8HrjYSodZt1l">按天气调景点</h4><p data-page-node-id="IAyirq8CZKPVqHr7kT1VPd">原计划因阴天难见日落，放弃魔鬼城、改去艾兰盐湖——这是当时选择，不是对景点的普遍结论。</p></div>
+    <div class="ec" data-page-node-id="qoT3T8RwYK5vbtQWqvTe9R"><span class="n" data-page-node-id="jRLeKQOW9hdUgAy1sbqfEn">5</span><h4 data-page-node-id="FFmxAjh8DOpIFrzVOdAyUi">拍照不牺牲安全</h4><p data-page-node-id="OwzhjZFyxnoewbeWCa7Llg">S弯、公路沿线注意车辆与牛羊，选正规停车区/观景台，避免走坑洼碎石野路。</p></div>
+    <div class="ec" data-page-node-id="93SFEScfnPxxUJ1MwqzJdJ"><span class="n" data-page-node-id="DXLSmOOEYCTUorOiR8LyLO">6</span><h4 data-page-node-id="xgyKH12Cm0knYkBGzivakL">住宿卫生优先</h4><p data-page-node-id="TnxQHBjPSpcAX8F2qmiaW0">北屯营地酒店因卫生问题取消，最终改订银泰酒店——卫生差直接换。</p></div>
+    <div class="ec" data-page-node-id="oFLqqgE1lDRVDxbp0SJ9Qc"><span class="n" data-page-node-id="Qobq6gxWRhbRR3VGVGwtnK">7</span><h4 data-page-node-id="vmjGn78BJU8cwoPNn4i30L">值得回味的餐</h4><p data-page-node-id="qRlspQ65EGevmRgr003PuW">酸奶刨冰、羊肉焖饼、包尔萨克、烤羊腿，以及北屯当地鱼类；禾木地摊火锅价格偏贵。</p></div>
+    <div class="ec" data-page-node-id="FER4r7G6jFVk0hNwHAezlJ"><span class="n" data-page-node-id="1bCYNvYyBIgQB0uBvuCC6c">8</span><h4 data-page-node-id="yLMB2PQMtFUem2ahO7yQP9">乌鲁木齐停车</h4><p data-page-node-id="SN84DgyVFFLexa9NlZ4BuH">金泉商城附近不好停，原记录推荐兆恒国际大厦。</p></div>
+    <div class="ec" data-page-node-id="JACOWIR34rTNsoElpo8CMB"><span class="n" data-page-node-id="oj48itwClCe8Agpr6UMgs0">9</span><h4 data-page-node-id="5xRD5FOjiNFxP3ygHPFHxc">返程账单别漏项</h4><p data-page-node-id="fsDAlgcgWeFn3JW47fcG9w">新疆段结束后仍有北京住宿及香港交通；复盘时一起保留，但衔接日期和航班需另补。</p></div>
+  </div>
+</section>
+
+<footer data-page-node-id="LFmjJmuuQJV0VjAxnLFdG5">
+  本攻略基于 2026 国庆北疆 8 人自驾真实复盘整理，路线/住宿/餐饮/花销均为实际发生。<br data-page-node-id="FW6k4bS4GTwWEarJSo2XU9">
+  门票政策、限速、景区开放等请以出行当日官方信息为准。<br data-page-node-id="uoE5HIsNcEuwwoBO2Dutmf">
+  祝你也一路顺畅，看尽北疆秋色 <span class="heart" data-page-node-id="KiJEJ0Izp5qbGulXoAs5O2">♥</span>
+</footer>
+
+</div>
+
+<!-- 浮动收藏 -->
+<button class="fab" onclick="toggleFav(this)" data-page-node-id="GfS5hCer0Ah56nk9klSR4P">⭐ <span data-page-node-id="UvvLtg2mqCn2ypu2bJkpfe">收藏攻略</span></button>
+
+<script data-page-node-id="RHPItMTESG5s171NI9R5bZ">
+// fade-up
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+// 章节导航高亮
+const navLinks=[...document.querySelectorAll('#chapnav a')];
+const secs=navLinks.map(a=>document.querySelector(a.getAttribute('href')));
+const navIo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')===id));}});},{rootMargin:'-140px 0px -60% 0px'});
+secs.forEach(s=>s&&navIo.observe(s));
+
+function toggleLike(el){el.classList.toggle('on');const t=el.querySelector('.t');let n=parseInt(t.textContent.replace(/[^\d]/g,''));n=el.classList.contains('on')?n+1:n-1;t.textContent=(n/10000).toFixed(1)+'万';}
+function toggleFav(el){const s=el.querySelector('span');if(s.textContent.includes('已')){s.textContent='收藏攻略';el.style.background='var(--xhs)';}else{s.textContent='已收藏 ✓';el.style.background='#2e9e6b';}}
+</script>
+
+
+
+</body></html>
